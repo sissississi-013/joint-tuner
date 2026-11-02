@@ -44,6 +44,16 @@ Physics engine and benchmark agree: each tuner's final gains pass the judge and 
 | `media/mujoco_wrist.mp4` | **Wrist joint** (`second_order_stable_fast/6`). The optimizer flails for 493 step tests. GPT-6.1 Terra thinks for 23 s, then succeeds on its first test. Joint Tuner succeeds on its 5th test after about 1 s of model time. |
 | `media/mujoco_pendulum.mp4` | **Unstable joint** (`second_order_unstable/7`, negative stiffness, so the joint falls away from center unless it's controlled). Optimizer: 291 tests. GPT-6.1 Terra: 1 test. Joint Tuner: 14 tests. This is our weakest category, and we show it anyway. |
 
+## Rendered: the same tuning problem on four machines
+
+![actuator, arm elbow, humanoid ankle, drone roll](../media/units_grid.gif)
+
+`demo/mujoco_units.py` builds each orange unit from a task's transfer function:
+- **Hinge-joint scenes:** inertia 1, damping a, stiffness c, gear K.
+- **Drone:** a filter actuator with time constant 1/a, which models rotor spin-up lag.
+
+It runs Joint Tuner's gains through the benchmark's PID and plots the step response in the corner. On the humanoid, negative stiffness *is* gravity: the body falls unless the ankle controller holds it.
+
 ## What the ControlEval categories correspond to
 
 | ControlEval category | Plant form | Real hardware it models |

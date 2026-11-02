@@ -6,7 +6,20 @@
 
 *The same wrist joint, rendered in MuJoCo, with each tuner's logged gains replayed at 4× speed. The optimizer needs 493 step tests. GPT-6.1 Terra thinks for 23 s, then succeeds on its first test. Joint Tuner succeeds on its 5th test after about 1 s of model time. Videos: [wrist joint](media/mujoco_wrist.mp4), [unstable joint](media/mujoco_pendulum.mp4).*
 
-**How this maps to robot arms, actuators, humanoids and drones:** see [docs/physical-model.md](docs/physical-model.md).
+## Where this runs on real hardware
+
+![Four MuJoCo scenes: actuator, robot-arm elbow, humanoid ankle, drone roll axis; the tuned unit is highlighted in orange](media/units_grid.gif)
+
+In each scene, the **orange unit** is simulated in MuJoCo with the exact dynamics of a held-out task. Inertia, damping, stiffness and motor gain come straight from its transfer function. The drone adds rotor lag. The unit is driven by Joint Tuner's PID gains, and every scene meets its spec in both the judge and MuJoCo. The rest of each body is fixed for clarity.
+
+| Scene | Highlighted unit | Plant | Task |
+|---|---|---|---|
+| Actuator | gearbox output shaft | 2nd-order stable | `second_order_stable_fast/6` |
+| Robot arm | elbow joint | 2nd-order stable, slow | `second_order_stable_moderate/9` |
+| Humanoid | ankle pitch (inverted pendulum) | **2nd-order unstable** | `second_order_unstable/7` |
+| Drone | roll axis on a test stand | K/(s²(s+a)), rotor lag | `drone/4` (held-out synthetic) |
+
+Full video: [media/units.mp4](media/units.mp4). The physics behind the mapping: [docs/physical-model.md](docs/physical-model.md).
 
 Tuning a motor joint on real hardware means running step tests: the joint moves, you measure, you reset. Each test costs time, wear, and risk. Joint Tuner pairs a fine-tuned open model with a simulator check:
 
@@ -14,7 +27,7 @@ Tuning a motor joint on real hardware means running step tests: the joint moves,
 2. **Simulate.** A control-theory judge checks each set against the spec: phase margin, gain margin, settling time, overshoot, and steady-state error.
 3. **Repair.** If none pass, Nelder-Mead polishes the best candidates in log-gain space under a fixed test budget.
 
-The production model (`pid-tuner-q36v3`, Qwen3.6-35B-A3B + LoRA) is trained with Fireworks serverless training and served on a Fireworks on-demand deployment. Pipeline experiments below were first run with a Qwen3.5-9B LoRA trained on River during development; rows say which model they use.
+The production model (`pid-tuner-q36v3`, Qwen3.6-35B-A3B + LoRA) is trained and evaluated with the Fireworks serverless training API and promoted to a Fireworks model. We tried an on-demand deployment for live serving, but it failed at creation with a Fireworks internal error during the event, so all Fireworks numbers come from the training session's sampler. Pipeline experiments below were first run with a Qwen3.5-9B LoRA trained on River during development; rows say which model they use.
 
 ## Results
 
@@ -92,6 +105,7 @@ python demo/mujoco_race.py second_order_stable_fast/6 media/mujoco_wrist.mp4   #
 - `control/gen_synth.py`: training data. Labels come from sampled gains whose specs are derived backward, so every label is feasible.
 - `control/propose_repair.py`: the propose → simulate → repair pipeline.
 - `control/fw_sft.py`: Fireworks serverless training, evaluation and promotion.
+- `demo/mujoco_units.py`: renders the four hardware scenes, with the tuned unit highlighted.
 - `demo/mujoco_race.py`: renders the race in MuJoCo, with each plant built as a hinge joint (inertia, damping, stiffness, motor gear).
 - `docs/physical-model.md`: transfer function ↔ joint physics, plus the category-to-hardware map for arms, humanoids and drones.
 - `demo/race.html`: "How many tries does it take to tune a motor?" Three tuners race on the same motor.
