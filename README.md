@@ -54,6 +54,7 @@ All results use the same 100 held-out tasks from ControlEval (arXiv 2410.19811):
 
 - Joint Tuner leads the optimizer at every budget up to 256 tests. At 8 tests it solves 76 tasks to the optimizer's 27.
 - The optimizer ties us only at 448 tests and passes us at about 460.
+- **Repair v2** (`control/repair_v2.py`, offline replay of the same logged proposals) fixes the large-budget gap. When the model's starting points run out, it falls back to the optimizer's own restart schedule, after scaled seeds for unstable plants. Result: **93/100 at 600 tests, tied with optimizer only on the same 93 tasks**, with the curve at 1–256 tests unchanged. Caveats: the variant was chosen on these same 100 tasks, the +3 comes from 3 unstable tasks, and on 2 of them the fallback reaches the optimizer's solution later than the optimizer does. Source: `runs/trace_v3_repair2.json`.
 - Source: `control/budget_trace.py` → `runs/trace_v3.json`.
 
 ### Is the difference real? (`stats/RESULTS.md`)
