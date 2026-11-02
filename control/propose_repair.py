@@ -8,8 +8,11 @@ from scipy.optimize import minimize
 from dotenv import load_dotenv
 sys.path.insert(0, str(Path(__file__).parent)); sys.path.insert(0, str(Path(__file__).parent.parent))
 load_dotenv(Path(__file__).parent.parent / ".env")
-import river_client as river
-from river_client.renderers import get_renderer
+try:  # River is a private training/sampling SDK; only needed when FW_MODEL is not set
+    import river_client as river
+    from river_client.renderers import get_renderer
+except ImportError:
+    river = get_renderer = None
 from judge import load_tasks, evaluate, task_prompt
 from oracle import penalty as _pen
 import control as ct
@@ -28,9 +31,11 @@ from fw import extract_json
 BASE, CKPT, N, TEMP, TAG = sys.argv[1], sys.argv[2], int(sys.argv[3]), float(sys.argv[4]), sys.argv[5]
 PER, TOPK, BUDGET = int(os.environ.get("PER", "10")), int(os.environ.get("TOPK", "3")), int(os.environ.get("BUDGET", "150"))
 SYS = "You are an expert control engineer tuning PID loops for robot joint actuators."
-rend = get_renderer(BASE, thinking=False); stops = rend.get_stop_strings()
 MSGS = lambda t: [{"role": "system", "content": SYS}, {"role": "user", "content": task_prompt(t)}]
 FW_MODEL = os.environ.get("FW_MODEL")  # e.g. accounts/<acct>/models/pid-tuner-q36v3#accounts/<acct>/deployments/pid-tuner
+if not FW_MODEL and river is None:
+    sys.exit("river_client (private River SDK) is not installed. Set FW_MODEL=accounts/<acct>/models/<model> to sample from Fireworks instead.")
+rend = None if FW_MODEL else get_renderer(BASE, thinking=False); stops = rend.get_stop_strings() if rend else None
 class _O:
     def __init__(s, text): s.text = text
 class _FW:
@@ -50,7 +55,7 @@ def gains(txt):
     try: return [float(j["Kp"]), float(j["Ki"]), float(j["Kd"])]
     except Exception: return None
 def one(t):
-    p = rend.build_text_prompt([{"role": "system", "content": SYS}, {"role": "user", "content": task_prompt(t)}])
+    p = None if FW_MODEL else rend.build_text_prompt([{"role": "system", "content": SYS}, {"role": "user", "content": task_prompt(t)}])
     t0 = time.time()
     for a in range(5):
         try: outs = sess.sample(MSGS(t) if FW_MODEL else p, base_model=BASE, checkpoint=CKPT, num_samples=N, max_tokens=60, temperature=TEMP, stop=stops)[0]; break

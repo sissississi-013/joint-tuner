@@ -5,9 +5,10 @@ from dotenv import load_dotenv
 from openai import OpenAI
 
 load_dotenv(Path(__file__).with_name(".env"))
-API_KEY = os.environ["FIREWORKS_API_KEY"]
-ACCOUNT = os.environ.get("FIREWORKS_ACCOUNT", "accounts/sissiwang-xlorceau0c")
-client = OpenAI(api_key=API_KEY, base_url="https://api.fireworks.ai/inference/v1")
+API_KEY = os.environ.get("FIREWORKS_API_KEY")
+ACCOUNT = os.environ.get("FIREWORKS_ACCOUNT", "accounts/<your-account>")
+# Only chat() needs a key; extract_json() is used by key-free scripts too.
+client = OpenAI(api_key=API_KEY, base_url="https://api.fireworks.ai/inference/v1") if API_KEY else None
 
 def model_path(name: str) -> str:
     return name if name.startswith("accounts/") else f"accounts/fireworks/models/{name}"

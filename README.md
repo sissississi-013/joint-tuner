@@ -4,7 +4,7 @@
 
 ![Tuning race in MuJoCo: optimizer only vs GPT-6.1 Terra vs Joint Tuner on a wrist joint](media/mujoco_wrist.gif)
 
-*The same wrist joint, rendered in MuJoCo, with each tuner's logged gains replayed at 4× speed. The optimizer needs 493 step tests. GPT-6.1 Terra thinks for 23 s, then succeeds on its first test. Joint Tuner succeeds on its 5th test after about 1 s of model time. Videos: [wrist joint](media/mujoco_wrist.mp4), [unstable joint](media/mujoco_pendulum.mp4).*
+*The same wrist joint, rendered in MuJoCo, with each tuner's logged gains replayed at 4× speed. The optimizer needs 493 step tests. GPT-6.1 Terra thinks for 23 s, then succeeds on its first test. Joint Tuner succeeds on its 5th test. The clip shows the 9B model's proposals with a 1 s model wait, the Fireworks model's median latency (1.35 s). The logged River call for this task took 9 s. Videos: [wrist joint](media/mujoco_wrist.mp4), [unstable joint](media/mujoco_pendulum.mp4).*
 
 ## Where this runs on real hardware
 
@@ -34,7 +34,7 @@ The physics behind the mapping: [docs/physical-model.md](docs/physical-model.md)
 
 Tuning a motor joint on real hardware means running step tests: the joint moves, you measure, you reset. Each test costs time, wear, and risk. Joint Tuner pairs a fine-tuned open model with a simulator check:
 
-1. **Propose.** A fine-tuned open model writes 8 candidate PID gain sets in about 1 second.
+1. **Propose.** A fine-tuned open model writes 8 candidate PID gain sets in one call (1.35 s median on Fireworks).
 2. **Simulate.** A control-theory judge checks each set against the spec: phase margin, gain margin, settling time, overshoot, and steady-state error.
 3. **Repair.** If none pass, Nelder-Mead polishes the best candidates in log-gain space under a fixed test budget.
 
@@ -53,8 +53,22 @@ All results use the same 100 held-out tasks from ControlEval (arXiv 2410.19811):
 | GPT-6.1 Terra, one answer | 89 | | | | | | | | | |
 
 - Joint Tuner leads the optimizer at every budget up to 256 tests. At 8 tests it solves 76 tasks to the optimizer's 27.
-- The optimizer catches up only with about 600 tests.
+- The optimizer ties us only at 448 tests and passes us at about 460.
 - Source: `control/budget_trace.py` → `runs/trace_v3.json`.
+
+### Is the difference real? (`stats/RESULTS.md`)
+
+| Step tests allowed | Joint Tuner | Optimizer only | Difference, 95% CI | McNemar p |
+|---|---|---|---|---|
+| 1 | 46 | 19 | +27 pts [15, 39] | 1e-4 |
+| 8 | 76 | 27 | +49 pts [38, 59] | 3e-13 |
+| 256 | 90 | 77 | +13 pts [6, 21] | 0.002 |
+| 600 | 90 | 93 | −3 pts [−7, 0] | 0.25, not significant |
+
+- Every budget from 1 to 256 is significant after a Holm correction.
+- **Tests to first success** (on the 90 tasks both methods solve): a median of **1** for Joint Tuner (IQR 1–3.75) vs **19.5** for the optimizer (IQR 6–166). Wilcoxon p ≈ 1e-10.
+- **Area under the curve** for budgets up to 256: 0.77 vs 0.43, difference +0.34 [0.26, 0.42].
+- **Against GPT-6.1 Terra:** 90 vs 89, McNemar p = 1.0. Not significantly different, and not a claim that we beat it.
 
 ### Fine-tuning on Fireworks (Qwen3.6-35B-A3B, LoRA r=16, 300 steps × 32)
 
@@ -65,50 +79,82 @@ All results use the same 100 held-out tasks from ControlEval (arXiv 2410.19811):
 
 - Training cost: $5.11 on the Fireworks serverless training API.
 - Median latency: 1.35 s.
-- Source: `control/fw_sft.py` → `runs/fw_sft_q36v3.json`.
+- Source: `control/fw_sft.py`. The fine-tuned numbers are in `runs/fw_sft_q36v3.json`. The base-model numbers are in `runs/fw_sft_q36v3_before_eval.json`, the first run's pre-training evaluation of the same base model on the same 100 tasks.
 
 ### Against frontier and open baselines (same 100 tasks)
 
 | System | Solved | Median latency | Notes |
 |---|---|---|---|
-| GPT-6.1 Terra | 89 | 18.9 s | about $0.008 per task |
-| **Joint Tuner, best-of-32** | **89** | 7.3 s | ties GPT (McNemar p = 1.0, 4 vs 4 discordant) |
+| GPT-6.1 Terra | 89 | 18.7 s | about $0.008 per task |
+| **Joint Tuner, best-of-32** | **89** | 4.9 s | statistically indistinguishable from GPT (McNemar p = 1.0, 4 vs 4 discordant; low power: only gaps of 5–6+ pts are detectable at n=100) |
 | **Joint Tuner, 8 samples + repair** | **90** | 6.3 s | |
-| Optimizer only, matched budget (3 × 150) | 84 | 9.6 s | Joint Tuner wins 6–0 on discordant tasks, McNemar p = 0.031 |
+| Optimizer only, matched budget (3 × 150) | 84 | 9.4 s | Joint Tuner wins 6–0 on discordant tasks, McNemar p = 0.031 |
 | Kimi K3, no thinking | 22 | | |
 | Qwen3.8 27B | 11 | | |
 | Nemotron 3.5 Super | 1 | | |
 | Base Qwen3.5-9B | 8 (@1) / 41 (@8) | | |
 
-The statistical tests are exact McNemar on discordant pairs plus a paired bootstrap 95% CI with 10,000 resamples (`stats/significance.py`).
+The statistical tests are exact McNemar on discordant pairs plus a paired bootstrap 95% CI with 10,000 resamples (`stats/budget_stats.py` → `stats/RESULTS.md`; earlier 50-task comparisons are in `stats/significance.py`).
+
+## Robustness to model mismatch (`stats/ROBUSTNESS.md`)
+
+Real joints never match their model. We perturbed every plant coefficient by ±20%, with 50 random plants per task. Then we re-checked each method's final gains. The comparison uses the 87 tasks that all three methods solve.
+
+| Gains from | Still stable | Still meets full spec |
+|---|---|---|
+| Optimizer only | 100% | 68.5% |
+| **Joint Tuner** | 100% | **82.8%**: +14.3 pts vs optimizer [7.5, 21.3] |
+| GPT-6.1 Terra | 100% | 94.1%: Joint Tuner is −11.3 pts [−16.5, −6.2] |
+
+GPT's gains are significantly more robust than ours, and we report that as a weakness. One likely reason is that our repair stops at the first passing gain set, which often sits at the edge of the spec. Picking the most robust of the passing candidates is a next step.
 
 ## What lost (reported honestly)
 
 - **Greedy single answer.** Only 45–50%. The simulator check is what makes the system reliable.
 - **Bigger N alone.** Best-of-32 reaches 89. Best-of-8 plus repair reaches the same with 4× fewer model samples.
-- **Repair with a flat instability penalty.** It gave the optimizer no direction on unstable plants. A smooth pole-based penalty plus derivative-heavy seeds moved unstable tasks from 8/20 to 12/20, but cost a median of 165 s per task.
-- **Second-order unstable plants** are still our weakest category (2/10, versus 4/10 for GPT-6.1 Terra).
+- **Repair with a flat instability penalty.** It gave the optimizer no direction on unstable plants. A smooth pole-based penalty plus derivative-heavy seeds moved unstable tasks from 10/20 to 12/20, but cost a median of 130 s per task.
+- **Second-order unstable plants** are still our weakest category (1–2/10 depending on the run, versus 4/10 for GPT-6.1 Terra and 4/10 for the optimizer at 600 tests).
 - **Kimi K3 with thinking** truncated at 16k tokens on 60/100 tasks. We re-ran those at 100k tokens so the baseline is not unfairly weakened (`control/rerun_truncated.py`).
 - **Fireworks SFT run 1** (400 steps) was lost: the checkpoint name contained an underscore, which the API rejects. The script now sanitizes names, saves every 100 steps, and only deletes the session after the model is promoted.
 
 ## Reproduce
 
+Run everything from the repo root; scripts use relative paths (`control/`, `runs/`, `data/`).
+
 ```bash
 python -m venv .venv && . .venv/bin/activate
-pip install numpy scipy control python-dotenv openai "fireworks-ai[training]>=1.2.29"
-cp .env.example .env          # add your own keys
+pip install -r requirements.txt
 ./fetch_controleval.sh        # ControlEval is fetched from upstream, not redistributed
-
-python control/gen_synth.py                                   # reverse-generated, simulator-verified SFT data
-python control/fw_sft.py 300 32 10 q36v3                      # Fireworks serverless LoRA SFT + before/after eval
-python control/propose_repair.py <BASE> <CKPT> 8 1.0 v3       # propose → simulate → repair
-python control/coldstart_ablation.py 150 3                    # optimizer-only ablation
-python control/budget_trace.py <CKPT> 8 v3                    # main figure data
-python control/closed_baseline.py openai gpt-6.1-terra 10     # frontier baseline
-python stats/significance.py                                  # McNemar + bootstrap
-python demo/build_race.py && open demo/race.html              # web demo
-python demo/mujoco_race.py second_order_stable_fast/6 media/mujoco_wrist.mp4   # MuJoCo render (pip install mujoco imageio[ffmpeg] pillow)
 ```
+
+**No API keys needed.** These check the published numbers from the logged results in `runs/`:
+
+```bash
+python stats/significance.py                                  # McNemar + bootstrap -> runs/significance.json
+python stats/budget_stats.py                                  # budget-curve stats -> runs/budget_stats.json, stats/RESULTS.md
+python control/coldstart_ablation.py 150 3                    # optimizer-only ablation, ~minutes on a laptop -> runs/coldstart_150x3.json
+python control/gen_synth.py 7500 data/pid/train_new.jsonl 0   # reverse-generated, simulator-verified SFT data (N OUT SEED)
+python demo/build_race.py && open demo/race.html              # web demo
+python demo/mujoco_race.py second_order_stable_fast/6 media/mujoco_wrist.mp4   # MuJoCo race render
+python demo/mujoco_units.py                                   # the four hardware scenes in media/
+```
+
+**Needs keys** (`cp .env.example .env` and fill in your own):
+
+```bash
+python control/fw_sft.py 300 32 10 q36v3                      # FIREWORKS_API_KEY: serverless LoRA SFT + before/after eval
+python control/closed_baseline.py openai gpt-6.1-terra 10     # OPENAI_API_KEY: frontier baseline
+FW_MODEL=accounts/<acct>/models/<model> python control/propose_repair.py Qwen/Qwen3.5-9B - 8 1.0 v3   # propose -> simulate -> repair
+FW_MODEL=accounts/<acct>/models/<model> python control/budget_trace.py - 8 v3                         # main figure data
+```
+
+### What needs River
+
+The 9B rows (`runs/river_sft_*`, `runs/bon_*`, `runs/repair_*`, `runs/trace_v3.json`) were sampled through River, a private training/sampling SDK (`river_client`) that is not public. Those raw outputs are all in `runs/`, and every downstream number (judge, stats, demos) recomputes from them without River.
+
+- `control/river_sft.py`, `control/bestofn.py` and `control/eval_file.py` (any mode other than `chat`) need River. The first two exit with a message if it is missing.
+- `control/propose_repair.py` and `control/budget_trace.py` run without River when `FW_MODEL` points at a Fireworks model. That reproduces the pipeline, not the exact 9B numbers.
+- `control/gen_synth.py` was run with an unrecorded seed, so a regenerated file will differ from `data/pid/train_v3.jsonl` (which is included).
 
 ## Layout
 

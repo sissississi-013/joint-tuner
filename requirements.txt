@@ -1,0 +1,15 @@
+# Core: judge, stats, optimizer ablation, data generation, web demo
+numpy
+scipy
+control
+python-dotenv
+openai
+# Fireworks serverless training (control/fw_sft.py only)
+fireworks-ai[training]>=1.2.29
+# MuJoCo renders (demo/mujoco_*.py only)
+mujoco
+imageio[ffmpeg]
+pillow
+# Optional: control/closed_baseline.py with the anthropic provider
+# anthropic
+# Not installable: river_client is a private River SDK (see README "What needs River").

@@ -9,7 +9,8 @@ from judge import load_tasks, evaluate
 W, H, FPS, DT = 640, 480, 30, 0.0005
 ORANGE, GREY, DARK, STEEL = "1 0.5 0.15 1", ".72 .75 .78 1", ".22 .25 .29 1", ".55 .58 .62 1"
 fb = "/System/Library/Fonts/Supplemental/Arial Bold.ttf"; fr = "/System/Library/Fonts/Supplemental/Arial.ttf"
-F1, F2, F3 = ImageFont.truetype(fb, 24), ImageFont.truetype(fr, 17), ImageFont.truetype(fb, 17)
+try: F1, F2, F3 = ImageFont.truetype(fb, 24), ImageFont.truetype(fr, 17), ImageFont.truetype(fb, 17)
+except OSError: F1 = F2 = F3 = ImageFont.load_default()  # Arial paths are macOS-only
 TASKS = {t["uid"]: t for t in load_tasks()}
 TR = {r["uid"]: r for r in json.load(open("runs/trace_v3.json"))["rows"]}
 def ours_gains(uid): r = TR[uid]; return r["ours_log"][r["ours_first"] - 1][:3]

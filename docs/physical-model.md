@@ -41,7 +41,7 @@ Physics engine and benchmark agree: each tuner's final gains pass the judge and 
 
 | Clip | What happens |
 |---|---|
-| `media/mujoco_wrist.mp4` | **Wrist joint** (`second_order_stable_fast/6`). The optimizer flails for 493 step tests. GPT-6.1 Terra thinks for 23 s, then succeeds on its first test. Joint Tuner succeeds on its 5th test after about 1 s of model time. |
+| `media/mujoco_wrist.mp4` | **Wrist joint** (`second_order_stable_fast/6`). The optimizer flails for 493 step tests. GPT-6.1 Terra thinks for 23 s, then succeeds on its first test. Joint Tuner succeeds on its 5th test; the model wait shown is the Fireworks median latency. |
 | `media/mujoco_pendulum.mp4` | **Unstable joint** (`second_order_unstable/7`, negative stiffness, so the joint falls away from center unless it's controlled). Optimizer: 291 tests. GPT-6.1 Terra: 1 test. Joint Tuner: 14 tests. This is our weakest category, and we show it anyway. |
 
 ## Rendered: the same tuning problem on four machines
@@ -88,16 +88,8 @@ It runs Joint Tuner's gains through the benchmark's PID and plots the step respo
 
 **Drones.**
 - Each attitude axis of a quadrotor is approximately `K / (s²(τs+1))`: rotor spin-up lag feeding a double integrator, from torque to angle.
-- Overnight we generated 50 held-out synthetic drone-axis tasks (roll, pitch, yaw and altitude) with the same judge, using `control/gen_drone.py`.
-
-| System on drone50 | 1 sample | Best of 8 |
-|---|---|---|
-| Qwen3.8 27B | 0/50 | |
-| Kimi K3 | 1/50 | |
-| **Joint Tuner v3** | **24/50** | **45/50** |
-
-- **Caveat:** Joint Tuner was trained on 1,500 tasks from the same generator, so this is in-distribution.
-- Even so, it shows the recipe transfers to a new airframe family once you generate data for it.
+- We generated synthetic drone-axis tasks (roll, pitch, yaw and altitude) with the same judge, using `control/gen_drone.py`. The drone scene above uses held-out task `drone/4`; its gains are in `runs/drone_demo_gains.json`.
+- An early overnight evaluation on 50 such tasks looked promising. We didn't keep its raw result file, so we don't claim those numbers here.
 
 ## The recipe, in one line
 

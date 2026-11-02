@@ -7,16 +7,21 @@ from scipy.optimize import minimize
 from dotenv import load_dotenv
 sys.path.insert(0, str(Path(__file__).parent)); sys.path.insert(0, str(Path(__file__).parent.parent))
 load_dotenv(Path(__file__).parent.parent / ".env")
-import river_client as river
-from river_client.renderers import get_renderer
+try:  # River is a private training/sampling SDK; only needed when FW_MODEL is not set
+    import river_client as river
+    from river_client.renderers import get_renderer
+except ImportError:
+    river = get_renderer = None
 from judge import load_tasks, evaluate, task_prompt
 from propose_repair_pen import penalty
 from fw import extract_json
 BASE = "Qwen/Qwen3.5-9B"; CKPT, N, TAG = sys.argv[1], int(sys.argv[2]), sys.argv[3]; CAP = 600
 SYS = "You are an expert control engineer tuning PID loops for robot joint actuators."
-rend = get_renderer(BASE, thinking=False); stops = rend.get_stop_strings()
 MSGS = lambda t: [{"role": "system", "content": SYS}, {"role": "user", "content": task_prompt(t)}]
 FW_MODEL = os.environ.get("FW_MODEL")  # e.g. accounts/<acct>/models/pid-tuner-q36v3#accounts/<acct>/deployments/pid-tuner
+if not FW_MODEL and river is None:
+    sys.exit("river_client (private River SDK) is not installed. Set FW_MODEL=accounts/<acct>/models/<model> to sample from Fireworks instead.")
+rend = None if FW_MODEL else get_renderer(BASE, thinking=False); stops = rend.get_stop_strings() if rend else None
 class _O:
     def __init__(s, text): s.text = text
 class _FW:
@@ -45,7 +50,7 @@ def nm(tr, starts, budget):
         if tr.first or len(tr.log) >= CAP: break
         minimize(tr.f, x0, method="Nelder-Mead", options={"maxfev": budget, "xatol": 1e-4, "fatol": 0})
 def ours(t):
-    p = rend.build_text_prompt([{"role": "system", "content": SYS}, {"role": "user", "content": task_prompt(t)}])
+    p = None if FW_MODEL else rend.build_text_prompt([{"role": "system", "content": SYS}, {"role": "user", "content": task_prompt(t)}])
     for a in range(5):
         try: outs = sess.sample(MSGS(t) if FW_MODEL else p, base_model=BASE, checkpoint=CKPT, num_samples=N, max_tokens=60, temperature=1.0, stop=stops)[0]; break
         except Exception: time.sleep(3 * (a + 1))

@@ -6,8 +6,11 @@ from collections import defaultdict
 from dotenv import load_dotenv
 sys.path.insert(0, str(Path(__file__).parent)); sys.path.insert(0, str(Path(__file__).parent.parent))
 load_dotenv(Path(__file__).parent.parent / ".env")
-import river_client as river
-from river_client.renderers import get_renderer
+try:
+    import river_client as river
+    from river_client.renderers import get_renderer
+except ImportError:
+    sys.exit("This script needs river_client, a private River SDK that is not public. Its logged outputs are in runs/.")
 from judge import load_tasks, evaluate, task_prompt
 from fw import extract_json
 BASE, CKPT, N, TEMP, TAG = sys.argv[1], sys.argv[2], int(sys.argv[3]), float(sys.argv[4]), sys.argv[5]

@@ -1,0 +1,3606 @@
+{
+ "base": "accounts/fireworks/models/qwen3p6-35b-a3b",
+ "renderer": "qwen3_6_disable_thinking",
+ "steps": 400,
+ "batch": 32,
+ "lr": 0.0001,
+ "rank": 16,
+ "train": "data/pid/train_v3.jsonl",
+ "n_eval": 100,
+ "before": [
+  {
+   "uid": "first_order_stable_fast/0",
+   "category": "first_order_stable_fast",
+   "greedy": {
+    "oks": [
+     true
+    ],
+    "gains": [
+     {
+      "Kp": 12.5,
+      "Ki": 150.0,
+      "Kd": 0.05
+     }
+    ],
+    "latency_s": 1.00465989112854
+   },
+   "bon": {
+    "oks": [
+     false,
+     false,
+     true,
+     true,
+     false,
+     false,
+     false,
+     false
+    ],
+    "gains": [
+     {
+      "Kp": 120.5,
+      "Ki": 150.0,
+      "Kd": 10.2
+     }
+    ],
+    "latency_s": 2.5127270221710205
+   }
+  },
+  {
+   "uid": "first_order_stable_fast/1",
+   "category": "first_order_stable_fast",
+   "greedy": {
+    "oks": [
+     true
+    ],
+    "gains": [
+     {
+      "Kp": 120.5,
+      "Ki": 450.0,
+      "Kd": 8.5
+     }
+    ],
+    "latency_s": 0.8392839431762695
+   },
+   "bon": {
+    "oks": [
+     false,
+     false,
+     true,
+     true,
+     false,
+     true,
+     false,
+     false
+    ],
+    "gains": [
+     {}
+    ],
+    "latency_s": 1.394273042678833
+   }
+  },
+  {
+   "uid": "first_order_stable_fast/2",
+   "category": "first_order_stable_fast",
+   "greedy": {
+    "oks": [
+     false
+    ],
+    "gains": [
+     {
+      "Kp": 12.5,
+      "Ki": 150.0,
+      "Kd": 0.8
+     }
+    ],
+    "latency_s": 0.8391649723052979
+   },
+   "bon": {
+    "oks": [
+     false,
+     false,
+     true,
+     true,
+     false,
+     false,
+     false,
+     true
+    ],
+    "gains": [
+     {}
+    ],
+    "latency_s": 2.1344501972198486
+   }
+  },
+  {
+   "uid": "first_order_stable_fast/3",
+   "category": "first_order_stable_fast",
+   "greedy": {
+    "oks": [
+     false
+    ],
+    "gains": [
+     {
+      "Kp": 120.5,
+      "Ki": 850.0,
+      "Kd": 15.2
+     }
+    ],
+    "latency_s": 1.000108242034912
+   },
+   "bon": {
+    "oks": [
+     true,
+     false,
+     false,
+     true,
+     true,
+     false,
+     false,
+     false
+    ],
+    "gains": [
+     {
+      "Kp": 120.5,
+      "Ki": 1500.0,
+      "Kd": 5.2
+     }
+    ],
+    "latency_s": 3.677668809890747
+   }
+  },
+  {
+   "uid": "first_order_stable_fast/4",
+   "category": "first_order_stable_fast",
+   "greedy": {
+    "oks": [
+     true
+    ],
+    "gains": [
+     {
+      "Kp": 120.5,
+      "Ki": 450.0,
+      "Kd": 15.2
+     }
+    ],
+    "latency_s": 0.9733152389526367
+   },
+   "bon": {
+    "oks": [
+     false,
+     true,
+     false,
+     false,
+     false,
+     false,
+     true,
+     true
+    ],
+    "gains": [
+     {
+      "Kp": 1450.5,
+      "Ki": 2800.0,
+      "Kd": 45.0
+     }
+    ],
+    "latency_s": 3.1484081745147705
+   }
+  },
+  {
+   "uid": "first_order_stable_fast/5",
+   "category": "first_order_stable_fast",
+   "greedy": {
+    "oks": [
+     false
+    ],
+    "gains": [
+     {
+      "Kp": 12.5,
+      "Ki": 150.0,
+      "Kd": 0.8
+     }
+    ],
+    "latency_s": 0.836292028427124
+   },
+   "bon": {
+    "oks": [
+     false,
+     true,
+     true,
+     false,
+     false,
+     false,
+     false,
+     false
+    ],
+    "gains": [
+     {}
+    ],
+    "latency_s": 3.9080259799957275
+   }
+  },
+  {
+   "uid": "first_order_stable_fast/6",
+   "category": "first_order_stable_fast",
+   "greedy": {
+    "oks": [
+     true
+    ],
+    "gains": [
+     {
+      "Kp": 120.5,
+      "Ki": 450.0,
+      "Kd": 8.5
+     }
+    ],
+    "latency_s": 1.0516560077667236
+   },
+   "bon": {
+    "oks": [
+     false,
+     true,
+     false,
+     true,
+     false,
+     true,
+     true,
+     false
+    ],
+    "gains": [
+     {
+      "Kp": 150.0,
+      "Ki": 10.0,
+      "Kd": 4.0
+     }
+    ],
+    "latency_s": 4.269841194152832
+   }
+  },
+  {
+   "uid": "first_order_stable_fast/7",
+   "category": "first_order_stable_fast",
+   "greedy": {
+    "oks": [
+     true
+    ],
+    "gains": [
+     {
+      "Kp": 12.5,
+      "Ki": 45.0,
+      "Kd": 0.8
+     }
+    ],
+    "latency_s": 1.0510518550872803
+   },
+   "bon": {
+    "oks": [
+     false,
+     false,
+     true,
+     false,
+     true,
+     true,
+     true,
+     true
+    ],
+    "gains": [
+     {}
+    ],
+    "latency_s": 4.824469804763794
+   }
+  },
+  {
+   "uid": "first_order_stable_fast/8",
+   "category": "first_order_stable_fast",
+   "greedy": {
+    "oks": [
+     true
+    ],
+    "gains": [
+     {
+      "Kp": 120.5,
+      "Ki": 850.0,
+      "Kd": 15.2
+     }
+    ],
+    "latency_s": 3.5942389965057373
+   },
+   "bon": {
+    "oks": [
+     true,
+     true,
+     false,
+     true,
+     true,
+     false,
+     false,
+     true
+    ],
+    "gains": [
+     {
+      "Kp": 125.5,
+      "Ki": 850.0,
+      "Kd": 12.8
+     }
+    ],
+    "latency_s": 1.4126667976379395
+   }
+  },
+  {
+   "uid": "first_order_stable_fast/9",
+   "category": "first_order_stable_fast",
+   "greedy": {
+    "oks": [
+     true
+    ],
+    "gains": [
+     {
+      "Kp": 12.5,
+      "Ki": 45.0,
+      "Kd": 0.8
+     }
+    ],
+    "latency_s": 3.0575201511383057
+   },
+   "bon": {
+    "oks": [
+     true,
+     true,
+     false,
+     false,
+     true,
+     true,
+     true,
+     false
+    ],
+    "gains": [
+     {
+      "Kp": 120.5,
+      "Ki": 85.2,
+      "Kd": 6.4
+     }
+    ],
+    "latency_s": 2.9506418704986572
+   }
+  },
+  {
+   "uid": "first_order_stable_moderate/0",
+   "category": "first_order_stable_moderate",
+   "greedy": {
+    "oks": [
+     false
+    ],
+    "gains": [
+     {
+      "Kp": 1.5,
+      "Ki": 0.05,
+      "Kd": 0.02
+     }
+    ],
+    "latency_s": 2.4666731357574463
+   },
+   "bon": {
+    "oks": [
+     false,
+     false,
+     false,
+     false,
+     false,
+     false,
+     false,
+     false
+    ],
+    "gains": [
+     {
+      "Kp": 1.5,
+      "Ki": 0.8,
+      "Kd": 0.15
+     }
+    ],
+    "latency_s": 2.4099020957946777
+   }
+  },
+  {
+   "uid": "first_order_stable_moderate/1",
+   "category": "first_order_stable_moderate",
+   "greedy": {
+    "oks": [
+     false
+    ],
+    "gains": [
+     {
+      "Kp": 12.5,
+      "Ki": 45.0,
+      "Kd": 0.8
+     }
+    ],
+    "latency_s": 1.8208422660827637
+   },
+   "bon": {
+    "oks": [
+     false,
+     false,
+     false,
+     false,
+     false,
+     false,
+     false,
+     false
+    ],
+    "gains": [
+     {
+      "Kp": 12.5,
+      "Ki": 15.0,
+      "Kd": 0.8
+     }
+    ],
+    "latency_s": 1.3365371227264404
+   }
+  },
+  {
+   "uid": "first_order_stable_moderate/2",
+   "category": "first_order_stable_moderate",
+   "greedy": {
+    "oks": [
+     true
+    ],
+    "gains": [
+     {
+      "Kp": 12.5,
+      "Ki": 150.0,
+      "Kd": 0.8
+     }
+    ],
+    "latency_s": 1.2298853397369385
+   },
+   "bon": {
+    "oks": [
+     false,
+     false,
+     false,
+     false,
+     false,
+     false,
+     false,
+     false
+    ],
+    "gains": [
+     {}
+    ],
+    "latency_s": 2.1210269927978516
+   }
+  },
+  {
+   "uid": "first_order_stable_moderate/3",
+   "category": "first_order_stable_moderate",
+   "greedy": {
+    "oks": [
+     true
+    ],
+    "gains": [
+     {
+      "Kp": 12.5,
+      "Ki": 150.0,
+      "Kd": 0.8
+     }
+    ],
+    "latency_s": 1.2167599201202393
+   },
+   "bon": {
+    "oks": [
+     false,
+     true,
+     false,
+     true,
+     true,
+     false,
+     false,
+     true
+    ],
+    "gains": [
+     {
+      "Kp": 120.5,
+      "Ki": 45.2,
+      "Kd": 18.3
+     }
+    ],
+    "latency_s": 1.6080739498138428
+   }
+  },
+  {
+   "uid": "first_order_stable_moderate/4",
+   "category": "first_order_stable_moderate",
+   "greedy": {
+    "oks": [
+     true
+    ],
+    "gains": [
+     {
+      "Kp": 12.5,
+      "Ki": 85.0,
+      "Kd": 0.8
+     }
+    ],
+    "latency_s": 0.7410528659820557
+   },
+   "bon": {
+    "oks": [
+     true,
+     true,
+     false,
+     false,
+     false,
+     false,
+     false,
+     false
+    ],
+    "gains": [
+     {
+      "Kp": 12.5,
+      "Ki": 85.0,
+      "Kd": 0.05
+     }
+    ],
+    "latency_s": 2.58250093460083
+   }
+  },
+  {
+   "uid": "first_order_stable_moderate/5",
+   "category": "first_order_stable_moderate",
+   "greedy": {
+    "oks": [
+     false
+    ],
+    "gains": [
+     {
+      "Kp": 12.5,
+      "Ki": 45.0,
+      "Kd": 0.8
+     }
+    ],
+    "latency_s": 0.7727649211883545
+   },
+   "bon": {
+    "oks": [
+     false,
+     true,
+     false,
+     false,
+     false,
+     false,
+     false,
+     false
+    ],
+    "gains": [
+     {}
+    ],
+    "latency_s": 2.8610332012176514
+   }
+  },
+  {
+   "uid": "first_order_stable_moderate/6",
+   "category": "first_order_stable_moderate",
+   "greedy": {
+    "oks": [
+     true
+    ],
+    "gains": [
+     {
+      "Kp": 12.5,
+      "Ki": 45.0,
+      "Kd": 0.8
+     }
+    ],
+    "latency_s": 2.273115873336792
+   },
+   "bon": {
+    "oks": [
+     false,
+     false,
+     true,
+     false,
+     true,
+     false,
+     true,
+     true
+    ],
+    "gains": [
+     {}
+    ],
+    "latency_s": 1.4642391204833984
+   }
+  },
+  {
+   "uid": "first_order_stable_moderate/7",
+   "category": "first_order_stable_moderate",
+   "greedy": {
+    "oks": [
+     true
+    ],
+    "gains": [
+     {
+      "Kp": 12.5,
+      "Ki": 15.0,
+      "Kd": 0.8
+     }
+    ],
+    "latency_s": 2.2538070678710938
+   },
+   "bon": {
+    "oks": [
+     false,
+     false,
+     false,
+     false,
+     true,
+     true,
+     false,
+     false
+    ],
+    "gains": [
+     {}
+    ],
+    "latency_s": 0.7629289627075195
+   }
+  },
+  {
+   "uid": "first_order_stable_moderate/8",
+   "category": "first_order_stable_moderate",
+   "greedy": {
+    "oks": [
+     false
+    ],
+    "gains": [
+     {
+      "Kp": 120.5,
+      "Ki": 15.2,
+      "Kd": 8.5
+     }
+    ],
+    "latency_s": 2.0581750869750977
+   },
+   "bon": {
+    "oks": [
+     false,
+     false,
+     false,
+     false,
+     false,
+     false,
+     false,
+     true
+    ],
+    "gains": [
+     {}
+    ],
+    "latency_s": 1.3206110000610352
+   }
+  },
+  {
+   "uid": "first_order_stable_moderate/9",
+   "category": "first_order_stable_moderate",
+   "greedy": {
+    "oks": [
+     false
+    ],
+    "gains": [
+     {
+      "Kp": 12.5,
+      "Ki": 15.0,
+      "Kd": 1.2
+     }
+    ],
+    "latency_s": 1.606208086013794
+   },
+   "bon": {
+    "oks": [
+     false,
+     false,
+     false,
+     true,
+     false,
+     false,
+     false,
+     false
+    ],
+    "gains": [
+     {
+      "Kp": 15.5,
+      "Ki": 4.2,
+      "Kd": 1.8
+     }
+    ],
+    "latency_s": 2.325352907180786
+   }
+  },
+  {
+   "uid": "first_order_stable_slow/0",
+   "category": "first_order_stable_slow",
+   "greedy": {
+    "oks": [
+     false
+    ],
+    "gains": [
+     {
+      "Kp": 0.05,
+      "Ki": 0.0005,
+      "Kd": 0.002
+     }
+    ],
+    "latency_s": 1.4038140773773193
+   },
+   "bon": {
+    "oks": [
+     false,
+     false,
+     false,
+     false,
+     false,
+     true,
+     false,
+     false
+    ],
+    "gains": [
+     {}
+    ],
+    "latency_s": 2.9278039932250977
+   }
+  },
+  {
+   "uid": "first_order_stable_slow/1",
+   "category": "first_order_stable_slow",
+   "greedy": {
+    "oks": [
+     false
+    ],
+    "gains": [
+     {
+      "Kp": 12.5,
+      "Ki": 0.8,
+      "Kd": 0.5
+     }
+    ],
+    "latency_s": 1.0301721096038818
+   },
+   "bon": {
+    "oks": [
+     false,
+     false,
+     false,
+     true,
+     false,
+     false,
+     false,
+     false
+    ],
+    "gains": [
+     {}
+    ],
+    "latency_s": 2.497591972351074
+   }
+  },
+  {
+   "uid": "first_order_stable_slow/2",
+   "category": "first_order_stable_slow",
+   "greedy": {
+    "oks": [
+     false
+    ],
+    "gains": [
+     {
+      "Kp": 12.5,
+      "Ki": 8.0,
+      "Kd": 0.8
+     }
+    ],
+    "latency_s": 0.5309860706329346
+   },
+   "bon": {
+    "oks": [
+     false,
+     false,
+     false,
+     false,
+     false,
+     false,
+     false,
+     false
+    ],
+    "gains": [
+     {
+      "Kp": 2.5,
+      "Ki": 1.0,
+      "Kd": 0.5
+     }
+    ],
+    "latency_s": 1.9501807689666748
+   }
+  },
+  {
+   "uid": "first_order_stable_slow/3",
+   "category": "first_order_stable_slow",
+   "greedy": {
+    "oks": [
+     false
+    ],
+    "gains": [
+     {
+      "Kp": 12.5,
+      "Ki": 0.8,
+      "Kd": 0.5
+     }
+    ],
+    "latency_s": 0.47248387336730957
+   },
+   "bon": {
+    "oks": [
+     false,
+     true,
+     false,
+     false,
+     false,
+     true,
+     false,
+     false
+    ],
+    "gains": [
+     {
+      "Kp": 15.0,
+      "Ki": 2.0,
+      "Kd": 0.8
+     }
+    ],
+    "latency_s": 2.8770041465759277
+   }
+  },
+  {
+   "uid": "first_order_stable_slow/4",
+   "category": "first_order_stable_slow",
+   "greedy": {
+    "oks": [
+     false
+    ],
+    "gains": [
+     {
+      "Kp": 1.2,
+      "Ki": 0.15,
+      "Kd": 0.05
+     }
+    ],
+    "latency_s": 2.429860830307007
+   },
+   "bon": {
+    "oks": [
+     false,
+     false,
+     false,
+     false,
+     false,
+     false,
+     false,
+     false
+    ],
+    "gains": [
+     {}
+    ],
+    "latency_s": 1.6041357517242432
+   }
+  },
+  {
+   "uid": "first_order_stable_slow/5",
+   "category": "first_order_stable_slow",
+   "greedy": {
+    "oks": [
+     false
+    ],
+    "gains": [
+     {
+      "Kp": 12.5,
+      "Ki": 1.8,
+      "Kd": 0.6
+     }
+    ],
+    "latency_s": 1.9558122158050537
+   },
+   "bon": {
+    "oks": [
+     false,
+     false,
+     false,
+     false,
+     false,
+     false,
+     false,
+     false
+    ],
+    "gains": [
+     {
+      "Kp": 15.0,
+      "Ki": 4.5,
+      "Kd": 0.8
+     }
+    ],
+    "latency_s": 1.379338026046753
+   }
+  },
+  {
+   "uid": "first_order_stable_slow/6",
+   "category": "first_order_stable_slow",
+   "greedy": {
+    "oks": [
+     false
+    ],
+    "gains": [
+     {
+      "Kp": 12.5,
+      "Ki": 2.5,
+      "Kd": 0.8
+     }
+    ],
+    "latency_s": 1.9929912090301514
+   },
+   "bon": {
+    "oks": [
+     false,
+     false,
+     false,
+     false,
+     false,
+     false,
+     false,
+     false
+    ],
+    "gains": [
+     {
+      "Kp": 20.0,
+      "Ki": 1.0,
+      "Kd": 2.5
+     }
+    ],
+    "latency_s": 2.0262019634246826
+   }
+  },
+  {
+   "uid": "first_order_stable_slow/7",
+   "category": "first_order_stable_slow",
+   "greedy": {
+    "oks": [
+     false
+    ],
+    "gains": [
+     {
+      "Kp": 1.2,
+      "Ki": 0.05,
+      "Kd": 0.15
+     }
+    ],
+    "latency_s": 1.4909260272979736
+   },
+   "bon": {
+    "oks": [
+     false,
+     false,
+     false,
+     false,
+     false,
+     false,
+     false,
+     false
+    ],
+    "gains": [
+     {
+      "Kp": 0.15,
+      "Ki": 0.005,
+      "Kd": 0.05
+     }
+    ],
+    "latency_s": 1.3859188556671143
+   }
+  },
+  {
+   "uid": "first_order_stable_slow/8",
+   "category": "first_order_stable_slow",
+   "greedy": {
+    "oks": [
+     false
+    ],
+    "gains": [
+     {
+      "Kp": 1.25,
+      "Ki": 0.05,
+      "Kd": 0.15
+     }
+    ],
+    "latency_s": 1.083362102508545
+   },
+   "bon": {
+    "oks": [
+     false,
+     false,
+     false,
+     false,
+     false,
+     false,
+     false,
+     false
+    ],
+    "gains": [
+     {}
+    ],
+    "latency_s": 1.6324961185455322
+   }
+  },
+  {
+   "uid": "first_order_stable_slow/9",
+   "category": "first_order_stable_slow",
+   "greedy": {
+    "oks": [
+     false
+    ],
+    "gains": [
+     {
+      "Kp": 1.2,
+      "Ki": 0.05,
+      "Kd": 0.15
+     }
+    ],
+    "latency_s": 0.987346887588501
+   },
+   "bon": {
+    "oks": [
+     true,
+     false,
+     false,
+     false,
+     false,
+     false,
+     false,
+     false
+    ],
+    "gains": [
+     {
+      "Kp": 1.5,
+      "Ki": 0.5,
+      "Kd": 0.2
+     }
+    ],
+    "latency_s": 2.3070080280303955
+   }
+  },
+  {
+   "uid": "first_order_unstable/0",
+   "category": "first_order_unstable",
+   "greedy": {
+    "oks": [
+     false
+    ],
+    "gains": [
+     {
+      "Kp": 1.25,
+      "Ki": 45.0,
+      "Kd": 0.08
+     }
+    ],
+    "latency_s": 0.5572221279144287
+   },
+   "bon": {
+    "oks": [
+     false,
+     true,
+     false,
+     false,
+     true,
+     false,
+     false,
+     false
+    ],
+    "gains": [
+     {
+      "Kp": 312.5,
+      "Ki": 1800.0,
+      "Kd": 12.5
+     }
+    ],
+    "latency_s": 2.0921459197998047
+   }
+  },
+  {
+   "uid": "first_order_unstable/1",
+   "category": "first_order_unstable",
+   "greedy": {
+    "oks": [
+     false
+    ],
+    "gains": [
+     {}
+    ],
+    "latency_s": 1.0941359996795654
+   },
+   "bon": {
+    "oks": [
+     false,
+     true,
+     true,
+     false,
+     false,
+     false,
+     false,
+     false
+    ],
+    "gains": [
+     {}
+    ],
+    "latency_s": 1.9614200592041016
+   }
+  },
+  {
+   "uid": "first_order_unstable/2",
+   "category": "first_order_unstable",
+   "greedy": {
+    "oks": [
+     true
+    ],
+    "gains": [
+     {
+      "Kp": 125.5,
+      "Ki": 1850.0,
+      "Kd": 0.0085
+     }
+    ],
+    "latency_s": 1.4523591995239258
+   },
+   "bon": {
+    "oks": [
+     true,
+     false,
+     false,
+     true,
+     false,
+     false,
+     false,
+     false
+    ],
+    "gains": [
+     {
+      "Kp": 350.0,
+      "Ki": 4500.0,
+      "Kd": 8.5
+     }
+    ],
+    "latency_s": 1.025094985961914
+   }
+  },
+  {
+   "uid": "first_order_unstable/3",
+   "category": "first_order_unstable",
+   "greedy": {
+    "oks": [
+     false
+    ],
+    "gains": [
+     {
+      "Kp": 12.5,
+      "Ki": 150.0,
+      "Kd": 0.8
+     }
+    ],
+    "latency_s": 1.3085050582885742
+   },
+   "bon": {
+    "oks": [
+     false,
+     false,
+     true,
+     false,
+     false,
+     true,
+     false,
+     false
+    ],
+    "gains": [
+     {
+      "Kp": 1.2,
+      "Ki": 85.0,
+      "Kd": 0.04
+     }
+    ],
+    "latency_s": 0.8625819683074951
+   }
+  },
+  {
+   "uid": "first_order_unstable/4",
+   "category": "first_order_unstable",
+   "greedy": {
+    "oks": [
+     false
+    ],
+    "gains": [
+     {
+      "Kp": 12.5,
+      "Ki": 85.0,
+      "Kd": 0.05
+     }
+    ],
+    "latency_s": 1.483825922012329
+   },
+   "bon": {
+    "oks": [
+     false,
+     false,
+     true,
+     false,
+     false,
+     false,
+     false,
+     false
+    ],
+    "gains": [
+     {}
+    ],
+    "latency_s": 0.9808590412139893
+   }
+  },
+  {
+   "uid": "first_order_unstable/5",
+   "category": "first_order_unstable",
+   "greedy": {
+    "oks": [
+     false
+    ],
+    "gains": [
+     {
+      "Kp": 1.25,
+      "Ki": 150.0,
+      "Kd": 0.05
+     }
+    ],
+    "latency_s": 1.3582868576049805
+   },
+   "bon": {
+    "oks": [
+     true,
+     true,
+     true,
+     false,
+     true,
+     false,
+     false,
+     false
+    ],
+    "gains": [
+     {
+      "Kp": 145.2,
+      "Ki": 1850.5,
+      "Kd": 2.8
+     }
+    ],
+    "latency_s": 1.9238638877868652
+   }
+  },
+  {
+   "uid": "first_order_unstable/6",
+   "category": "first_order_unstable",
+   "greedy": {
+    "oks": [
+     false
+    ],
+    "gains": [
+     {
+      "Kp": 12.5,
+      "Ki": 85.0,
+      "Kd": 0.05
+     }
+    ],
+    "latency_s": 0.8729908466339111
+   },
+   "bon": {
+    "oks": [
+     false,
+     false,
+     false,
+     false,
+     false,
+     false,
+     false,
+     false
+    ],
+    "gains": [
+     {
+      "Kp": 12.5,
+      "Ki": 45.0,
+      "Kd": 0.05
+     }
+    ],
+    "latency_s": 1.6612470149993896
+   }
+  },
+  {
+   "uid": "first_order_unstable/7",
+   "category": "first_order_unstable",
+   "greedy": {
+    "oks": [
+     false
+    ],
+    "gains": [
+     {
+      "Kp": 128.5,
+      "Ki": 1500.0,
+      "Kd": 0.008
+     }
+    ],
+    "latency_s": 0.7376410961151123
+   },
+   "bon": {
+    "oks": [
+     false,
+     true,
+     false,
+     true,
+     false,
+     false,
+     false,
+     true
+    ],
+    "gains": [
+     {
+      "Kp": 1.85,
+      "Ki": 150,
+      "Kd": 0.12
+     }
+    ],
+    "latency_s": 1.5068223476409912
+   }
+  },
+  {
+   "uid": "first_order_unstable/8",
+   "category": "first_order_unstable",
+   "greedy": {
+    "oks": [
+     false
+    ],
+    "gains": [
+     {
+      "Kp": 1.25,
+      "Ki": 150.0,
+      "Kd": 0.005
+     }
+    ],
+    "latency_s": 0.5787639617919922
+   },
+   "bon": {
+    "oks": [
+     false,
+     false,
+     true,
+     false,
+     false,
+     true,
+     false,
+     false
+    ],
+    "gains": [
+     {
+      "Kp": 14.25,
+      "Ki": 1850.0,
+      "Kd": 0.0085
+     }
+    ],
+    "latency_s": 2.021062135696411
+   }
+  },
+  {
+   "uid": "first_order_unstable/9",
+   "category": "first_order_unstable",
+   "greedy": {
+    "oks": [
+     true
+    ],
+    "gains": [
+     {
+      "Kp": 150.0,
+      "Ki": 2000.0,
+      "Kd": 5.0
+     }
+    ],
+    "latency_s": 1.432602882385254
+   },
+   "bon": {
+    "oks": [
+     true,
+     false,
+     false,
+     true,
+     false,
+     false,
+     true,
+     false
+    ],
+    "gains": [
+     {
+      "Kp": 5200.0,
+      "Ki": 450000.0,
+      "Kd": 200.0
+     }
+    ],
+    "latency_s": 1.154999017715454
+   }
+  },
+  {
+   "uid": "first_order_w_delay/0",
+   "category": "first_order_w_delay",
+   "greedy": {
+    "oks": [
+     false
+    ],
+    "gains": [
+     {
+      "Kp": 1.5,
+      "Ki": 10.0,
+      "Kd": 0.05
+     }
+    ],
+    "latency_s": 1.6445980072021484
+   },
+   "bon": {
+    "oks": [
+     false,
+     false,
+     false,
+     false,
+     true,
+     false,
+     false,
+     false
+    ],
+    "gains": [
+     {
+      "Kp": 0.15,
+      "Ki": 0.05,
+      "Kd": 0.02
+     }
+    ],
+    "latency_s": 1.0301380157470703
+   }
+  },
+  {
+   "uid": "first_order_w_delay/1",
+   "category": "first_order_w_delay",
+   "greedy": {
+    "oks": [
+     false
+    ],
+    "gains": [
+     {
+      "Kp": 1.25,
+      "Ki": 15.0,
+      "Kd": 0.05
+     }
+    ],
+    "latency_s": 1.4908370971679688
+   },
+   "bon": {
+    "oks": [
+     false,
+     false,
+     false,
+     false,
+     false,
+     false,
+     false,
+     false
+    ],
+    "gains": [
+     {
+      "Kp": 0.185,
+      "Ki": 0.45,
+      "Kd": 0.008
+     }
+    ],
+    "latency_s": 1.300041913986206
+   }
+  },
+  {
+   "uid": "first_order_w_delay/2",
+   "category": "first_order_w_delay",
+   "greedy": {
+    "oks": [
+     false
+    ],
+    "gains": [
+     {
+      "Kp": 1.85,
+      "Ki": 12.5,
+      "Kd": 0.08
+     }
+    ],
+    "latency_s": 1.2146358489990234
+   },
+   "bon": {
+    "oks": [
+     false,
+     false,
+     false,
+     false,
+     false,
+     false,
+     false,
+     false
+    ],
+    "gains": [
+     {
+      "Kp": 1.5,
+      "Ki": 0.5,
+      "Kd": 0.3
+     }
+    ],
+    "latency_s": 0.8591361045837402
+   }
+  },
+  {
+   "uid": "first_order_w_delay/3",
+   "category": "first_order_w_delay",
+   "greedy": {
+    "oks": [
+     false
+    ],
+    "gains": [
+     {
+      "Kp": 1.25,
+      "Ki": 15.0,
+      "Kd": 0.08
+     }
+    ],
+    "latency_s": 0.9792029857635498
+   },
+   "bon": {
+    "oks": [
+     false,
+     false,
+     false,
+     false,
+     false,
+     false,
+     false,
+     false
+    ],
+    "gains": [
+     {
+      "Kp": 1.25,
+      "Ki": 15.0,
+      "Kd": 0.08
+     }
+    ],
+    "latency_s": 1.3577311038970947
+   }
+  },
+  {
+   "uid": "first_order_w_delay/4",
+   "category": "first_order_w_delay",
+   "greedy": {
+    "oks": [
+     false
+    ],
+    "gains": [
+     {
+      "Kp": 1.2,
+      "Ki": 0.8,
+      "Kd": 0.15
+     }
+    ],
+    "latency_s": 0.9638080596923828
+   },
+   "bon": {
+    "oks": [
+     false,
+     false,
+     false,
+     false,
+     false,
+     false,
+     false,
+     false
+    ],
+    "gains": [
+     {}
+    ],
+    "latency_s": 2.1024460792541504
+   }
+  },
+  {
+   "uid": "first_order_w_delay/5",
+   "category": "first_order_w_delay",
+   "greedy": {
+    "oks": [
+     false
+    ],
+    "gains": [
+     {
+      "Kp": 1.2,
+      "Ki": 0.8,
+      "Kd": 0.15
+     }
+    ],
+    "latency_s": 0.6462900638580322
+   },
+   "bon": {
+    "oks": [
+     false,
+     false,
+     false,
+     false,
+     false,
+     false,
+     false,
+     false
+    ],
+    "gains": [
+     {
+      "Kp": 2.5,
+      "Ki": 3.0,
+      "Kd": 0.08
+     }
+    ],
+    "latency_s": 2.1352779865264893
+   }
+  },
+  {
+   "uid": "first_order_w_delay/6",
+   "category": "first_order_w_delay",
+   "greedy": {
+    "oks": [
+     false
+    ],
+    "gains": [
+     {
+      "Kp": 0.85,
+      "Ki": 0.12,
+      "Kd": 0.05
+     }
+    ],
+    "latency_s": 0.5908029079437256
+   },
+   "bon": {
+    "oks": [
+     false,
+     false,
+     false,
+     false,
+     false,
+     false,
+     false,
+     false
+    ],
+    "gains": [
+     {
+      "Kp": 1.5,
+      "Ki": 0.8,
+      "Kd": 0.05
+     }
+    ],
+    "latency_s": 2.4676849842071533
+   }
+  },
+  {
+   "uid": "first_order_w_delay/7",
+   "category": "first_order_w_delay",
+   "greedy": {
+    "oks": [
+     true
+    ],
+    "gains": [
+     {
+      "Kp": 1.2,
+      "Ki": 15.0,
+      "Kd": 0.05
+     }
+    ],
+    "latency_s": 1.5173919200897217
+   },
+   "bon": {
+    "oks": [
+     false,
+     false,
+     false,
+     false,
+     false,
+     false,
+     false,
+     false
+    ],
+    "gains": [
+     {
+      "Kp": 1.2,
+      "Ki": 4.5,
+      "Kd": 0.08
+     }
+    ],
+    "latency_s": 1.3091380596160889
+   }
+  },
+  {
+   "uid": "first_order_w_delay/8",
+   "category": "first_order_w_delay",
+   "greedy": {
+    "oks": [
+     false
+    ],
+    "gains": [
+     {
+      "Kp": 0.85,
+      "Ki": 12.5,
+      "Kd": 0.045
+     }
+    ],
+    "latency_s": 0.7623460292816162
+   },
+   "bon": {
+    "oks": [
+     false,
+     false,
+     false,
+     false,
+     false,
+     false,
+     false,
+     false
+    ],
+    "gains": [
+     {
+      "Kp": 1.45,
+      "Ki": 2.5,
+      "Kd": 0.08
+     }
+    ],
+    "latency_s": 1.250978708267212
+   }
+  },
+  {
+   "uid": "first_order_w_delay/9",
+   "category": "first_order_w_delay",
+   "greedy": {
+    "oks": [
+     false
+    ],
+    "gains": [
+     {
+      "Kp": 1.2,
+      "Ki": 15.0,
+      "Kd": 0.05
+     }
+    ],
+    "latency_s": 1.2881028652191162
+   },
+   "bon": {
+    "oks": [
+     false,
+     true,
+     false,
+     false,
+     false,
+     false,
+     false,
+     false
+    ],
+    "gains": [
+     {
+      "Kp": 1.35,
+      "Ki": 2.7,
+      "Kd": 0.05
+     }
+    ],
+    "latency_s": 1.7011101245880127
+   }
+  },
+  {
+   "uid": "higher_order/0",
+   "category": "higher_order",
+   "greedy": {
+    "oks": [
+     false
+    ],
+    "gains": [
+     {
+      "Kp": 1.2,
+      "Ki": 0.05,
+      "Kd": 0.008
+     }
+    ],
+    "latency_s": 1.1473090648651123
+   },
+   "bon": {
+    "oks": [
+     false,
+     false,
+     false,
+     false,
+     false,
+     false,
+     false,
+     false
+    ],
+    "gains": [
+     {
+      "Kp": 12.5,
+      "Ki": 0.5,
+      "Kd": 0.08
+     }
+    ],
+    "latency_s": 0.8503270149230957
+   }
+  },
+  {
+   "uid": "higher_order/1",
+   "category": "higher_order",
+   "greedy": {
+    "oks": [
+     false
+    ],
+    "gains": [
+     {
+      "Kp": 1.2,
+      "Ki": 15.0,
+      "Kd": 0.05
+     }
+    ],
+    "latency_s": 0.885761022567749
+   },
+   "bon": {
+    "oks": [
+     false,
+     false,
+     false,
+     false,
+     false,
+     true,
+     false,
+     false
+    ],
+    "gains": [
+     {
+      "Kp": 65.0,
+      "Ki": 150.0,
+      "Kd": 12.0
+     }
+    ],
+    "latency_s": 1.6870520114898682
+   }
+  },
+  {
+   "uid": "higher_order/2",
+   "category": "higher_order",
+   "greedy": {
+    "oks": [
+     false
+    ],
+    "gains": [
+     {
+      "Kp": 0.0004,
+      "Ki": 1e-06,
+      "Kd": 5e-05
+     }
+    ],
+    "latency_s": 1.1735191345214844
+   },
+   "bon": {
+    "oks": [
+     false,
+     false,
+     true,
+     false,
+     false,
+     false,
+     false,
+     false
+    ],
+    "gains": [
+     {}
+    ],
+    "latency_s": 0.9105689525604248
+   }
+  },
+  {
+   "uid": "higher_order/3",
+   "category": "higher_order",
+   "greedy": {
+    "oks": [
+     false
+    ],
+    "gains": [
+     {
+      "Kp": 1.2,
+      "Ki": 0.05,
+      "Kd": 0.08
+     }
+    ],
+    "latency_s": 1.3502581119537354
+   },
+   "bon": {
+    "oks": [
+     false,
+     false,
+     false,
+     false,
+     false,
+     false,
+     false,
+     false
+    ],
+    "gains": [
+     {}
+    ],
+    "latency_s": 0.7639358043670654
+   }
+  },
+  {
+   "uid": "higher_order/4",
+   "category": "higher_order",
+   "greedy": {
+    "oks": [
+     false
+    ],
+    "gains": [
+     {
+      "Kp": 0.05,
+      "Ki": 0.001,
+      "Kd": 0.002
+     }
+    ],
+    "latency_s": 0.8751659393310547
+   },
+   "bon": {
+    "oks": [
+     false,
+     false,
+     false,
+     false,
+     false,
+     false,
+     true,
+     false
+    ],
+    "gains": [
+     {}
+    ],
+    "latency_s": 1.3662378787994385
+   }
+  },
+  {
+   "uid": "higher_order/5",
+   "category": "higher_order",
+   "greedy": {
+    "oks": [
+     false
+    ],
+    "gains": [
+     {
+      "Kp": 1.2,
+      "Ki": 0.5,
+      "Kd": 0.8
+     }
+    ],
+    "latency_s": 0.9356763362884521
+   },
+   "bon": {
+    "oks": [
+     false,
+     false,
+     false,
+     false,
+     false,
+     false,
+     false,
+     false
+    ],
+    "gains": [
+     {
+      "Kp": 115.0,
+      "Ki": 45.0,
+      "Kd": 16.0
+     }
+    ],
+    "latency_s": 1.3777477741241455
+   }
+  },
+  {
+   "uid": "higher_order/6",
+   "category": "higher_order",
+   "greedy": {
+    "oks": [
+     false
+    ],
+    "gains": [
+     {
+      "Kp": 1.5,
+      "Ki": 0.05,
+      "Kd": 0.02
+     }
+    ],
+    "latency_s": 0.8452658653259277
+   },
+   "bon": {
+    "oks": [
+     false,
+     false,
+     false,
+     false,
+     false,
+     false,
+     true,
+     false
+    ],
+    "gains": [
+     {
+      "Kp": 20.5,
+      "Ki": 0.5,
+      "Kd": 1.2
+     }
+    ],
+    "latency_s": 1.4723999500274658
+   }
+  },
+  {
+   "uid": "higher_order/7",
+   "category": "higher_order",
+   "greedy": {
+    "oks": [
+     false
+    ],
+    "gains": [
+     {
+      "Kp": 0.05,
+      "Ki": 0.001,
+      "Kd": 0.002
+     }
+    ],
+    "latency_s": 0.6220059394836426
+   },
+   "bon": {
+    "oks": [
+     false,
+     false,
+     true,
+     true,
+     false,
+     true,
+     true,
+     false
+    ],
+    "gains": [
+     {
+      "Kp": 0.5,
+      "Ki": 0.0001,
+      "Kd": 0.05
+     }
+    ],
+    "latency_s": 1.1148250102996826
+   }
+  },
+  {
+   "uid": "higher_order/8",
+   "category": "higher_order",
+   "greedy": {
+    "oks": [
+     false
+    ],
+    "gains": [
+     {
+      "Kp": 1.2,
+      "Ki": 0.05,
+      "Kd": 0.8
+     }
+    ],
+    "latency_s": 1.3192212581634521
+   },
+   "bon": {
+    "oks": [
+     false,
+     false,
+     false,
+     false,
+     false,
+     false,
+     false,
+     false
+    ],
+    "gains": [
+     {
+      "Kp": 3.5,
+      "Ki": 1.8,
+      "Kd": 0.05
+     }
+    ],
+    "latency_s": 1.1936919689178467
+   }
+  },
+  {
+   "uid": "higher_order/9",
+   "category": "higher_order",
+   "greedy": {
+    "oks": [
+     false
+    ],
+    "gains": [
+     {
+      "Kp": 1.5,
+      "Ki": 0.05,
+      "Kd": 0.8
+     }
+    ],
+    "latency_s": 1.0941016674041748
+   },
+   "bon": {
+    "oks": [
+     false,
+     false,
+     false,
+     false,
+     false,
+     false,
+     false,
+     false
+    ],
+    "gains": [
+     {
+      "Kp": 10.0,
+      "Ki": 2.0,
+      "Kd": 15.0
+     }
+    ],
+    "latency_s": 1.0474679470062256
+   }
+  },
+  {
+   "uid": "second_order_stable_fast/0",
+   "category": "second_order_stable_fast",
+   "greedy": {
+    "oks": [
+     false
+    ],
+    "gains": [
+     {
+      "Kp": 0.15,
+      "Ki": 0.05,
+      "Kd": 0.02
+     }
+    ],
+    "latency_s": 0.8856592178344727
+   },
+   "bon": {
+    "oks": [
+     false,
+     false,
+     false,
+     false,
+     false,
+     false,
+     false,
+     false
+    ],
+    "gains": [
+     {
+      "Kp": 6.0,
+      "Ki": 4.5,
+      "Kd": 0.8
+     }
+    ],
+    "latency_s": 1.7912802696228027
+   }
+  },
+  {
+   "uid": "second_order_stable_fast/1",
+   "category": "second_order_stable_fast",
+   "greedy": {
+    "oks": [
+     true
+    ],
+    "gains": [
+     {
+      "Kp": 12.5,
+      "Ki": 8.0,
+      "Kd": 1.8
+     }
+    ],
+    "latency_s": 0.8620240688323975
+   },
+   "bon": {
+    "oks": [
+     false,
+     false,
+     false,
+     false,
+     false,
+     false,
+     false,
+     false
+    ],
+    "gains": [
+     {
+      "Kp": 0.5,
+      "Ki": 0.1,
+      "Kd": 0.2
+     }
+    ],
+    "latency_s": 2.310131072998047
+   }
+  },
+  {
+   "uid": "second_order_stable_fast/2",
+   "category": "second_order_stable_fast",
+   "greedy": {
+    "oks": [
+     false
+    ],
+    "gains": [
+     {
+      "Kp": 1.85,
+      "Ki": 12.5,
+      "Kd": 0.15
+     }
+    ],
+    "latency_s": 0.5976247787475586
+   },
+   "bon": {
+    "oks": [
+     false,
+     false,
+     true,
+     false,
+     false,
+     false,
+     true,
+     false
+    ],
+    "gains": [
+     {
+      "Kp": 1.25,
+      "Ki": 15.0,
+      "Kd": 0.08
+     }
+    ],
+    "latency_s": 3.4648492336273193
+   }
+  },
+  {
+   "uid": "second_order_stable_fast/3",
+   "category": "second_order_stable_fast",
+   "greedy": {
+    "oks": [
+     false
+    ],
+    "gains": [
+     {
+      "Kp": 12.5,
+      "Ki": 45.0,
+      "Kd": 0.85
+     }
+    ],
+    "latency_s": 0.69120192527771
+   },
+   "bon": {
+    "oks": [
+     true,
+     false,
+     false,
+     false,
+     false,
+     false,
+     false,
+     false
+    ],
+    "gains": [
+     {
+      "Kp": 12.5,
+      "Ki": 45.0,
+      "Kd": 1.8
+     }
+    ],
+    "latency_s": 3.3221330642700195
+   }
+  },
+  {
+   "uid": "second_order_stable_fast/4",
+   "category": "second_order_stable_fast",
+   "greedy": {
+    "oks": [
+     false
+    ],
+    "gains": [
+     {
+      "Kp": 1.25,
+      "Ki": 15.0,
+      "Kd": 0.08
+     }
+    ],
+    "latency_s": 0.9091272354125977
+   },
+   "bon": {
+    "oks": [
+     false,
+     true,
+     false,
+     false,
+     false,
+     true,
+     false,
+     false
+    ],
+    "gains": [
+     {
+      "Kp": 16.5,
+      "Ki": 2.1,
+      "Kd": 0.8
+     }
+    ],
+    "latency_s": 3.0048389434814453
+   }
+  },
+  {
+   "uid": "second_order_stable_fast/5",
+   "category": "second_order_stable_fast",
+   "greedy": {
+    "oks": [
+     false
+    ],
+    "gains": [
+     {
+      "Kp": 1.5,
+      "Ki": 0.8,
+      "Kd": 0.05
+     }
+    ],
+    "latency_s": 3.5293691158294678
+   },
+   "bon": {
+    "oks": [
+     false,
+     false,
+     false,
+     false,
+     false,
+     false,
+     false,
+     false
+    ],
+    "gains": [
+     {
+      "Kp": 15.5,
+      "Ki": 2.5,
+      "Kd": 0.8
+     }
+    ],
+    "latency_s": 1.3306691646575928
+   }
+  },
+  {
+   "uid": "second_order_stable_fast/6",
+   "category": "second_order_stable_fast",
+   "greedy": {
+    "oks": [
+     false
+    ],
+    "gains": [
+     {
+      "Kp": 12.5,
+      "Ki": 45.0,
+      "Kd": 0.8
+     }
+    ],
+    "latency_s": 1.3032989501953125
+   },
+   "bon": {
+    "oks": [
+     true,
+     false,
+     false,
+     false,
+     false,
+     true,
+     false,
+     false
+    ],
+    "gains": [
+     {
+      "Kp": 12.5,
+      "Ki": 150.0,
+      "Kd": 1.8
+     }
+    ],
+    "latency_s": 1.2497751712799072
+   }
+  },
+  {
+   "uid": "second_order_stable_fast/7",
+   "category": "second_order_stable_fast",
+   "greedy": {
+    "oks": [
+     false
+    ],
+    "gains": [
+     {
+      "Kp": 12.5,
+      "Ki": 45.0,
+      "Kd": 0.8
+     }
+    ],
+    "latency_s": 1.5167031288146973
+   },
+   "bon": {
+    "oks": [
+     true,
+     false,
+     false,
+     false,
+     false,
+     false,
+     false,
+     false
+    ],
+    "gains": [
+     {
+      "Kp": 1.5,
+      "Ki": 4.2,
+      "Kd": 0.15
+     }
+    ],
+    "latency_s": 1.783390998840332
+   }
+  },
+  {
+   "uid": "second_order_stable_fast/8",
+   "category": "second_order_stable_fast",
+   "greedy": {
+    "oks": [
+     true
+    ],
+    "gains": [
+     {
+      "Kp": 12.5,
+      "Ki": 8.0,
+      "Kd": 1.5
+     }
+    ],
+    "latency_s": 1.3898801803588867
+   },
+   "bon": {
+    "oks": [
+     false,
+     false,
+     false,
+     false,
+     true,
+     true,
+     false,
+     false
+    ],
+    "gains": [
+     {
+      "Kp": 15.0,
+      "Ki": 45.0,
+      "Kd": 1.5
+     }
+    ],
+    "latency_s": 1.4776179790496826
+   }
+  },
+  {
+   "uid": "second_order_stable_fast/9",
+   "category": "second_order_stable_fast",
+   "greedy": {
+    "oks": [
+     false
+    ],
+    "gains": [
+     {
+      "Kp": 1.5,
+      "Ki": 0.8,
+      "Kd": 0.05
+     }
+    ],
+    "latency_s": 0.8317921161651611
+   },
+   "bon": {
+    "oks": [
+     false,
+     false,
+     false,
+     false,
+     false,
+     false,
+     false,
+     false
+    ],
+    "gains": [
+     {
+      "Kp": 4.5,
+      "Ki": 12.5,
+      "Kd": 0.05
+     }
+    ],
+    "latency_s": 1.3062529563903809
+   }
+  },
+  {
+   "uid": "second_order_stable_moderate/0",
+   "category": "second_order_stable_moderate",
+   "greedy": {
+    "oks": [
+     false
+    ],
+    "gains": [
+     {
+      "Kp": 0.15,
+      "Ki": 0.05,
+      "Kd": 0.08
+     }
+    ],
+    "latency_s": 1.0271148681640625
+   },
+   "bon": {
+    "oks": [
+     false,
+     false,
+     false,
+     false,
+     false,
+     false,
+     false,
+     false
+    ],
+    "gains": [
+     {}
+    ],
+    "latency_s": 0.8249590396881104
+   }
+  },
+  {
+   "uid": "second_order_stable_moderate/1",
+   "category": "second_order_stable_moderate",
+   "greedy": {
+    "oks": [
+     true
+    ],
+    "gains": [
+     {
+      "Kp": 1.25,
+      "Ki": 0.85,
+      "Kd": 0.15
+     }
+    ],
+    "latency_s": 0.8580470085144043
+   },
+   "bon": {
+    "oks": [
+     true,
+     false,
+     false,
+     false,
+     false,
+     true,
+     true,
+     false
+    ],
+    "gains": [
+     {
+      "Kp": 0.85,
+      "Ki": 1.2,
+      "Kd": 0.15
+     }
+    ],
+    "latency_s": 0.8541440963745117
+   }
+  },
+  {
+   "uid": "second_order_stable_moderate/2",
+   "category": "second_order_stable_moderate",
+   "greedy": {
+    "oks": [
+     true
+    ],
+    "gains": [
+     {
+      "Kp": 1.25,
+      "Ki": 0.85,
+      "Kd": 0.15
+     }
+    ],
+    "latency_s": 0.7689931392669678
+   },
+   "bon": {
+    "oks": [
+     false,
+     false,
+     false,
+     false,
+     true,
+     true,
+     false,
+     false
+    ],
+    "gains": [
+     {
+      "Kp": 2.15,
+      "Ki": 0.45,
+      "Kd": 0.12
+     }
+    ],
+    "latency_s": 0.8767399787902832
+   }
+  },
+  {
+   "uid": "second_order_stable_moderate/3",
+   "category": "second_order_stable_moderate",
+   "greedy": {
+    "oks": [
+     false
+    ],
+    "gains": [
+     {
+      "Kp": 12.5,
+      "Ki": 15.0,
+      "Kd": 1.2
+     }
+    ],
+    "latency_s": 1.2265348434448242
+   },
+   "bon": {
+    "oks": [
+     false,
+     true,
+     false,
+     false,
+     false,
+     false,
+     false,
+     true
+    ],
+    "gains": [
+     {
+      "Kp": 21.5,
+      "Ki": 12.0,
+      "Kd": 0.35
+     }
+    ],
+    "latency_s": 0.8912842273712158
+   }
+  },
+  {
+   "uid": "second_order_stable_moderate/4",
+   "category": "second_order_stable_moderate",
+   "greedy": {
+    "oks": [
+     true
+    ],
+    "gains": [
+     {
+      "Kp": 1.25,
+      "Ki": 0.85,
+      "Kd": 0.15
+     }
+    ],
+    "latency_s": 0.8100268840789795
+   },
+   "bon": {
+    "oks": [
+     false,
+     false,
+     false,
+     false,
+     false,
+     false,
+     false,
+     true
+    ],
+    "gains": [
+     {}
+    ],
+    "latency_s": 1.5015039443969727
+   }
+  },
+  {
+   "uid": "second_order_stable_moderate/5",
+   "category": "second_order_stable_moderate",
+   "greedy": {
+    "oks": [
+     false
+    ],
+    "gains": [
+     {
+      "Kp": 1.5,
+      "Ki": 0.05,
+      "Kd": 0.02
+     }
+    ],
+    "latency_s": 0.8369388580322266
+   },
+   "bon": {
+    "oks": [
+     false,
+     false,
+     false,
+     false,
+     false,
+     false,
+     false,
+     false
+    ],
+    "gains": [
+     {
+      "Kp": 1.0,
+      "Ki": 0.5,
+      "Kd": 0.05
+     }
+    ],
+    "latency_s": 1.3560330867767334
+   }
+  },
+  {
+   "uid": "second_order_stable_moderate/6",
+   "category": "second_order_stable_moderate",
+   "greedy": {
+    "oks": [
+     false
+    ],
+    "gains": [
+     {
+      "Kp": 12.5,
+      "Ki": 8.0,
+      "Kd": 1.2
+     }
+    ],
+    "latency_s": 0.8415579795837402
+   },
+   "bon": {
+    "oks": [
+     false,
+     false,
+     false,
+     false,
+     false,
+     false,
+     false,
+     false
+    ],
+    "gains": [
+     {
+      "Kp": 26.5,
+      "Ki": 0.85,
+      "Kd": 0.75
+     }
+    ],
+    "latency_s": 1.7410659790039062
+   }
+  },
+  {
+   "uid": "second_order_stable_moderate/7",
+   "category": "second_order_stable_moderate",
+   "greedy": {
+    "oks": [
+     false
+    ],
+    "gains": [
+     {
+      "Kp": 1.25,
+      "Ki": 0.85,
+      "Kd": 0.15
+     }
+    ],
+    "latency_s": 0.7914178371429443
+   },
+   "bon": {
+    "oks": [
+     true,
+     true,
+     true,
+     false,
+     false,
+     false,
+     true,
+     false
+    ],
+    "gains": [
+     {
+      "Kp": 12.5,
+      "Ki": 8.0,
+      "Kd": 0.8
+     }
+    ],
+    "latency_s": 1.0126521587371826
+   }
+  },
+  {
+   "uid": "second_order_stable_moderate/8",
+   "category": "second_order_stable_moderate",
+   "greedy": {
+    "oks": [
+     false
+    ],
+    "gains": [
+     {
+      "Kp": 1.25,
+      "Ki": 0.85,
+      "Kd": 0.15
+     }
+    ],
+    "latency_s": 0.9064357280731201
+   },
+   "bon": {
+    "oks": [
+     false,
+     true,
+     false,
+     false,
+     true,
+     false,
+     false,
+     false
+    ],
+    "gains": [
+     {
+      "Kp": 2.661075,
+      "Ki": 0.123456,
+      "Kd": 0.812345
+     }
+    ],
+    "latency_s": 1.896134853363037
+   }
+  },
+  {
+   "uid": "second_order_stable_moderate/9",
+   "category": "second_order_stable_moderate",
+   "greedy": {
+    "oks": [
+     false
+    ],
+    "gains": [
+     {
+      "Kp": 1.5,
+      "Ki": 0.05,
+      "Kd": 0.02
+     }
+    ],
+    "latency_s": 0.731658935546875
+   },
+   "bon": {
+    "oks": [
+     false,
+     false,
+     false,
+     false,
+     false,
+     false,
+     false,
+     false
+    ],
+    "gains": [
+     {}
+    ],
+    "latency_s": 1.8548228740692139
+   }
+  },
+  {
+   "uid": "second_order_stable_slow/0",
+   "category": "second_order_stable_slow",
+   "greedy": {
+    "oks": [
+     false
+    ],
+    "gains": [
+     {
+      "Kp": 0.15,
+      "Ki": 0.005,
+      "Kd": 0.05
+     }
+    ],
+    "latency_s": 0.9029109477996826
+   },
+   "bon": {
+    "oks": [
+     false,
+     false,
+     false,
+     false,
+     false,
+     true,
+     true,
+     false
+    ],
+    "gains": [
+     {
+      "Kp": 0.45,
+      "Ki": 0.025,
+      "Kd": 0.35
+     }
+    ],
+    "latency_s": 1.703078031539917
+   }
+  },
+  {
+   "uid": "second_order_stable_slow/1",
+   "category": "second_order_stable_slow",
+   "greedy": {
+    "oks": [
+     false
+    ],
+    "gains": [
+     {
+      "Kp": 1.25,
+      "Ki": 0.08,
+      "Kd": 0.15
+     }
+    ],
+    "latency_s": 1.3468101024627686
+   },
+   "bon": {
+    "oks": [
+     false,
+     false,
+     false,
+     false,
+     false,
+     false,
+     true,
+     false
+    ],
+    "gains": [
+     {
+      "Kp": 10.0,
+      "Ki": 15.0,
+      "Kd": 4.0
+     }
+    ],
+    "latency_s": 1.3361568450927734
+   }
+  },
+  {
+   "uid": "second_order_stable_slow/2",
+   "category": "second_order_stable_slow",
+   "greedy": {
+    "oks": [
+     false
+    ],
+    "gains": [
+     {
+      "Kp": 1.25,
+      "Ki": 0.08,
+      "Kd": 0.15
+     }
+    ],
+    "latency_s": 1.0259549617767334
+   },
+   "bon": {
+    "oks": [
+     false,
+     false,
+     true,
+     false,
+     false,
+     true,
+     false,
+     false
+    ],
+    "gains": [
+     {
+      "Kp": 4.5,
+      "Ki": 0.08,
+      "Kd": 2.2
+     }
+    ],
+    "latency_s": 1.3695220947265625
+   }
+  },
+  {
+   "uid": "second_order_stable_slow/3",
+   "category": "second_order_stable_slow",
+   "greedy": {
+    "oks": [
+     false
+    ],
+    "gains": [
+     {
+      "Kp": 1.25,
+      "Ki": 0.08,
+      "Kd": 0.15
+     }
+    ],
+    "latency_s": 0.9763021469116211
+   },
+   "bon": {
+    "oks": [
+     false,
+     false,
+     false,
+     false,
+     false,
+     false,
+     false,
+     false
+    ],
+    "gains": [
+     {}
+    ],
+    "latency_s": 1.5870418548583984
+   }
+  },
+  {
+   "uid": "second_order_stable_slow/4",
+   "category": "second_order_stable_slow",
+   "greedy": {
+    "oks": [
+     false
+    ],
+    "gains": [
+     {
+      "Kp": 1.25,
+      "Ki": 0.08,
+      "Kd": 0.45
+     }
+    ],
+    "latency_s": 0.529853105545044
+   },
+   "bon": {
+    "oks": [
+     false,
+     false,
+     true,
+     false,
+     true,
+     false,
+     true,
+     false
+    ],
+    "gains": [
+     {
+      "Kp": 1.05,
+      "Ki": 0.05,
+      "Kd": 0.15
+     }
+    ],
+    "latency_s": 0.9378938674926758
+   }
+  },
+  {
+   "uid": "second_order_stable_slow/5",
+   "category": "second_order_stable_slow",
+   "greedy": {
+    "oks": [
+     false
+    ],
+    "gains": [
+     {
+      "Kp": 1.5,
+      "Ki": 0.05,
+      "Kd": 0.02
+     }
+    ],
+    "latency_s": 1.067486047744751
+   },
+   "bon": {
+    "oks": [
+     false,
+     false,
+     false,
+     false,
+     false,
+     false,
+     false,
+     false
+    ],
+    "gains": [
+     {
+      "Kp": 1.2,
+      "Ki": 0.05,
+      "Kd": 0.15
+     }
+    ],
+    "latency_s": 0.9884359836578369
+   }
+  },
+  {
+   "uid": "second_order_stable_slow/6",
+   "category": "second_order_stable_slow",
+   "greedy": {
+    "oks": [
+     false
+    ],
+    "gains": [
+     {
+      "Kp": 12.5,
+      "Ki": 0.8,
+      "Kd": 1.2
+     }
+    ],
+    "latency_s": 0.7792949676513672
+   },
+   "bon": {
+    "oks": [
+     false,
+     false,
+     false,
+     false,
+     false,
+     false,
+     false,
+     false
+    ],
+    "gains": [
+     {
+      "Kp": 2.5,
+      "Ki": 0.1,
+      "Kd": 1.5
+     }
+    ],
+    "latency_s": 0.8966279029846191
+   }
+  },
+  {
+   "uid": "second_order_stable_slow/7",
+   "category": "second_order_stable_slow",
+   "greedy": {
+    "oks": [
+     false
+    ],
+    "gains": [
+     {
+      "Kp": 1.25,
+      "Ki": 0.05,
+      "Kd": 0.15
+     }
+    ],
+    "latency_s": 0.8507599830627441
+   },
+   "bon": {
+    "oks": [
+     false,
+     false,
+     false,
+     false,
+     false,
+     false,
+     false,
+     false
+    ],
+    "gains": [
+     {
+      "Kp": 4.5,
+      "Ki": 0.8,
+      "Kd": 0.35
+     }
+    ],
+    "latency_s": 0.8837518692016602
+   }
+  },
+  {
+   "uid": "second_order_stable_slow/8",
+   "category": "second_order_stable_slow",
+   "greedy": {
+    "oks": [
+     false
+    ],
+    "gains": [
+     {}
+    ],
+    "latency_s": 1.188647985458374
+   },
+   "bon": {
+    "oks": [
+     false,
+     false,
+     false,
+     false,
+     false,
+     false,
+     false,
+     false
+    ],
+    "gains": [
+     {
+      "Kp": 0.85,
+      "Ki": 0.12,
+      "Kd": 1.45
+     }
+    ],
+    "latency_s": 0.8975908756256104
+   }
+  },
+  {
+   "uid": "second_order_stable_slow/9",
+   "category": "second_order_stable_slow",
+   "greedy": {
+    "oks": [
+     false
+    ],
+    "gains": [
+     {
+      "Kp": 0.05,
+      "Ki": 0.0005,
+      "Kd": 0.002
+     }
+    ],
+    "latency_s": 0.5853910446166992
+   },
+   "bon": {
+    "oks": [
+     false,
+     false,
+     false,
+     false,
+     false,
+     false,
+     false,
+     false
+    ],
+    "gains": [
+     {
+      "Kp": 0.001,
+      "Ki": 7e-05,
+      "Kd": 0.05
+     }
+    ],
+    "latency_s": 0.7571940422058105
+   }
+  },
+  {
+   "uid": "second_order_unstable/0",
+   "category": "second_order_unstable",
+   "greedy": {
+    "oks": [
+     false
+    ],
+    "gains": [
+     {
+      "Kp": 1.85,
+      "Ki": 12.5,
+      "Kd": 0.15
+     }
+    ],
+    "latency_s": 0.673088788986206
+   },
+   "bon": {
+    "oks": [
+     false,
+     false,
+     false,
+     false,
+     false,
+     false,
+     false,
+     false
+    ],
+    "gains": [
+     {
+      "Kp": 2.15,
+      "Ki": 12.5,
+      "Kd": 0.15
+     }
+    ],
+    "latency_s": 1.1572420597076416
+   }
+  },
+  {
+   "uid": "second_order_unstable/1",
+   "category": "second_order_unstable",
+   "greedy": {
+    "oks": [
+     false
+    ],
+    "gains": [
+     {
+      "Kp": 18.5,
+      "Ki": 120.0,
+      "Kd": 0.85
+     }
+    ],
+    "latency_s": 1.1452608108520508
+   },
+   "bon": {
+    "oks": [
+     false,
+     false,
+     false,
+     false,
+     false,
+     false,
+     false,
+     false
+    ],
+    "gains": [
+     {
+      "Kp": 18.5,
+      "Ki": 180.0,
+      "Kd": 0.8
+     }
+    ],
+    "latency_s": 0.8823440074920654
+   }
+  },
+  {
+   "uid": "second_order_unstable/2",
+   "category": "second_order_unstable",
+   "greedy": {
+    "oks": [
+     false
+    ],
+    "gains": [
+     {
+      "Kp": 1.25,
+      "Ki": 0.85,
+      "Kd": 0.045
+     }
+    ],
+    "latency_s": 0.9122669696807861
+   },
+   "bon": {
+    "oks": [
+     false,
+     false,
+     false,
+     false,
+     false,
+     false,
+     false,
+     false
+    ],
+    "gains": [
+     {
+      "Kp": 45.2,
+      "Ki": 12.5,
+      "Kd": 8.1
+     }
+    ],
+    "latency_s": 0.779822826385498
+   }
+  },
+  {
+   "uid": "second_order_unstable/3",
+   "category": "second_order_unstable",
+   "greedy": {
+    "oks": [
+     false
+    ],
+    "gains": [
+     {
+      "Kp": 12.5,
+      "Ki": 850.0,
+      "Kd": 0.045
+     }
+    ],
+    "latency_s": 0.6426119804382324
+   },
+   "bon": {
+    "oks": [
+     false,
+     false,
+     false,
+     false,
+     false,
+     false,
+     false,
+     false
+    ],
+    "gains": [
+     {
+      "Kp": 6.5,
+      "Ki": 120,
+      "Kd": 0.025
+     }
+    ],
+    "latency_s": 0.8916301727294922
+   }
+  },
+  {
+   "uid": "second_order_unstable/4",
+   "category": "second_order_unstable",
+   "greedy": {
+    "oks": [
+     false
+    ],
+    "gains": [
+     {
+      "Kp": 1.25,
+      "Ki": 0.85,
+      "Kd": 0.15
+     }
+    ],
+    "latency_s": 0.82810378074646
+   },
+   "bon": {
+    "oks": [
+     false,
+     false,
+     false,
+     false,
+     false,
+     false,
+     false,
+     false
+    ],
+    "gains": [
+     {
+      "Kp": 2.85,
+      "Ki": 0.15,
+      "Kd": 0.08
+     }
+    ],
+    "latency_s": 1.2926368713378906
+   }
+  },
+  {
+   "uid": "second_order_unstable/5",
+   "category": "second_order_unstable",
+   "greedy": {
+    "oks": [
+     false
+    ],
+    "gains": [
+     {
+      "Kp": 1.25,
+      "Ki": 15.0,
+      "Kd": 0.08
+     }
+    ],
+    "latency_s": 0.623223066329956
+   },
+   "bon": {
+    "oks": [
+     false,
+     false,
+     false,
+     false,
+     false,
+     false,
+     false,
+     false
+    ],
+    "gains": [
+     {}
+    ],
+    "latency_s": 1.0360608100891113
+   }
+  },
+  {
+   "uid": "second_order_unstable/6",
+   "category": "second_order_unstable",
+   "greedy": {
+    "oks": [
+     false
+    ],
+    "gains": [
+     {
+      "Kp": 12.5,
+      "Ki": 150.0,
+      "Kd": 0.8
+     }
+    ],
+    "latency_s": 0.7189719676971436
+   },
+   "bon": {
+    "oks": [
+     false,
+     false,
+     false,
+     false,
+     false,
+     false,
+     false,
+     false
+    ],
+    "gains": [
+     {}
+    ],
+    "latency_s": 1.2284247875213623
+   }
+  },
+  {
+   "uid": "second_order_unstable/7",
+   "category": "second_order_unstable",
+   "greedy": {
+    "oks": [
+     false
+    ],
+    "gains": [
+     {
+      "Kp": 1.25,
+      "Ki": 15.0,
+      "Kd": 0.08
+     }
+    ],
+    "latency_s": 0.8241679668426514
+   },
+   "bon": {
+    "oks": [
+     false,
+     false,
+     false,
+     false,
+     false,
+     false,
+     false,
+     false
+    ],
+    "gains": [
+     {
+      "Kp": 1.25,
+      "Ki": 18.5,
+      "Kd": 0.08
+     }
+    ],
+    "latency_s": 1.0824308395385742
+   }
+  },
+  {
+   "uid": "second_order_unstable/8",
+   "category": "second_order_unstable",
+   "greedy": {
+    "oks": [
+     false
+    ],
+    "gains": [
+     {
+      "Kp": 12.5,
+      "Ki": 150.0,
+      "Kd": 0.8
+     }
+    ],
+    "latency_s": 0.6674530506134033
+   },
+   "bon": {
+    "oks": [
+     false,
+     false,
+     false,
+     false,
+     false,
+     false,
+     false,
+     false
+    ],
+    "gains": [
+     {}
+    ],
+    "latency_s": 1.00612211227417
+   }
+  },
+  {
+   "uid": "second_order_unstable/9",
+   "category": "second_order_unstable",
+   "greedy": {
+    "oks": [
+     false
+    ],
+    "gains": [
+     {
+      "Kp": 125.5,
+      "Ki": 450.0,
+      "Kd": 0.085
+     }
+    ],
+    "latency_s": 0.726032018661499
+   },
+   "bon": {
+    "oks": [
+     false,
+     false,
+     false,
+     false,
+     false,
+     false,
+     false,
+     false
+    ],
+    "gains": [
+     {
+      "Kp": 1250.0,
+      "Ki": 45000.0,
+      "Kd": 35.0
+     }
+    ],
+    "latency_s": 0.8428728580474854
+   }
+  }
+ ],
+ "tokens": {
+  "sample_tok": 38368.0,
+  "prefill_tok": 42650.0,
+  "train_tok": 3147604.0
+ },
+ "est_cost_usd": 6.806
+}
