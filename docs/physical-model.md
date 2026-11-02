@@ -46,7 +46,12 @@ Physics engine and benchmark agree: each tuner's final gains pass the judge and 
 
 ## Rendered: the same tuning problem on four machines
 
-![actuator, arm elbow, humanoid ankle, drone roll](../media/units_grid.gif)
+| | |
+|---|---|
+| ![actuator](../media/actuator.gif) | ![robot arm elbow](../media/robot_arm_elbow.gif) |
+| ![humanoid ankle](../media/humanoid_ankle.gif) | ![drone roll](../media/drone_roll.gif) |
+
+Each scene is also available as its own video: [actuator](../media/actuator.mp4), [robot arm](../media/robot_arm_elbow.mp4), [humanoid](../media/humanoid_ankle.mp4), [drone](../media/drone_roll.mp4).
 
 `demo/mujoco_units.py` builds each orange unit from a task's transfer function:
 - **Hinge-joint scenes:** inertia 1, damping a, stiffness c, gear K.

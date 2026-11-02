@@ -8,18 +8,29 @@
 
 ## Where this runs on real hardware
 
-![Four MuJoCo scenes: actuator, robot-arm elbow, humanoid ankle, drone roll axis; the tuned unit is highlighted in orange](media/units_grid.gif)
-
 In each scene, the **orange unit** is simulated in MuJoCo with the exact dynamics of a held-out task. Inertia, damping, stiffness and motor gain come straight from its transfer function. The drone adds rotor lag. The unit is driven by Joint Tuner's PID gains, and every scene meets its spec in both the judge and MuJoCo. The rest of each body is fixed for clarity.
 
-| Scene | Highlighted unit | Plant | Task |
-|---|---|---|---|
-| Actuator | gearbox output shaft | 2nd-order stable | `second_order_stable_fast/6` |
-| Robot arm | elbow joint | 2nd-order stable, slow | `second_order_stable_moderate/9` |
-| Humanoid | ankle pitch (inverted pendulum) | **2nd-order unstable** | `second_order_unstable/7` |
-| Drone | roll axis on a test stand | K/(s²(s+a)), rotor lag | `drone/4` (held-out synthetic) |
+### Actuator: gearbox output shaft
+2nd-order stable plant, task `second_order_stable_fast/6`, played in real time. [MP4](media/actuator.mp4)
 
-Full video: [media/units.mp4](media/units.mp4). The physics behind the mapping: [docs/physical-model.md](docs/physical-model.md).
+![Actuator: the gearbox output shaft is highlighted](media/actuator.gif)
+
+### Robot arm: elbow joint
+2nd-order stable plant with a slow spec, task `second_order_stable_moderate/9`, played at 37× speed. [MP4](media/robot_arm_elbow.mp4)
+
+![Robot arm: the elbow joint and forearm are highlighted](media/robot_arm_elbow.gif)
+
+### Humanoid: ankle balance
+2nd-order **unstable** plant, task `second_order_unstable/7`, played in real time. The ankle balances the whole body as an inverted pendulum. [MP4](media/humanoid_ankle.mp4)
+
+![Humanoid: the ankle pitch joint is highlighted](media/humanoid_ankle.gif)
+
+### Drone: roll axis on a test stand
+Plant K/(s²(s+a)), with rotor lag. Task `drone/4` is held-out synthetic. Played at 2× speed. [MP4](media/drone_roll.mp4)
+
+![Drone: the roll axis is highlighted](media/drone_roll.gif)
+
+The physics behind the mapping: [docs/physical-model.md](docs/physical-model.md).
 
 Tuning a motor joint on real hardware means running step tests: the joint moves, you measure, you reset. Each test costs time, wear, and risk. Joint Tuner pairs a fine-tuned open model with a simulator check:
 

@@ -111,6 +111,11 @@ def run(S):
     print(S["name"], "judge pass", ok, "final y", round(ys[-1], 4), "max", round(max(ys), 3), "frames", len(frames))
     return frames
 allf = [run(S) for S in SCENES]
+SLUG = ["actuator", "robot_arm_elbow", "humanoid_ankle", "drone_roll"]
+for slug, fs in zip(SLUG, allf):
+    w1 = imageio.get_writer(f"media/{slug}.mp4", fps=FPS, codec="libx264", quality=8, macro_block_size=8)
+    for f in fs: w1.append_data(f)
+    w1.close(); imageio.mimsave(f"media/{slug}.gif", fs[::3], duration=1000 * 3 / FPS, loop=0)
 w = imageio.get_writer("media/units.mp4", fps=FPS, codec="libx264", quality=8, macro_block_size=8)
 for fs in allf:
     for f in fs: w.append_data(f)
