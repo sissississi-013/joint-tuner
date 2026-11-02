@@ -1,0 +1,23 @@
+7500 training datums, base=accounts/fireworks/models/qwen3p6-35b-a3b
+session ts-191affa13e6e466ba53108f44f34cf86 run run-649e441110b041cf85c26b313856f192
+step 1 loss 1.1886 (8s)
+step 25 loss 0.7230 (149s)
+step 50 loss 0.6911 (296s)
+step 75 loss 0.6884 (460s)
+saved sissiwang-xlorceau0c/run-649e441110b041cf85c26b313856f192/s100-q36v3-5972cd74
+step 100 loss 0.6947 (989s)
+step 125 loss 0.6986 (1146s)
+step 150 loss 0.6755 (1291s)
+step 175 loss 0.6688 (1460s)
+saved sissiwang-xlorceau0c/run-649e441110b041cf85c26b313856f192/s200-q36v3-5972cd74
+step 200 loss 0.6992 (1613s)
+step 225 loss 0.6615 (1764s)
+step 250 loss 0.6717 (2134s)
+step 275 loss 0.6764 (2374s)
+step 300 loss 0.6619 (2568s)
+checkpoint sissiwang-xlorceau0c/run-649e441110b041cf85c26b313856f192/pid-q36v3-5972cd74
+prefill_queue_duration is unavailable; AdaptiveConcurrencyController is using HTTP 429/503 and transport-error congestion signals instead
+[after (tuned)] greedy 50/100  best-of-8 81/100  p50 latency 1.35s | fo_stable_fast=6 fo_stable_moderate=6 fo_stable_slow=9 fo_unstable=3 fo_w_delay=7 higher_order=1 so_stable_fast=3 so_stable_moderate=5 so_stable_slow=9 so_unstable=1
+promoted {'baseModelDetails': None, 'calibrated': False, 'cluster': '', 'contextLength': 0, 'conversationConfig': None, 'createTime': '2026-11-02T22:08:05.766358766Z', 'defaultDraftModel': '', 'defaultDraftTokenCount': 0, 'defaultSamplingParams': {}, 'deployedModelRefs': [], 'deprecationDate': None, 'description': '', 'displayName': '', 'enableVisionEncoderTuning': False, 'encryptionState': 'ENCRYPTION_STATE_PLAINTEXT', 'fineTuningJob': 'accounts/fireworks/rlorTrainerJobs/st-qwen3p6-35b-a3b-prod-0-638-662-01a16101-0', 'githubUrl': '', 'huggingFaceUrl': '', 'importedFrom': '', 'kind': 'HF_PEFT_ADDON', 'name': 'accounts/sissiwang-xlorceau0c/models/pid-tuner-q36v3', 'peftDetails': {'baseModel': 'accounts/fireworks/models/qwen3p6-35b-a3b', 'baseModelType': 'qwen3_5_moe', 'mergeAddonModelName': '', 'r': 16, 'targetModules': ['down_proj', 'gate_proj', 'in_proj_a', 'in_proj_b', 'in_proj_qkv', 'in_proj_z', 'k_proj', 'o_proj', 'out_proj', 'q_proj', 'up_proj', 'v_proj', 'w1', 'w2', 'w3']}, 'public': False, 'rlLoraTunable': False, 'rlTunable': False, 'serverlessModes': [], 'snapshotType': 'FULL_SNAPSHOT', 'state': 'READY', 'status': {'code': 'OK', 'message': ''}, 'supervisedLoraTunable': True, 'supportsImageInput': True, 'supportsLora': False, 'supportsServerless': False, 'supportsServerlessLora': False, 'supportsServerlessTraining': False, 'supportsTools': False, 'teftDetails': None, 'trainingContextLength': 0, 'updateTime': '2026-11-02T22:08:05.766358766Z', 'useHfApplyChatTemplate': False, 'useTrainingV2': True}
+estimated cost $ 5.107 {'train_tok': 2358921.0, 'sample_tok': 29451.0, 'prefill_tok': 42650.0}
+session deleted 200

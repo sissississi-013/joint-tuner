@@ -1,0 +1,262 @@
+[
+ {
+  "uid": "first_order_unstable/0",
+  "category": "first_order_unstable",
+  "n_cands": 8,
+  "sample_ok": true,
+  "t_llm": 8.131054162979126,
+  "sim_calls": 8,
+  "repair_ok": false,
+  "t_repair": 0.0,
+  "final": [
+   10.2,
+   296.2,
+   0.01536
+  ]
+ },
+ {
+  "uid": "first_order_unstable/1",
+  "category": "first_order_unstable",
+  "n_cands": 8,
+  "sample_ok": false,
+  "t_llm": 8.001590967178345,
+  "sim_calls": 1816,
+  "repair_ok": true,
+  "t_repair": 86.19365501403809,
+  "final": [
+   3.9633195038724587,
+   248.4063889109372,
+   1.4843271675011347
+  ]
+ },
+ {
+  "uid": "first_order_unstable/2",
+  "category": "first_order_unstable",
+  "n_cands": 8,
+  "sample_ok": true,
+  "t_llm": 6.6788928508758545,
+  "sim_calls": 8,
+  "repair_ok": false,
+  "t_repair": 0.0,
+  "final": [
+   41.48,
+   3288.0,
+   0.05286
+  ]
+ },
+ {
+  "uid": "first_order_unstable/3",
+  "category": "first_order_unstable",
+  "n_cands": 8,
+  "sample_ok": true,
+  "t_llm": 6.1691200733184814,
+  "sim_calls": 8,
+  "repair_ok": false,
+  "t_repair": 0.0,
+  "final": [
+   40.85,
+   1626.0,
+   0.0
+  ]
+ },
+ {
+  "uid": "first_order_unstable/4",
+  "category": "first_order_unstable",
+  "n_cands": 8,
+  "sample_ok": false,
+  "t_llm": 7.063072681427002,
+  "sim_calls": 2266,
+  "repair_ok": true,
+  "t_repair": 75.93461894989014,
+  "final": [
+   3.873603161213203,
+   166.54244044908268,
+   87.73927404436719
+  ]
+ },
+ {
+  "uid": "first_order_unstable/5",
+  "category": "first_order_unstable",
+  "n_cands": 8,
+  "sample_ok": true,
+  "t_llm": 7.34070611000061,
+  "sim_calls": 8,
+  "repair_ok": false,
+  "t_repair": 0.0,
+  "final": [
+   21.62,
+   1478.0,
+   0.0
+  ]
+ },
+ {
+  "uid": "first_order_unstable/6",
+  "category": "first_order_unstable",
+  "n_cands": 8,
+  "sample_ok": true,
+  "t_llm": 5.765600204467773,
+  "sim_calls": 8,
+  "repair_ok": false,
+  "t_repair": 0.0,
+  "final": [
+   6.556,
+   149.8,
+   0.03294
+  ]
+ },
+ {
+  "uid": "first_order_unstable/7",
+  "category": "first_order_unstable",
+  "n_cands": 8,
+  "sample_ok": true,
+  "t_llm": 4.679626941680908,
+  "sim_calls": 8,
+  "repair_ok": false,
+  "t_repair": 0.0,
+  "final": [
+   83.44,
+   4660.0,
+   0.09042
+  ]
+ },
+ {
+  "uid": "first_order_unstable/8",
+  "category": "first_order_unstable",
+  "n_cands": 8,
+  "sample_ok": true,
+  "t_llm": 4.793636083602905,
+  "sim_calls": 8,
+  "repair_ok": false,
+  "t_repair": 0.0,
+  "final": [
+   5.026,
+   35.83,
+   0.0
+  ]
+ },
+ {
+  "uid": "first_order_unstable/9",
+  "category": "first_order_unstable",
+  "n_cands": 8,
+  "sample_ok": true,
+  "t_llm": 5.718050956726074,
+  "sim_calls": 8,
+  "repair_ok": false,
+  "t_repair": 0.0,
+  "final": [
+   56.95,
+   3183.0,
+   0.04746
+  ]
+ },
+ {
+  "uid": "second_order_unstable/0",
+  "category": "second_order_unstable",
+  "n_cands": 8,
+  "sample_ok": false,
+  "t_llm": 5.69863486289978,
+  "sim_calls": 4066,
+  "repair_ok": false,
+  "t_repair": 217.27848386764526
+ },
+ {
+  "uid": "second_order_unstable/1",
+  "category": "second_order_unstable",
+  "n_cands": 8,
+  "sample_ok": false,
+  "t_llm": 5.162400960922241,
+  "sim_calls": 4066,
+  "repair_ok": false,
+  "t_repair": 289.59313321113586
+ },
+ {
+  "uid": "second_order_unstable/2",
+  "category": "second_order_unstable",
+  "n_cands": 8,
+  "sample_ok": false,
+  "t_llm": 10.34695315361023,
+  "sim_calls": 3166,
+  "repair_ok": true,
+  "t_repair": 269.6534140110016,
+  "final": [
+   4.601130180587216,
+   199.81884509206088,
+   4.999674958769768
+  ]
+ },
+ {
+  "uid": "second_order_unstable/3",
+  "category": "second_order_unstable",
+  "n_cands": 8,
+  "sample_ok": false,
+  "t_llm": 9.319684028625488,
+  "sim_calls": 4066,
+  "repair_ok": false,
+  "t_repair": 155.97984099388123
+ },
+ {
+  "uid": "second_order_unstable/4",
+  "category": "second_order_unstable",
+  "n_cands": 8,
+  "sample_ok": false,
+  "t_llm": 6.610311269760132,
+  "sim_calls": 4066,
+  "repair_ok": false,
+  "t_repair": 260.43065786361694
+ },
+ {
+  "uid": "second_order_unstable/5",
+  "category": "second_order_unstable",
+  "n_cands": 8,
+  "sample_ok": false,
+  "t_llm": 5.516868829727173,
+  "sim_calls": 4066,
+  "repair_ok": false,
+  "t_repair": 266.3275656700134
+ },
+ {
+  "uid": "second_order_unstable/6",
+  "category": "second_order_unstable",
+  "n_cands": 8,
+  "sample_ok": false,
+  "t_llm": 5.713543891906738,
+  "sim_calls": 1816,
+  "repair_ok": true,
+  "t_repair": 202.48898887634277,
+  "final": [
+   6.8800383234509015,
+   90.24764597869805,
+   4.8474378255057475
+  ]
+ },
+ {
+  "uid": "second_order_unstable/7",
+  "category": "second_order_unstable",
+  "n_cands": 8,
+  "sample_ok": false,
+  "t_llm": 6.486620903015137,
+  "sim_calls": 4066,
+  "repair_ok": false,
+  "t_repair": 360.93073892593384
+ },
+ {
+  "uid": "second_order_unstable/8",
+  "category": "second_order_unstable",
+  "n_cands": 8,
+  "sample_ok": false,
+  "t_llm": 5.759897708892822,
+  "sim_calls": 4066,
+  "repair_ok": false,
+  "t_repair": 248.61511087417603
+ },
+ {
+  "uid": "second_order_unstable/9",
+  "category": "second_order_unstable",
+  "n_cands": 8,
+  "sample_ok": false,
+  "t_llm": 5.631409168243408,
+  "sim_calls": 4066,
+  "repair_ok": false,
+  "t_repair": 178.70391392707825
+ }
+]

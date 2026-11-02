@@ -1,0 +1,179 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tuning Race</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#edf0f2; --panel:#f8f9fa; --ink:#18222d; --muted:#5d6974; --grid:#d3d9df;
+  --cold:#7c8792; --gpt:#3e55c9; --ours:#e8590c; --pass:#23824f; --fail:#b83227; --target:#18222d;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --paper:#151b21; --panel:#1c242c; --ink:#e6ebef; --muted:#9aa6b1; --grid:#2c3741;
+    --cold:#9aa5b0; --gpt:#8394f0; --ours:#ff8a4c; --pass:#52c48a; --fail:#f0796d; --target:#e6ebef;
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#151b21; --panel:#1c242c; --ink:#e6ebef; --muted:#9aa6b1; --grid:#2c3741;
+  --cold:#9aa5b0; --gpt:#8394f0; --ours:#ff8a4c; --pass:#52c48a; --fail:#f0796d; --target:#e6ebef;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:Archivo,system-ui,sans-serif;font-size:16px;line-height:1.45}
+main{max-width:1200px;margin:0 auto;padding:28px 16px 64px}
+h1{font-size:clamp(28px,4.4vw,48px);line-height:1.05;margin:0 0 10px;font-weight:800;font-stretch:112%;letter-spacing:-.01em;max-width:18ch}
+.lede{color:var(--muted);max-width:62ch;margin:0 0 22px}
+.motors{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:12px}
+.motors button{font:inherit;font-size:14px;border:1px solid var(--grid);background:var(--panel);color:var(--ink);border-radius:6px;padding:6px 10px;cursor:pointer}
+.motors button[aria-pressed="true"]{border-color:var(--ink);box-shadow:inset 0 -2px 0 var(--ink)}
+.bar{display:flex;flex-wrap:wrap;align-items:center;gap:14px;margin:6px 0 16px}
+.go{font:inherit;font-weight:700;font-size:16px;background:var(--ink);color:var(--paper);border:0;border-radius:8px;padding:11px 18px;cursor:pointer}
+.spec{color:var(--muted);font-size:14px}
+button:focus-visible{outline:3px solid var(--ours);outline-offset:2px}
+.lanes{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+.lane{background:var(--panel);border:1px solid var(--grid);border-radius:10px;padding:14px;border-top:5px solid var(--c)}
+.who{font-weight:700;font-size:17px}
+.how{color:var(--muted);font-size:13px;min-height:2.6em}
+.count{display:flex;align-items:baseline;gap:8px;margin:4px 0}
+.count b{font-size:64px;line-height:1;font-weight:800;font-stretch:125%;font-variant-numeric:tabular-nums;color:var(--c)}
+.count span{color:var(--muted);font-size:14px}
+svg.arm{width:100%;height:150px;display:block}
+canvas.scope{width:100%;height:150px;display:block;border-radius:6px;background:var(--paper)}
+.status{margin-top:8px;font-weight:700;font-size:14px;min-height:1.4em}
+.status.ok{color:var(--pass)} .status.bad{color:var(--fail)}
+.meta{color:var(--muted);font-size:13px;font-variant-numeric:tabular-nums}
+.below{display:grid;grid-template-columns:3fr 2fr;gap:14px;margin-top:22px}
+.card{background:var(--panel);border:1px solid var(--grid);border-radius:10px;padding:16px}
+h2{font-size:20px;margin:0 0 4px;font-stretch:108%}
+.card p{margin:0 0 10px;color:var(--muted);font-size:14px}
+canvas.curve{width:100%;height:300px;display:block}
+.key{display:flex;flex-wrap:wrap;gap:14px;font-size:13px;color:var(--muted);margin-top:8px}
+.key i{display:inline-block;width:14px;height:4px;border-radius:2px;vertical-align:middle;margin-right:6px}
+ul.facts{margin:0;padding-left:18px} ul.facts li{margin-bottom:8px;font-size:15px}
+@media (max-width:860px){.lanes,.below{grid-template-columns:1fr}.count b{font-size:48px}}
+@media (prefers-reduced-motion: reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+<main>
+  <h1>How many tries does it take to tune a motor?</h1>
+  <p class="lede">Every tuning attempt on real hardware is a physical step test: the joint moves, you measure, you reset. Three tuners get the same motor and the same spec. Watch how many tries each one burns.</p>
+  <div class="motors" id="motors" role="group" aria-label="Choose a motor"></div>
+  <div class="bar"><button class="go" id="go">Start tuning</button><span class="spec" id="spec"></span></div>
+  <p class="spec" style="margin:-8px 0 14px">Each motor shows one ControlEval task we picked to illustrate its category, replayed from logged runs. The chart below covers all 100 tasks.</p>
+  <div class="lanes" id="lanes"></div>
+  <div class="below">
+    <div class="card">
+      <h2>Success vs. tries allowed</h2>
+      <p>All 100 ControlEval tasks, same spec checks. Horizontal axis: step tests allowed, log scale. A task counts once it passes within that many tests.</p>
+      <canvas class="curve" id="curve" aria-label="Success rate versus number of trials"></canvas>
+      <div class="key"><span><i style="background:var(--ours)"></i>Our 9B model + simulator repair</span><span><i style="background:var(--cold)"></i>Optimizer only</span><span><i style="background:var(--gpt)"></i>GPT-6.1 Terra, one answer</span></div>
+    </div>
+    <div class="card">
+      <h2>What the race shows</h2>
+      <ul class="facts" id="facts"></ul>
+    </div>
+  </div>
+</main>
+<script src="race_data.js"></script>
+<script>
+const R = window.RACE, css = v => getComputedStyle(document.documentElement).getPropertyValue(v).trim();
+const LANES = [
+  {k:"cold", who:"Optimizer only", how:"Nelder–Mead search from a textbook starting guess. No model.", c:"--cold"},
+  {k:"gpt",  who:"GPT-6.1 Terra", how:"Frontier model reasons about the motor, then commits to one answer.", c:"--gpt"},
+  {k:"ours", who:"Our 9B tuner", how:"Fine-tuned open model proposes 8 designs; simulator checks, then repairs if needed.", c:"--ours"},
+];
+const TRIAL_MS = 70, reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
+let showEnd = location.hash.includes("end");
+let cur = Math.max(0, R.shows.findIndex(s => s.category === "second_order_stable_fast")), raf = null;
+
+function motors(){
+  const el = document.getElementById("motors"); el.innerHTML = "";
+  R.shows.forEach((s,i)=>{ const b=document.createElement("button"); b.textContent=s.name; b.setAttribute("aria-pressed", i===cur);
+    b.onclick=()=>{cur=i; showEnd=false; cancelAnimationFrame(raf); motors(); build();}; el.appendChild(b); });
+}
+function build(){
+  const s = R.shows[cur], p = s.spec;
+  document.getElementById("spec").textContent = `Spec: settle within ${(+p.settling_time_max).toPrecision(2)} s, overshoot under ${(+p.overshoot_max).toFixed(0)}%, phase margin above ${(+p.phase_margin_min).toFixed(0)}°`;
+  const el = document.getElementById("lanes"); el.innerHTML = "";
+  LANES.forEach(L=>{
+    const d = document.createElement("section"); d.className="lane"; d.style.setProperty("--c", css(L.c)); d.id="lane-"+L.k;
+    d.innerHTML = `<div class="who">${L.who}</div><div class="how">${L.how}</div>
+      <div class="count"><b class="n">0</b><span>step tests</span></div>
+      <svg class="arm" viewBox="0 0 240 150" aria-hidden="true">
+        <path d="M120 128 A96 96 0 0 0 24 128" fill="none" stroke="${css('--grid')}" stroke-width="2"/>
+        <line x1="120" y1="128" x2="120" y2="26" stroke="${css('--target')}" stroke-dasharray="4 5"/>
+        <g class="link"><line x1="120" y1="128" x2="212" y2="128" stroke="${css(L.c)}" stroke-width="12" stroke-linecap="round"/><circle cx="212" cy="128" r="8" fill="${css(L.c)}"/></g>
+        <circle cx="120" cy="128" r="11" fill="${css('--panel')}" stroke="${css(L.c)}" stroke-width="4"/></svg>
+      <canvas class="scope"></canvas>
+      <div class="status"></div><div class="meta"></div>`;
+    el.appendChild(d);
+  });
+  const S=R.shows[cur]; LANES.forEach(L=>draw(L, showEnd ? S.lanes[L.k].trials : 0, null));
+  facts(); curve();
+}
+function setup(cv){ const r=cv.getBoundingClientRect(), d=devicePixelRatio||1; cv.width=r.width*d; cv.height=r.height*d; const g=cv.getContext("2d"); g.setTransform(d,0,0,d,0,0); return [g,r.width,r.height]; }
+// state: k = trials revealed so far, frac = progress through current trial's motion
+function draw(L, k, frac){
+  const s = R.shows[cur], lane = s.lanes[L.k], d = document.getElementById("lane-"+L.k), shown = lane.shown;
+  const visible = shown.filter(x => x.i <= k);
+  d.querySelector(".n").textContent = Math.min(k, lane.trials);
+  const [g,W,H] = setup(d.querySelector(".scope")), X=i=>8+(W-16)*i/109, Y=y=>H-14-(H-28)*(Math.max(-0.3,Math.min(1.7,y))+0.3)/2.0;
+  g.strokeStyle=css("--target"); g.setLineDash([4,4]); g.beginPath(); g.moveTo(8,Y(1)); g.lineTo(W-8,Y(1)); g.stroke(); g.setLineDash([]);
+  visible.slice(0,-1).forEach(t=>{ g.strokeStyle=css(L.c); g.globalAlpha=0.16; g.lineWidth=1; g.beginPath(); t.y.forEach((y,i)=>i?g.lineTo(X(i),Y(y)):g.moveTo(X(i),Y(y))); g.stroke(); });
+  g.globalAlpha=1;
+  const last = visible[visible.length-1]; let ang = 0;
+  if (last){ const upto = frac==null?110:Math.max(1,Math.floor(frac*110)); g.strokeStyle=last.ok?css("--pass"):css(L.c); g.lineWidth=2.4; g.beginPath();
+    last.y.slice(0,upto).forEach((y,i)=>i?g.lineTo(X(i),Y(y)):g.moveTo(X(i),Y(y))); g.stroke(); ang = -90*last.y[Math.min(upto,110)-1]; }
+  d.querySelector(".link").setAttribute("transform",`rotate(${Math.max(-200,Math.min(40,ang))} 120 128)`);
+  const st = d.querySelector(".status"), meta = d.querySelector(".meta");
+  const done = k >= lane.trials && frac==null;
+  st.className = "status" + (done ? (lane.solved?" ok":" bad") : "");
+  st.textContent = done ? (lane.solved ? `Meets spec on try ${lane.trials}` : (L.k==="gpt" ? "Its one answer misses the spec" : `Gave up after ${lane.trials} tries`)) : (k? "Testing…" : "");
+  meta.textContent = L.k==="gpt" ? `Model time before the first test: ${lane.think_s} s (measured)` : (L.k==="ours" ? "Model time before the first test: about 1 s" : "No model time; every guess is a test");
+}
+function play(){
+  cancelAnimationFrame(raf); const s=R.shows[cur], t0=performance.now();
+  const think = {cold:0, gpt:(s.lanes.gpt.think_s||19)*100, ours:120}; // GPT wait shown at 1/10 speed
+  const step = now=>{
+    let busy=false;
+    LANES.forEach(L=>{ const lane=s.lanes[L.k], el=now-t0-think[L.k];
+      if (reduce){ draw(L, lane.trials, null); return; }
+      if (el<0){ draw(L,0,null); const st=document.querySelector(`#lane-${L.k} .status`); st.className="status"; st.textContent="Thinking…"; busy=true; return; }
+      const per = L.k==="cold" ? TRIAL_MS : 520, k = Math.floor(el/per)+1, frac=(el%per)/per;
+      if (k>lane.trials){ draw(L, lane.trials, null); } else { draw(L, k, frac); busy=true; }
+    });
+    if (busy && !reduce) raf=requestAnimationFrame(step); else showEnd = true;
+  };
+  raf=requestAnimationFrame(step);
+}
+function curve(){
+  const cv=document.getElementById("curve"), [g,W,H]=setup(cv), P={l:42,r:14,t:12,b:30}, B=R.budgets, n=100;
+  const lx=v=>Math.log10(v), X=v=>P.l+(W-P.l-P.r)*(lx(v)-lx(1))/(lx(B[B.length-1])-lx(1)), Y=v=>P.t+(H-P.t-P.b)*(1-v/100);
+  g.clearRect(0,0,W,H); g.font="12px Archivo, sans-serif"; g.fillStyle=css("--muted"); g.strokeStyle=css("--grid"); g.lineWidth=1;
+  [0,25,50,75,100].forEach(v=>{g.beginPath();g.moveTo(P.l,Y(v));g.lineTo(W-P.r,Y(v));g.stroke();g.fillText(v+"%",4,Y(v)+4);});
+  B.forEach(b=>g.fillText(b, X(b)-6, H-10));
+  [["cold","--cold"],["ours","--ours"]].forEach(([k,c])=>{ g.strokeStyle=css(c); g.lineWidth=k==="ours"?3:2; g.beginPath();
+    R.curve[k].forEach((v,i)=>{const x=X(B[i]),y=Y(v/n*100); i?g.lineTo(x,y):g.moveTo(x,y);}); g.stroke();
+    R.curve[k].forEach((v,i)=>{g.fillStyle=css(c); g.beginPath(); g.arc(X(B[i]),Y(v/n*100),3,0,7); g.fill();}); });
+  g.fillStyle=css("--gpt"); g.beginPath(); g.arc(X(1),Y(R.gpt_total),6,0,7); g.fill();
+  g.fillStyle=css("--ink"); g.fillText(`GPT-6.1 Terra ${R.gpt_total}%`, X(1)+10, Y(R.gpt_total)-8);
+}
+function facts(){
+  const c=R.curve, B=R.budgets, at=b=>B.indexOf(b);
+  document.getElementById("facts").innerHTML = [
+    `With one test allowed, our tuner passes ${c.ours[at(1)]} of 100 tasks; the optimizer alone passes ${c.cold[at(1)]}.`,
+    `With 8 tests, ours passes ${c.ours[at(8)]}; the optimizer passes ${c.cold[at(8)]}.`,
+    `Given the full budget, ours reaches ${c.ours[B.length-1]} and the optimizer ${c.cold[B.length-1]}. GPT-6.1 Terra gets ${R.gpt_total} with one answer, after about 19 s of thinking.`,
+    `Our model is an open 9B model fine-tuned on simulator-verified designs. It can run on-site, next to the machine.`
+  ].map(t=>`<li>${t}</li>`).join("");
+}
+document.getElementById("go").onclick=play;
+addEventListener("resize",()=>{build();});
+motors(); build();
+</script>
+</body>
+</html>

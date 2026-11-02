@@ -1,0 +1,56 @@
+[transformers] PyTorch was not found. Models won't be available and only tokenizers, configuration and file/data utilities can be used.
+8334 train examples; mean len 247 tok; loss tok 38.0
+model 19f65922-9093-4a89-9453-b6ab628b01cb:model:1
+step 1 loss 41.0731
+step 10 loss 25.0706
+step 20 loss 24.8123
+step 30 loss 26.2304
+step 40 loss 25.1868
+step 50 loss 22.5210
+step 60 loss 23.5556
+step 70 loss 24.8862
+step 80 loss 24.1337
+step 90 loss 23.7585
+step 100 loss 24.6212
+step 110 loss 24.2625
+step 120 loss 23.1966
+step 130 loss 25.2041
+step 140 loss 25.3219
+step 150 loss 23.2745
+step 160 loss 22.5545
+step 170 loss 23.1718
+step 180 loss 23.0394
+step 190 loss 22.7233
+step 200 loss 21.9401
+step 210 loss 25.5422
+step 220 loss 21.4859
+step 230 loss 23.4416
+step 240 loss 22.9641
+step 250 loss 25.0603
+step 260 loss 23.2513
+step 270 loss 24.1643
+step 280 loss 23.8010
+step 290 loss 23.6313
+step 300 loss 23.3880
+step 310 loss 24.3065
+step 320 loss 23.3193
+step 330 loss 23.3904
+step 340 loss 24.1545
+step 350 loss 23.7178
+step 360 loss 23.2984
+step 370 loss 23.2502
+step 380 loss 21.3423
+step 390 loss 22.5519
+step 400 loss 22.7438
+step 410 loss 22.7722
+step 420 loss 21.2174
+step 430 loss 21.8338
+step 440 loss 22.7620
+step 450 loss 23.0569
+step 460 loss 24.2819
+step 470 loss 23.5271
+step 480 loss 22.0821
+step 490 loss 21.8901
+step 500 loss 24.0170
+[step 500 (tuned)] ControlEval success 45/100 = 45.0% partial 0.82 (44s) | fo_stable_fast=6/10 fo_stable_moderate=6/10 fo_stable_slow=8/10 fo_unstable=4/10 fo_w_delay=6/10 higher_order=1/10 so_stable_fast=3/10 so_stable_moderate=3/10 so_stable_slow=8/10 so_unstable=0/10
+checkpoint river://bc0d3574-a67f-4261-8ccf-034a572496f6/sampler_weights/pid-q9b_v3

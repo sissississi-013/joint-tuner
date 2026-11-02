@@ -1,0 +1,100 @@
+[
+ {
+  "before": "Base 9B, 1 sample",
+  "after": "Tuned v3, greedy",
+  "n": 100,
+  "before_acc": 0.08,
+  "after_acc": 0.45,
+  "only_after": 42,
+  "only_before": 5,
+  "mcnemar_p": 2.4579776436439715e-08,
+  "ci95": [
+   0.26,
+   0.48000000000000004
+  ]
+ },
+ {
+  "before": "Base 9B, best-of-8 + sim",
+  "after": "Tuned v3, best-of-8 + sim",
+  "n": 100,
+  "before_acc": 0.41,
+  "after_acc": 0.76,
+  "only_after": 39,
+  "only_before": 4,
+  "mcnemar_p": 3.1081526685738936e-08,
+  "ci95": [
+   0.24000000000000005,
+   0.45999999999999996
+  ]
+ },
+ {
+  "before": "Tuned v3, greedy",
+  "after": "Tuned v3, best-of-8 + sim",
+  "n": 100,
+  "before_acc": 0.45,
+  "after_acc": 0.76,
+  "only_after": 32,
+  "only_before": 1,
+  "mcnemar_p": 7.916241884231567e-09,
+  "ci95": [
+   0.21999999999999997,
+   0.4
+  ]
+ },
+ {
+  "before": "Kimi K3 thinking",
+  "after": "Tuned v3, greedy",
+  "n": 50,
+  "before_acc": 0.44,
+  "after_acc": 0.42,
+  "only_after": 11,
+  "only_before": 12,
+  "mcnemar_p": 1.0,
+  "ci95": [
+   -0.2,
+   0.16000000000000003
+  ]
+ },
+ {
+  "before": "Kimi K3 thinking",
+  "after": "Tuned v3, best-of-8 + sim",
+  "n": 50,
+  "before_acc": 0.44,
+  "after_acc": 0.74,
+  "only_after": 20,
+  "only_before": 5,
+  "mcnemar_p": 0.004077315330505371,
+  "ci95": [
+   0.12,
+   0.48
+  ]
+ },
+ {
+  "before": "Qwen3.8 27B",
+  "after": "Tuned v3, greedy",
+  "n": 50,
+  "before_acc": 0.1,
+  "after_acc": 0.42,
+  "only_after": 18,
+  "only_before": 2,
+  "mcnemar_p": 0.0004024505615234375,
+  "ci95": [
+   0.16000000000000003,
+   0.48
+  ]
+ },
+ {
+  "before": "Kimi K3 thinking",
+  "after": "3 ckpts x 8 + sim",
+  "n": 50,
+  "before_acc": 0.44,
+  "after_acc": 0.84,
+  "only_after": 21,
+  "only_before": 1,
+  "mcnemar_p": 1.0967254638671875e-05,
+  "ci95": [
+   0.25999999999999995,
+   0.54
+  ]
+ }
+]

@@ -1,0 +1,42 @@
+[
+ {
+  "uid": "first_order_stable_fast/0",
+  "category": "first_order_stable_fast",
+  "latency_s": 14.416778087615967,
+  "prompt_tokens": 167,
+  "completion_tokens": 738,
+  "gains": {
+   "Kp": 0.1,
+   "Ki": 0.03896702460734107,
+   "Kd": 0.001
+  },
+  "success": true,
+  "checks": {
+   "gm": true,
+   "pm": true,
+   "ts": true,
+   "os": true,
+   "ess": true
+  }
+ },
+ {
+  "uid": "first_order_stable_moderate/0",
+  "category": "first_order_stable_moderate",
+  "latency_s": 9.7033851146698,
+  "prompt_tokens": 167,
+  "completion_tokens": 495,
+  "gains": {
+   "Kp": 0.08,
+   "Ki": 0.05,
+   "Kd": 0
+  },
+  "success": true,
+  "checks": {
+   "gm": true,
+   "pm": true,
+   "ts": true,
+   "os": true,
+   "ess": true
+  }
+ }
+]

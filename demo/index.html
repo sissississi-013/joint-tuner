@@ -1,0 +1,182 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Joint Tuner</title>
+<style>
+:root{
+  --bg:#f6f5f2; --panel:#ffffff; --ink:#1b1b1a; --muted:#6b6a66; --line:#dcdad4;
+  --target:#1b1b1a; --band:rgba(40,120,80,.10); --ceil:#b4532a;
+  --m-qwen27:#8a8780; --m-kimi_think:#3d6fb6; --m-ours:#c2410c;
+  --pass:#1f7a4d; --fail:#b42318;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#121212; --panel:#1b1b1b; --ink:#ecebe7; --muted:#a3a19b; --line:#33322f;
+    --target:#ecebe7; --band:rgba(80,180,120,.14); --ceil:#e08a5f;
+    --m-qwen27:#9b9891; --m-kimi_think:#7aa5e8; --m-ours:#f07a3a;
+    --pass:#4cc38a; --fail:#f2766b;
+  }
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.45 ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif}
+main{max-width:1180px;margin:0 auto;padding:24px 16px 60px}
+h1{font-size:22px;margin:0 0 4px;letter-spacing:-.01em}
+.sub{color:var(--muted);margin:0 0 18px}
+.tabs{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:14px}
+.tab{border:1px solid var(--line);background:var(--panel);color:var(--ink);border-radius:999px;padding:6px 12px;cursor:pointer;font-size:13px}
+.tab[aria-selected="true"]{border-color:var(--ink);font-weight:600}
+.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:12px}
+.mhead{display:flex;justify-content:space-between;align-items:baseline;gap:8px}
+.mname{font-weight:600}
+.lat{font-variant-numeric:tabular-nums;color:var(--muted);font-size:13px}
+.verdict{font-weight:700;font-size:13px}
+.ok{color:var(--pass)} .bad{color:var(--fail)}
+svg.arm{width:100%;height:170px;display:block}
+.chips{display:flex;flex-wrap:wrap;gap:4px;margin-top:6px}
+.chip{font-size:12px;border-radius:6px;padding:2px 6px;border:1px solid var(--line)}
+.chip.ok{border-color:var(--pass)} .chip.bad{border-color:var(--fail)}
+.gains{font:12px ui-monospace,Menlo,monospace;color:var(--muted);margin-top:6px;word-break:break-all}
+.row{display:grid;grid-template-columns:2fr 1fr;gap:12px;margin-top:12px}
+canvas{width:100%;height:280px;display:block}
+.controls{display:flex;gap:10px;align-items:center;margin:12px 0}
+button.play{background:var(--ink);color:var(--bg);border:0;border-radius:8px;padding:8px 14px;font-weight:600;cursor:pointer}
+.spec{font-size:13px;color:var(--muted)}
+.spec b{color:var(--ink);font-weight:600}
+.legend{display:flex;gap:12px;flex-wrap:wrap;font-size:12px;color:var(--muted);margin-top:6px}
+.sw{display:inline-block;width:10px;height:3px;vertical-align:middle;margin-right:4px}
+h2{font-size:15px;margin:0 0 8px}
+@media (max-width:820px){.grid{grid-template-columns:1fr}.row{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<main>
+  <h1>Joint Tuner</h1>
+  <p class="sub">Every arm below gets the same command: rotate 90°. Each one runs the PID gains a different model wrote for its motor. The physics decides who passes.</p>
+  <div class="tabs" id="tabs" role="tablist"></div>
+  <div class="card spec" id="spec"></div>
+  <div class="controls"><button class="play" id="play">Send command</button><span class="spec" id="clock">t = 0.00 s</span></div>
+  <div class="grid" id="arms"></div>
+  <div class="row">
+    <div class="card"><h2>Step response vs. spec</h2><canvas id="plot"></canvas>
+      <div class="legend" id="legend"></div></div>
+    <div class="card"><h2>The frontier (ControlEval)</h2><canvas id="front"></canvas>
+      <div class="spec">Success rate vs. seconds per design, log scale. Orange is ours.</div></div>
+  </div>
+</main>
+<script src="data.js"></script>
+<script>
+const D = window.DEMO;
+const NAMES = {
+  first_order_stable_fast:"Fast servo", first_order_stable_moderate:"Conveyor drive", first_order_stable_slow:"Heavy turntable",
+  first_order_unstable:"Self-balancing", first_order_w_delay:"Motor with lag", higher_order:"Flexible arm",
+  second_order_stable_fast:"Wrist joint", second_order_stable_moderate:"Elbow joint", second_order_stable_slow:"Shoulder joint",
+  second_order_unstable:"Inverted pendulum"
+};
+const css = n => getComputedStyle(document.documentElement).getPropertyValue(n).trim();
+let cur = 0, t0 = null, raf = null, tNow = 0;
+
+function tabs(){
+  const el = document.getElementById("tabs"); el.innerHTML = "";
+  D.shows.forEach((s,i)=>{
+    const b = document.createElement("button"); b.className="tab"; b.role="tab";
+    b.textContent = NAMES[s.category] || s.category; b.setAttribute("aria-selected", i===cur);
+    b.onclick = ()=>{cur=i; tNow=0; render(); tabs();}; el.appendChild(b);
+  });
+}
+function specText(s){
+  const p=s.spec, unstable = s.den.slice(1).some(x=>x<0);
+  return `<b>Motor model</b> G(s) = ${s.num.map(x=>+x.toFixed(3)).join(", ")} / [${s.den.map(x=>+(+x).toFixed(3)).join(", ")}]${s.tau?` · delay ${s.tau}s`:""}
+  &nbsp;·&nbsp; <b>Spec</b> settle in ${(+p.settling_time_min).toFixed(3)}–${(+p.settling_time_max).toFixed(2)} s,
+  overshoot ≤ ${(+p.overshoot_max).toFixed(1)}%, phase margin ≥ ${(+p.phase_margin_min).toFixed(1)}°${unstable?"":`, gain margin ≥ ${(+p.gain_margin_min).toFixed(1)} dB`}`;
+}
+function yAt(m,t){
+  if(!m.t) return 0; const n=m.t.length; if(t>=m.t[n-1]) return m.y[n-1];
+  let i=Math.floor(t/m.t[n-1]*(n-1)); i=Math.max(0,Math.min(n-2,i));
+  const a=(t-m.t[i])/(m.t[i+1]-m.t[i]); return m.y[i]*(1-a)+m.y[i+1]*a;
+}
+function armSVG(m){
+  const col = css(`--m-${m.key}`);
+  return `<svg class="arm" viewBox="0 0 220 170" aria-label="${m.name} arm">
+    <path d="M110 140 A90 90 0 0 0 20 140" fill="none" stroke="${css('--line')}" stroke-dasharray="3 4"/>
+    <line x1="110" y1="140" x2="110" y2="40" stroke="${css('--target')}" stroke-width="1" stroke-dasharray="4 4"/>
+    <text x="116" y="48" font-size="10" fill="${css('--muted')}">90°</text>
+    <rect x="96" y="140" width="28" height="18" rx="3" fill="${css('--line')}"/>
+    <g class="link"><line x1="110" y1="140" x2="200" y2="140" stroke="${col}" stroke-width="10" stroke-linecap="round"/>
+    <circle cx="200" cy="140" r="7" fill="${col}"/></g>
+    <circle cx="110" cy="140" r="9" fill="${css('--panel')}" stroke="${col}" stroke-width="3"/>
+  </svg>`;
+}
+function render(){
+  const s=D.shows[cur];
+  document.getElementById("spec").innerHTML = specText(s);
+  const arms=document.getElementById("arms"); arms.innerHTML="";
+  s.methods.forEach(m=>{
+    const c=document.createElement("div"); c.className="card";
+    const chips = Object.entries({pm:"phase margin",ts:"settling",os:"overshoot",gm:"gain margin",ess:"steady error"})
+      .map(([k,l])=> k in m.checks ? `<span class="chip ${m.checks[k]?"ok":"bad"}">${m.checks[k]?"✓":"✗"} ${l}</span>`:"").join("");
+    c.innerHTML = `<div class="mhead"><span class="mname" style="color:${css(`--m-${m.key}`)}">${m.name}</span><span class="lat">${m.latency} to design</span></div>
+      ${armSVG(m)}
+      <div class="verdict ${m.success?"ok":"bad"}">${m.success?"Meets every spec":(m.stable?"Misses spec":"Unstable or no answer")}</div>
+      <div class="chips">${chips || '<span class="chip bad">no valid gains</span>'}</div>
+      <div class="gains">Kp ${fmt(m.gains.Kp)} · Ki ${fmt(m.gains.Ki)} · Kd ${fmt(m.gains.Kd)}</div>`;
+    arms.appendChild(c);
+  });
+  legend(); frame(tNow); frontier();
+}
+const fmt = v => v==null ? "—" : (+v).toPrecision(3);
+function frame(t){
+  const s=D.shows[cur]; const links=[...document.querySelectorAll("#arms .link")];
+  s.methods.forEach((m,i)=>{ const ang = -90*yAt(m,t); links[i].setAttribute("transform",`rotate(${ang} 110 140)`); });
+  document.getElementById("clock").textContent = `t = ${t.toFixed(3)} s`;
+  plot(t);
+}
+function legend(){
+  const s=D.shows[cur];
+  document.getElementById("legend").innerHTML = s.methods.map(m=>`<span><i class="sw" style="background:${css(`--m-${m.key}`)}"></i>${m.name}</span>`).join("")
+   + `<span><i class="sw" style="background:${css('--band')};height:8px"></i>must have settled (±2%)</span><span><i class="sw" style="background:${css('--ceil')}"></i>overshoot ceiling</span>`;
+}
+function setup(cv){
+  const r=cv.getBoundingClientRect(), dpr=window.devicePixelRatio||1;
+  cv.width=r.width*dpr; cv.height=r.height*dpr; const g=cv.getContext("2d"); g.setTransform(dpr,0,0,dpr,0,0); return [g,r.width,r.height];
+}
+function plot(tc){
+  const s=D.shows[cur], cv=document.getElementById("plot"); const [g,W,H]=setup(cv);
+  const P={l:40,r:10,t:10,b:28}, tmax=2.5*s.spec.settling_time_max, ymin=-0.2, ymax=1.6;
+  const X=t=>P.l+(W-P.l-P.r)*t/tmax, Y=y=>P.t+(H-P.t-P.b)*(1-(Math.max(ymin,Math.min(ymax,y))-ymin)/(ymax-ymin));
+  g.clearRect(0,0,W,H);
+  g.fillStyle=css("--band"); g.fillRect(X(s.spec.settling_time_max),Y(1.02),W-P.r-X(s.spec.settling_time_max),Y(0.98)-Y(1.02));
+  g.strokeStyle=css("--ceil"); g.setLineDash([5,4]); g.beginPath(); const oy=1+s.spec.overshoot_max/100; g.moveTo(P.l,Y(oy)); g.lineTo(W-P.r,Y(oy)); g.stroke();
+  g.strokeStyle=css("--target"); g.beginPath(); g.moveTo(P.l,Y(1)); g.lineTo(W-P.r,Y(1)); g.stroke(); g.setLineDash([]);
+  g.fillStyle=css("--muted"); g.font="11px system-ui"; g.fillText("90°",4,Y(1)+4); g.fillText("0°",10,Y(0)+4);
+  g.fillText(`${tmax.toPrecision(2)} s`,W-P.r-34,H-8); g.fillText("0",P.l,H-8);
+  s.methods.forEach(m=>{ if(!m.t) return; g.strokeStyle=css(`--m-${m.key}`); g.lineWidth=m.key==="ours"?2.5:1.6; g.beginPath();
+    m.t.forEach((t,i)=>{ if(t>tc) return; const x=X(t),y=Y(m.y[i]); i?g.lineTo(x,y):g.moveTo(x,y);}); g.stroke(); });
+  g.lineWidth=1;
+}
+function frontier(){
+  const cv=document.getElementById("front"); const [g,W,H]=setup(cv); const P={l:34,r:12,t:12,b:26};
+  const lx=v=>Math.log10(v), x0=lx(0.3), x1=lx(400);
+  const X=v=>P.l+(W-P.l-P.r)*(lx(v)-x0)/(x1-x0), Y=v=>P.t+(H-P.t-P.b)*(1-v/100);
+  g.clearRect(0,0,W,H); g.strokeStyle=css("--line"); g.fillStyle=css("--muted"); g.font="11px system-ui";
+  [1,10,100].forEach(v=>{g.beginPath();g.moveTo(X(v),P.t);g.lineTo(X(v),H-P.b);g.stroke();g.fillText(v+"s",X(v)-8,H-8);});
+  [0,20,40,60,80,100].forEach(v=>{g.fillText(v+"%",2,Y(v)+4);});
+  D.frontier.forEach(p=>{ g.fillStyle=p.ours?css("--m-ours"):css("--m-qwen27"); g.beginPath(); g.arc(X(p.lat),Y(p.succ),p.ours?6:4.5,0,7); g.fill();
+    g.fillStyle=css("--ink"); g.font=(p.ours?"600 ":"")+"11px system-ui";
+    const tx=X(p.lat)+8, right=tx+g.measureText(p.name).width>W; g.fillText(p.name, right?X(p.lat)-8-g.measureText(p.name).width:tx, Y(p.succ)+4); });
+}
+document.getElementById("play").onclick=()=>{
+  cancelAnimationFrame(raf); const s=D.shows[cur], tmax=2.5*s.spec.settling_time_max, dur=4000; t0=performance.now();
+  const step=now=>{ const f=Math.min(1,(now-t0)/dur); tNow=f*tmax; frame(tNow); if(f<1) raf=requestAnimationFrame(step); };
+  raf=requestAnimationFrame(step);
+};
+window.addEventListener("resize",()=>{frame(tNow);frontier();});
+const hp = new URLSearchParams(location.hash.slice(1));
+if (hp.has("tab")) cur = +hp.get("tab");
+if (hp.has("end")) tNow = 2.5 * D.shows[cur].spec.settling_time_max;
+tabs(); render();
+</script>
+</body>
+</html>

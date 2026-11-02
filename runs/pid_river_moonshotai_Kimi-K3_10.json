@@ -1,0 +1,2150 @@
+[
+ {
+  "uid": "first_order_stable_fast/0",
+  "category": "first_order_stable_fast",
+  "latency_s": 16.390801541041583,
+  "completion_tokens": null,
+  "error": "Request timed out.",
+  "parsed": false,
+  "gains": {},
+  "success": false,
+  "stable": false,
+  "score": 0.0,
+  "checks": {}
+ },
+ {
+  "uid": "first_order_stable_fast/1",
+  "category": "first_order_stable_fast",
+  "latency_s": 16.49908983381465,
+  "completion_tokens": null,
+  "error": "Request timed out.",
+  "parsed": false,
+  "gains": {},
+  "success": false,
+  "stable": false,
+  "score": 0.0,
+  "checks": {}
+ },
+ {
+  "uid": "first_order_stable_fast/2",
+  "category": "first_order_stable_fast",
+  "latency_s": 16.517232042271644,
+  "completion_tokens": null,
+  "error": "Request timed out.",
+  "parsed": false,
+  "gains": {},
+  "success": false,
+  "stable": false,
+  "score": 0.0,
+  "checks": {}
+ },
+ {
+  "uid": "first_order_stable_fast/3",
+  "category": "first_order_stable_fast",
+  "latency_s": 16.505882374942303,
+  "completion_tokens": null,
+  "error": "Request timed out.",
+  "parsed": false,
+  "gains": {},
+  "success": false,
+  "stable": false,
+  "score": 0.0,
+  "checks": {}
+ },
+ {
+  "uid": "first_order_stable_fast/4",
+  "category": "first_order_stable_fast",
+  "latency_s": 16.314474458806217,
+  "completion_tokens": null,
+  "error": "Request timed out.",
+  "parsed": false,
+  "gains": {},
+  "success": false,
+  "stable": false,
+  "score": 0.0,
+  "checks": {}
+ },
+ {
+  "uid": "first_order_stable_fast/5",
+  "category": "first_order_stable_fast",
+  "latency_s": 16.312010874971747,
+  "completion_tokens": null,
+  "error": "Request timed out.",
+  "parsed": false,
+  "gains": {},
+  "success": false,
+  "stable": false,
+  "score": 0.0,
+  "checks": {}
+ },
+ {
+  "uid": "first_order_stable_fast/6",
+  "category": "first_order_stable_fast",
+  "latency_s": 16.396212249994278,
+  "completion_tokens": null,
+  "error": "Request timed out.",
+  "parsed": false,
+  "gains": {},
+  "success": false,
+  "stable": false,
+  "score": 0.0,
+  "checks": {}
+ },
+ {
+  "uid": "first_order_stable_fast/7",
+  "category": "first_order_stable_fast",
+  "latency_s": 16.29045904194936,
+  "completion_tokens": null,
+  "error": "Request timed out.",
+  "parsed": false,
+  "gains": {},
+  "success": false,
+  "stable": false,
+  "score": 0.0,
+  "checks": {}
+ },
+ {
+  "uid": "first_order_stable_fast/8",
+  "category": "first_order_stable_fast",
+  "latency_s": 19.03631395800039,
+  "completion_tokens": 32,
+  "error": null,
+  "parsed": true,
+  "gains": {
+   "Kp": 1.0,
+   "Ki": 0.0,
+   "Kd": 0.0
+  },
+  "success": false,
+  "stable": true,
+  "score": 0.6,
+  "checks": {
+   "gm": true,
+   "pm": true,
+   "ts": false,
+   "os": true,
+   "ess": false
+  }
+ },
+ {
+  "uid": "first_order_stable_fast/9",
+  "category": "first_order_stable_fast",
+  "latency_s": 23.87963837524876,
+  "completion_tokens": 32,
+  "error": null,
+  "parsed": true,
+  "gains": {
+   "Kp": 2.5,
+   "Ki": 8.0,
+   "Kd": 0.15
+  },
+  "success": false,
+  "stable": true,
+  "score": 0.8,
+  "checks": {
+   "gm": true,
+   "pm": true,
+   "ts": false,
+   "os": true,
+   "ess": true
+  }
+ },
+ {
+  "uid": "first_order_stable_moderate/0",
+  "category": "first_order_stable_moderate",
+  "latency_s": 23.20960837509483,
+  "completion_tokens": 32,
+  "error": null,
+  "parsed": true,
+  "gains": {
+   "Kp": 0.5,
+   "Ki": 0.1,
+   "Kd": 0.05
+  },
+  "success": false,
+  "stable": true,
+  "score": 0.8,
+  "checks": {
+   "gm": true,
+   "pm": true,
+   "ts": false,
+   "os": true,
+   "ess": true
+  }
+ },
+ {
+  "uid": "first_order_stable_moderate/1",
+  "category": "first_order_stable_moderate",
+  "latency_s": 29.90249479096383,
+  "completion_tokens": 32,
+  "error": null,
+  "parsed": true,
+  "gains": {
+   "Kp": 12.5,
+   "Ki": 85.0,
+   "Kd": 0.35
+  },
+  "success": true,
+  "stable": true,
+  "score": 1.0,
+  "checks": {
+   "gm": true,
+   "pm": true,
+   "ts": true,
+   "os": true,
+   "ess": true
+  }
+ },
+ {
+  "uid": "first_order_stable_moderate/2",
+  "category": "first_order_stable_moderate",
+  "latency_s": 4.087485416792333,
+  "completion_tokens": 32,
+  "error": null,
+  "parsed": true,
+  "gains": {
+   "Kp": 8.5,
+   "Ki": 120.0,
+   "Kd": 0.08
+  },
+  "success": true,
+  "stable": true,
+  "score": 1.0,
+  "checks": {
+   "gm": true,
+   "pm": true,
+   "ts": true,
+   "os": true,
+   "ess": true
+  }
+ },
+ {
+  "uid": "first_order_stable_moderate/3",
+  "category": "first_order_stable_moderate",
+  "latency_s": 0.7200068333186209,
+  "completion_tokens": 32,
+  "error": null,
+  "parsed": true,
+  "gains": {
+   "Kp": 50.0,
+   "Ki": 100.0,
+   "Kd": 0.5
+  },
+  "success": false,
+  "stable": true,
+  "score": 0.8,
+  "checks": {
+   "gm": true,
+   "pm": true,
+   "ts": false,
+   "os": true,
+   "ess": true
+  }
+ },
+ {
+  "uid": "first_order_stable_moderate/4",
+  "category": "first_order_stable_moderate",
+  "latency_s": 1.8688972918316722,
+  "completion_tokens": 32,
+  "error": null,
+  "parsed": true,
+  "gains": {
+   "Kp": 1.0,
+   "Ki": 0.1,
+   "Kd": 0.0
+  },
+  "success": false,
+  "stable": true,
+  "score": 0.8,
+  "checks": {
+   "gm": true,
+   "pm": true,
+   "ts": false,
+   "os": true,
+   "ess": true
+  }
+ },
+ {
+  "uid": "first_order_stable_moderate/5",
+  "category": "first_order_stable_moderate",
+  "latency_s": 0.5489666247740388,
+  "completion_tokens": 32,
+  "error": null,
+  "parsed": true,
+  "gains": {
+   "Kp": 120.0,
+   "Ki": 800.0,
+   "Kd": 0.5
+  },
+  "success": true,
+  "stable": true,
+  "score": 1.0,
+  "checks": {
+   "gm": true,
+   "pm": true,
+   "ts": true,
+   "os": true,
+   "ess": true
+  }
+ },
+ {
+  "uid": "first_order_stable_moderate/6",
+  "category": "first_order_stable_moderate",
+  "latency_s": 4.1322840000502765,
+  "completion_tokens": 32,
+  "error": null,
+  "parsed": true,
+  "gains": {
+   "Kp": 12.5,
+   "Ki": 45.0,
+   "Kd": 0.35
+  },
+  "success": true,
+  "stable": true,
+  "score": 1.0,
+  "checks": {
+   "gm": true,
+   "pm": true,
+   "ts": true,
+   "os": true,
+   "ess": true
+  }
+ },
+ {
+  "uid": "first_order_stable_moderate/7",
+  "category": "first_order_stable_moderate",
+  "latency_s": 0.49599862517789006,
+  "completion_tokens": 32,
+  "error": null,
+  "parsed": true,
+  "gains": {
+   "Kp": 2.5,
+   "Ki": 3.0,
+   "Kd": 0.5
+  },
+  "success": true,
+  "stable": true,
+  "score": 1.0,
+  "checks": {
+   "gm": true,
+   "pm": true,
+   "ts": true,
+   "os": true,
+   "ess": true
+  }
+ },
+ {
+  "uid": "first_order_stable_moderate/8",
+  "category": "first_order_stable_moderate",
+  "latency_s": 2.7987317498773336,
+  "completion_tokens": 32,
+  "error": null,
+  "parsed": true,
+  "gains": {
+   "Kp": 8.5,
+   "Ki": 45.0,
+   "Kd": 0.35
+  },
+  "success": true,
+  "stable": true,
+  "score": 1.0,
+  "checks": {
+   "gm": true,
+   "pm": true,
+   "ts": true,
+   "os": true,
+   "ess": true
+  }
+ },
+ {
+  "uid": "first_order_stable_moderate/9",
+  "category": "first_order_stable_moderate",
+  "latency_s": 10.511824457906187,
+  "completion_tokens": 32,
+  "error": null,
+  "parsed": true,
+  "gains": {
+   "Kp": 2.5,
+   "Ki": 8.0,
+   "Kd": 0.15
+  },
+  "success": true,
+  "stable": true,
+  "score": 1.0,
+  "checks": {
+   "gm": true,
+   "pm": true,
+   "ts": true,
+   "os": true,
+   "ess": true
+  }
+ },
+ {
+  "uid": "first_order_stable_slow/0",
+  "category": "first_order_stable_slow",
+  "latency_s": 11.471835082862526,
+  "completion_tokens": 33,
+  "error": null,
+  "parsed": true,
+  "gains": {
+   "Kp": 0.05,
+   "Ki": 0.0005,
+   "Kd": 0.0
+  },
+  "success": false,
+  "stable": true,
+  "score": 0.8,
+  "checks": {
+   "gm": true,
+   "pm": true,
+   "ts": false,
+   "os": true,
+   "ess": true
+  }
+ },
+ {
+  "uid": "first_order_stable_slow/1",
+  "category": "first_order_stable_slow",
+  "latency_s": 5.109360124915838,
+  "completion_tokens": 32,
+  "error": null,
+  "parsed": true,
+  "gains": {
+   "Kp": 8.5,
+   "Ki": 12.0,
+   "Kd": 0.35
+  },
+  "success": true,
+  "stable": true,
+  "score": 1.0,
+  "checks": {
+   "gm": true,
+   "pm": true,
+   "ts": true,
+   "os": true,
+   "ess": true
+  }
+ },
+ {
+  "uid": "first_order_stable_slow/2",
+  "category": "first_order_stable_slow",
+  "latency_s": 3.2326171658933163,
+  "completion_tokens": 32,
+  "error": null,
+  "parsed": true,
+  "gains": {
+   "Kp": 1.5,
+   "Ki": 2.0,
+   "Kd": 0.1
+  },
+  "success": true,
+  "stable": true,
+  "score": 1.0,
+  "checks": {
+   "gm": true,
+   "pm": true,
+   "ts": true,
+   "os": true,
+   "ess": true
+  }
+ },
+ {
+  "uid": "first_order_stable_slow/3",
+  "category": "first_order_stable_slow",
+  "latency_s": 3.9182121669873595,
+  "completion_tokens": 32,
+  "error": null,
+  "parsed": true,
+  "gains": {
+   "Kp": 1.5,
+   "Ki": 0.5,
+   "Kd": 0.1
+  },
+  "success": false,
+  "stable": true,
+  "score": 0.8,
+  "checks": {
+   "gm": true,
+   "pm": true,
+   "ts": false,
+   "os": true,
+   "ess": true
+  }
+ },
+ {
+  "uid": "first_order_stable_slow/4",
+  "category": "first_order_stable_slow",
+  "latency_s": 1.9289925410412252,
+  "completion_tokens": 32,
+  "error": null,
+  "parsed": true,
+  "gains": {
+   "Kp": 0.5,
+   "Ki": 0.05,
+   "Kd": 0.0
+  },
+  "success": false,
+  "stable": true,
+  "score": 0.8,
+  "checks": {
+   "gm": true,
+   "pm": true,
+   "ts": false,
+   "os": true,
+   "ess": true
+  }
+ },
+ {
+  "uid": "first_order_stable_slow/5",
+  "category": "first_order_stable_slow",
+  "latency_s": 4.132487415801734,
+  "completion_tokens": 32,
+  "error": null,
+  "parsed": true,
+  "gains": {
+   "Kp": 18.5,
+   "Ki": 45.0,
+   "Kd": 0.35
+  },
+  "success": true,
+  "stable": true,
+  "score": 1.0,
+  "checks": {
+   "gm": true,
+   "pm": true,
+   "ts": true,
+   "os": true,
+   "ess": true
+  }
+ },
+ {
+  "uid": "first_order_stable_slow/6",
+  "category": "first_order_stable_slow",
+  "latency_s": 1.993467167019844,
+  "completion_tokens": 32,
+  "error": null,
+  "parsed": true,
+  "gains": {
+   "Kp": 2.5,
+   "Ki": 0.5,
+   "Kd": 0.1
+  },
+  "success": false,
+  "stable": true,
+  "score": 0.8,
+  "checks": {
+   "gm": true,
+   "pm": true,
+   "ts": false,
+   "os": true,
+   "ess": true
+  }
+ },
+ {
+  "uid": "first_order_stable_slow/7",
+  "category": "first_order_stable_slow",
+  "latency_s": 4.623608749825507,
+  "completion_tokens": 32,
+  "error": null,
+  "parsed": true,
+  "gains": {
+   "Kp": 0.5,
+   "Ki": 0.1,
+   "Kd": 0.0
+  },
+  "success": false,
+  "stable": true,
+  "score": 0.8,
+  "checks": {
+   "gm": true,
+   "pm": true,
+   "ts": false,
+   "os": true,
+   "ess": true
+  }
+ },
+ {
+  "uid": "first_order_stable_slow/8",
+  "category": "first_order_stable_slow",
+  "latency_s": 0.47261987486854196,
+  "completion_tokens": 32,
+  "error": null,
+  "parsed": true,
+  "gains": {
+   "Kp": 1.5,
+   "Ki": 0.5,
+   "Kd": 0.1
+  },
+  "success": false,
+  "stable": true,
+  "score": 0.8,
+  "checks": {
+   "gm": true,
+   "pm": true,
+   "ts": false,
+   "os": true,
+   "ess": true
+  }
+ },
+ {
+  "uid": "first_order_stable_slow/9",
+  "category": "first_order_stable_slow",
+  "latency_s": 3.7583743343129754,
+  "completion_tokens": 32,
+  "error": null,
+  "parsed": true,
+  "gains": {
+   "Kp": 0.5,
+   "Ki": 0.1,
+   "Kd": 0.05
+  },
+  "success": false,
+  "stable": true,
+  "score": 0.8,
+  "checks": {
+   "gm": true,
+   "pm": true,
+   "ts": false,
+   "os": true,
+   "ess": true
+  }
+ },
+ {
+  "uid": "first_order_unstable/0",
+  "category": "first_order_unstable",
+  "latency_s": 10.329408792313188,
+  "completion_tokens": 32,
+  "error": null,
+  "parsed": true,
+  "gains": {
+   "Kp": 0.5,
+   "Ki": 0.1,
+   "Kd": 0.01
+  },
+  "success": false,
+  "stable": true,
+  "score": 0.4,
+  "checks": {
+   "gm": true,
+   "pm": false,
+   "ts": false,
+   "os": false,
+   "ess": true
+  }
+ },
+ {
+  "uid": "first_order_unstable/1",
+  "category": "first_order_unstable",
+  "latency_s": 4.196807249914855,
+  "completion_tokens": 32,
+  "error": null,
+  "parsed": true,
+  "gains": {
+   "Kp": 0.5,
+   "Ki": 0.1,
+   "Kd": 0.01
+  },
+  "success": false,
+  "stable": true,
+  "score": 0.4,
+  "checks": {
+   "gm": true,
+   "pm": false,
+   "ts": false,
+   "os": false,
+   "ess": true
+  }
+ },
+ {
+  "uid": "first_order_unstable/2",
+  "category": "first_order_unstable",
+  "latency_s": 1.8880967078730464,
+  "completion_tokens": 33,
+  "error": null,
+  "parsed": true,
+  "gains": {
+   "Kp": 150.0,
+   "Ki": 3000.0,
+   "Kd": 0.5
+  },
+  "success": true,
+  "stable": true,
+  "score": 1.0,
+  "checks": {
+   "gm": true,
+   "pm": true,
+   "ts": true,
+   "os": true,
+   "ess": true
+  }
+ },
+ {
+  "uid": "first_order_unstable/3",
+  "category": "first_order_unstable",
+  "latency_s": 3.1503617498092353,
+  "completion_tokens": 33,
+  "error": null,
+  "parsed": true,
+  "gains": {
+   "Kp": 45.0,
+   "Ki": 1200.0,
+   "Kd": 0.35
+  },
+  "success": false,
+  "stable": true,
+  "score": 0.8,
+  "checks": {
+   "gm": true,
+   "pm": true,
+   "ts": false,
+   "os": true,
+   "ess": true
+  }
+ },
+ {
+  "uid": "first_order_unstable/4",
+  "category": "first_order_unstable",
+  "latency_s": 4.139495417010039,
+  "completion_tokens": 32,
+  "error": null,
+  "parsed": true,
+  "gains": {
+   "Kp": 100.0,
+   "Ki": 500.0,
+   "Kd": 0.5
+  },
+  "success": false,
+  "stable": true,
+  "score": 0.6,
+  "checks": {
+   "gm": true,
+   "pm": true,
+   "ts": false,
+   "os": false,
+   "ess": true
+  }
+ },
+ {
+  "uid": "first_order_unstable/5",
+  "category": "first_order_unstable",
+  "latency_s": 1.816432749852538,
+  "completion_tokens": 32,
+  "error": null,
+  "parsed": true,
+  "gains": {
+   "Kp": 0.0,
+   "Ki": 0.0,
+   "Kd": 0.0
+  },
+  "success": false,
+  "stable": true,
+  "score": 0.6,
+  "checks": {
+   "gm": true,
+   "pm": true,
+   "ts": false,
+   "os": true,
+   "ess": false
+  }
+ },
+ {
+  "uid": "first_order_unstable/6",
+  "category": "first_order_unstable",
+  "latency_s": 4.166155833285302,
+  "completion_tokens": 32,
+  "error": null,
+  "parsed": true,
+  "gains": {
+   "Kp": 0.5,
+   "Ki": 0.1,
+   "Kd": 0.01
+  },
+  "success": false,
+  "stable": true,
+  "score": 0.4,
+  "checks": {
+   "gm": true,
+   "pm": false,
+   "ts": false,
+   "os": false,
+   "ess": true
+  }
+ },
+ {
+  "uid": "first_order_unstable/7",
+  "category": "first_order_unstable",
+  "latency_s": 1.7956211660057306,
+  "completion_tokens": 32,
+  "error": null,
+  "parsed": true,
+  "gains": {
+   "Kp": 45.0,
+   "Ki": 800.0,
+   "Kd": 0.15
+  },
+  "success": false,
+  "stable": true,
+  "score": 0.8,
+  "checks": {
+   "gm": true,
+   "pm": true,
+   "ts": false,
+   "os": true,
+   "ess": true
+  }
+ },
+ {
+  "uid": "first_order_unstable/8",
+  "category": "first_order_unstable",
+  "latency_s": 4.160827834159136,
+  "completion_tokens": 32,
+  "error": null,
+  "parsed": true,
+  "gains": {
+   "Kp": 1.5,
+   "Ki": 3.0,
+   "Kd": 0.1
+  },
+  "success": false,
+  "stable": true,
+  "score": 0.8,
+  "checks": {
+   "gm": true,
+   "pm": true,
+   "ts": false,
+   "os": true,
+   "ess": true
+  }
+ },
+ {
+  "uid": "first_order_unstable/9",
+  "category": "first_order_unstable",
+  "latency_s": 9.507498749997467,
+  "completion_tokens": 33,
+  "error": null,
+  "parsed": true,
+  "gains": {
+   "Kp": 100.0,
+   "Ki": 2000.0,
+   "Kd": 0.5
+  },
+  "success": true,
+  "stable": true,
+  "score": 1.0,
+  "checks": {
+   "gm": true,
+   "pm": true,
+   "ts": true,
+   "os": true,
+   "ess": true
+  }
+ },
+ {
+  "uid": "first_order_w_delay/0",
+  "category": "first_order_w_delay",
+  "latency_s": 1.8650866248644888,
+  "completion_tokens": 32,
+  "error": null,
+  "parsed": true,
+  "gains": {
+   "Kp": 8.5,
+   "Ki": 12.0,
+   "Kd": 0.35
+  },
+  "success": false,
+  "stable": true,
+  "score": 0.6,
+  "checks": {
+   "gm": false,
+   "pm": true,
+   "ts": false,
+   "os": true,
+   "ess": true
+  }
+ },
+ {
+  "uid": "first_order_w_delay/1",
+  "category": "first_order_w_delay",
+  "latency_s": 4.211399666965008,
+  "completion_tokens": 32,
+  "error": null,
+  "parsed": true,
+  "gains": {
+   "Kp": 1.5,
+   "Ki": 2.0,
+   "Kd": 0.05
+  },
+  "success": false,
+  "stable": false,
+  "score": 0.0,
+  "checks": {}
+ },
+ {
+  "uid": "first_order_w_delay/2",
+  "category": "first_order_w_delay",
+  "latency_s": 2.3880170839838684,
+  "completion_tokens": 32,
+  "error": null,
+  "parsed": true,
+  "gains": {
+   "Kp": 1.5,
+   "Ki": 2.0,
+   "Kd": 0.05
+  },
+  "success": false,
+  "stable": true,
+  "score": 0.6,
+  "checks": {
+   "gm": false,
+   "pm": true,
+   "ts": false,
+   "os": true,
+   "ess": true
+  }
+ },
+ {
+  "uid": "first_order_w_delay/3",
+  "category": "first_order_w_delay",
+  "latency_s": 4.110695292241871,
+  "completion_tokens": 32,
+  "error": null,
+  "parsed": true,
+  "gains": {
+   "Kp": 1.5,
+   "Ki": 3.0,
+   "Kd": 0.05
+  },
+  "success": false,
+  "stable": true,
+  "score": 0.6,
+  "checks": {
+   "gm": false,
+   "pm": true,
+   "ts": false,
+   "os": true,
+   "ess": true
+  }
+ },
+ {
+  "uid": "first_order_w_delay/4",
+  "category": "first_order_w_delay",
+  "latency_s": 2.6846304582431912,
+  "completion_tokens": 32,
+  "error": null,
+  "parsed": true,
+  "gains": {
+   "Kp": 0.85,
+   "Ki": 1.2,
+   "Kd": 0.08
+  },
+  "success": false,
+  "stable": false,
+  "score": 0.0,
+  "checks": {}
+ },
+ {
+  "uid": "first_order_w_delay/5",
+  "category": "first_order_w_delay",
+  "latency_s": 9.86701904097572,
+  "completion_tokens": 32,
+  "error": null,
+  "parsed": true,
+  "gains": {
+   "Kp": 0.35,
+   "Ki": 0.5,
+   "Kd": 0.05
+  },
+  "success": false,
+  "stable": true,
+  "score": 0.6,
+  "checks": {
+   "gm": false,
+   "pm": true,
+   "ts": false,
+   "os": true,
+   "ess": true
+  }
+ },
+ {
+  "uid": "first_order_w_delay/6",
+  "category": "first_order_w_delay",
+  "latency_s": 4.204671583138406,
+  "completion_tokens": 32,
+  "error": null,
+  "parsed": true,
+  "gains": {
+   "Kp": 0.35,
+   "Ki": 0.15,
+   "Kd": 0.05
+  },
+  "success": false,
+  "stable": false,
+  "score": 0.0,
+  "checks": {}
+ },
+ {
+  "uid": "first_order_w_delay/7",
+  "category": "first_order_w_delay",
+  "latency_s": 0.47584049962460995,
+  "completion_tokens": 32,
+  "error": null,
+  "parsed": true,
+  "gains": {
+   "Kp": 1.5,
+   "Ki": 2.0,
+   "Kd": 0.1
+  },
+  "success": false,
+  "stable": true,
+  "score": 0.6,
+  "checks": {
+   "gm": false,
+   "pm": true,
+   "ts": false,
+   "os": true,
+   "ess": true
+  }
+ },
+ {
+  "uid": "first_order_w_delay/8",
+  "category": "first_order_w_delay",
+  "latency_s": 2.8836391251534224,
+  "completion_tokens": 32,
+  "error": null,
+  "parsed": true,
+  "gains": {
+   "Kp": 1.85,
+   "Ki": 4.2,
+   "Kd": 0.12
+  },
+  "success": false,
+  "stable": false,
+  "score": 0.0,
+  "checks": {}
+ },
+ {
+  "uid": "first_order_w_delay/9",
+  "category": "first_order_w_delay",
+  "latency_s": 4.160942334216088,
+  "completion_tokens": 32,
+  "error": null,
+  "parsed": true,
+  "gains": {
+   "Kp": 2.5,
+   "Ki": 8.0,
+   "Kd": 0.15
+  },
+  "success": false,
+  "stable": false,
+  "score": 0.0,
+  "checks": {}
+ },
+ {
+  "uid": "higher_order/0",
+  "category": "higher_order",
+  "latency_s": 1.8426875839941204,
+  "completion_tokens": 32,
+  "error": null,
+  "parsed": true,
+  "gains": {
+   "Kp": 1.5,
+   "Ki": 0.5,
+   "Kd": 0.1
+  },
+  "success": false,
+  "stable": true,
+  "score": 0.8,
+  "checks": {
+   "gm": true,
+   "pm": true,
+   "ts": false,
+   "os": true,
+   "ess": true
+  }
+ },
+ {
+  "uid": "higher_order/1",
+  "category": "higher_order",
+  "latency_s": 9.459714541677386,
+  "completion_tokens": 32,
+  "error": null,
+  "parsed": true,
+  "gains": {
+   "Kp": 1.5,
+   "Ki": 0.5,
+   "Kd": 0.1
+  },
+  "success": false,
+  "stable": true,
+  "score": 0.8,
+  "checks": {
+   "gm": true,
+   "pm": true,
+   "ts": false,
+   "os": true,
+   "ess": true
+  }
+ },
+ {
+  "uid": "higher_order/2",
+  "category": "higher_order",
+  "latency_s": 1.8088510418310761,
+  "completion_tokens": 32,
+  "error": null,
+  "parsed": true,
+  "gains": {
+   "Kp": 0.85,
+   "Ki": 0.12,
+   "Kd": 0.08
+  },
+  "success": false,
+  "stable": true,
+  "score": 0.8,
+  "checks": {
+   "gm": true,
+   "pm": true,
+   "ts": false,
+   "os": true,
+   "ess": true
+  }
+ },
+ {
+  "uid": "higher_order/3",
+  "category": "higher_order",
+  "latency_s": 4.207718041725457,
+  "completion_tokens": 32,
+  "error": null,
+  "parsed": true,
+  "gains": {
+   "Kp": 0.85,
+   "Ki": 0.12,
+   "Kd": 0.35
+  },
+  "success": false,
+  "stable": true,
+  "score": 0.8,
+  "checks": {
+   "gm": true,
+   "pm": true,
+   "ts": false,
+   "os": true,
+   "ess": true
+  }
+ },
+ {
+  "uid": "higher_order/4",
+  "category": "higher_order",
+  "latency_s": 4.185461166780442,
+  "completion_tokens": 32,
+  "error": null,
+  "parsed": true,
+  "gains": {
+   "Kp": 0.5,
+   "Ki": 0.5,
+   "Kd": 0.1
+  },
+  "success": false,
+  "stable": true,
+  "score": 0.6,
+  "checks": {
+   "gm": true,
+   "pm": true,
+   "ts": false,
+   "os": false,
+   "ess": true
+  }
+ },
+ {
+  "uid": "higher_order/5",
+  "category": "higher_order",
+  "latency_s": 1.8598081250675023,
+  "completion_tokens": 32,
+  "error": null,
+  "parsed": true,
+  "gains": {
+   "Kp": 1.5,
+   "Ki": 0.5,
+   "Kd": 0.1
+  },
+  "success": false,
+  "stable": true,
+  "score": 0.8,
+  "checks": {
+   "gm": true,
+   "pm": true,
+   "ts": false,
+   "os": true,
+   "ess": true
+  }
+ },
+ {
+  "uid": "higher_order/6",
+  "category": "higher_order",
+  "latency_s": 1.8086157920770347,
+  "completion_tokens": 32,
+  "error": null,
+  "parsed": true,
+  "gains": {
+   "Kp": 1.5,
+   "Ki": 0.5,
+   "Kd": 0.1
+  },
+  "success": false,
+  "stable": true,
+  "score": 0.8,
+  "checks": {
+   "gm": true,
+   "pm": true,
+   "ts": false,
+   "os": true,
+   "ess": true
+  }
+ },
+ {
+  "uid": "higher_order/7",
+  "category": "higher_order",
+  "latency_s": 9.607783250045031,
+  "completion_tokens": 32,
+  "error": null,
+  "parsed": true,
+  "gains": {
+   "Kp": 0.5,
+   "Ki": 0.1,
+   "Kd": 0.05
+  },
+  "success": false,
+  "stable": true,
+  "score": 0.8,
+  "checks": {
+   "gm": true,
+   "pm": true,
+   "ts": false,
+   "os": true,
+   "ess": true
+  }
+ },
+ {
+  "uid": "higher_order/8",
+  "category": "higher_order",
+  "latency_s": 1.8549352092668414,
+  "completion_tokens": 32,
+  "error": null,
+  "parsed": true,
+  "gains": {
+   "Kp": 1.5,
+   "Ki": 0.5,
+   "Kd": 0.8
+  },
+  "success": false,
+  "stable": true,
+  "score": 0.8,
+  "checks": {
+   "gm": true,
+   "pm": true,
+   "ts": false,
+   "os": true,
+   "ess": true
+  }
+ },
+ {
+  "uid": "higher_order/9",
+  "category": "higher_order",
+  "latency_s": 4.135966292116791,
+  "completion_tokens": 32,
+  "error": null,
+  "parsed": true,
+  "gains": {
+   "Kp": 8.5,
+   "Ki": 12.0,
+   "Kd": 0.8
+  },
+  "success": false,
+  "stable": true,
+  "score": 0.8,
+  "checks": {
+   "gm": true,
+   "pm": true,
+   "ts": false,
+   "os": true,
+   "ess": true
+  }
+ },
+ {
+  "uid": "second_order_stable_fast/0",
+  "category": "second_order_stable_fast",
+  "latency_s": 2.819873624946922,
+  "completion_tokens": 32,
+  "error": null,
+  "parsed": true,
+  "gains": {
+   "Kp": 0.85,
+   "Ki": 0.35,
+   "Kd": 0.12
+  },
+  "success": false,
+  "stable": true,
+  "score": 0.6,
+  "checks": {
+   "gm": true,
+   "pm": false,
+   "ts": true,
+   "os": false,
+   "ess": true
+  }
+ },
+ {
+  "uid": "second_order_stable_fast/1",
+  "category": "second_order_stable_fast",
+  "latency_s": 4.114817833993584,
+  "completion_tokens": 32,
+  "error": null,
+  "parsed": true,
+  "gains": {
+   "Kp": 2.5,
+   "Ki": 0.8,
+   "Kd": 0.15
+  },
+  "success": false,
+  "stable": true,
+  "score": 0.4,
+  "checks": {
+   "gm": true,
+   "pm": false,
+   "ts": false,
+   "os": false,
+   "ess": true
+  }
+ },
+ {
+  "uid": "second_order_stable_fast/2",
+  "category": "second_order_stable_fast",
+  "latency_s": 1.8146647079847753,
+  "completion_tokens": 32,
+  "error": null,
+  "parsed": true,
+  "gains": {
+   "Kp": 2.5,
+   "Ki": 3.0,
+   "Kd": 0.5
+  },
+  "success": true,
+  "stable": true,
+  "score": 1.0,
+  "checks": {
+   "gm": true,
+   "pm": true,
+   "ts": true,
+   "os": true,
+   "ess": true
+  }
+ },
+ {
+  "uid": "second_order_stable_fast/3",
+  "category": "second_order_stable_fast",
+  "latency_s": 3.1358250421471894,
+  "completion_tokens": 32,
+  "error": null,
+  "parsed": true,
+  "gains": {
+   "Kp": 2.5,
+   "Ki": 8.0,
+   "Kd": 0.15
+  },
+  "success": false,
+  "stable": true,
+  "score": 0.4,
+  "checks": {
+   "gm": true,
+   "pm": false,
+   "ts": false,
+   "os": false,
+   "ess": true
+  }
+ },
+ {
+  "uid": "second_order_stable_fast/4",
+  "category": "second_order_stable_fast",
+  "latency_s": 4.96928224992007,
+  "completion_tokens": 32,
+  "error": null,
+  "parsed": true,
+  "gains": {
+   "Kp": 2.5,
+   "Ki": 3.0,
+   "Kd": 0.8
+  },
+  "success": true,
+  "stable": true,
+  "score": 1.0,
+  "checks": {
+   "gm": true,
+   "pm": true,
+   "ts": true,
+   "os": true,
+   "ess": true
+  }
+ },
+ {
+  "uid": "second_order_stable_fast/5",
+  "category": "second_order_stable_fast",
+  "latency_s": 3.344539042096585,
+  "completion_tokens": 32,
+  "error": null,
+  "parsed": true,
+  "gains": {
+   "Kp": 0.5,
+   "Ki": 0.1,
+   "Kd": 0.1
+  },
+  "success": false,
+  "stable": true,
+  "score": 0.6,
+  "checks": {
+   "gm": true,
+   "pm": false,
+   "ts": true,
+   "os": false,
+   "ess": true
+  }
+ },
+ {
+  "uid": "second_order_stable_fast/6",
+  "category": "second_order_stable_fast",
+  "latency_s": 4.160371208097786,
+  "completion_tokens": 32,
+  "error": null,
+  "parsed": true,
+  "gains": {
+   "Kp": 2.5,
+   "Ki": 8.0,
+   "Kd": 0.15
+  },
+  "success": false,
+  "stable": true,
+  "score": 0.6,
+  "checks": {
+   "gm": true,
+   "pm": false,
+   "ts": true,
+   "os": false,
+   "ess": true
+  }
+ },
+ {
+  "uid": "second_order_stable_fast/7",
+  "category": "second_order_stable_fast",
+  "latency_s": 9.527108166832477,
+  "completion_tokens": 32,
+  "error": null,
+  "parsed": true,
+  "gains": {
+   "Kp": 8.5,
+   "Ki": 45.0,
+   "Kd": 0.35
+  },
+  "success": false,
+  "stable": true,
+  "score": 0.6,
+  "checks": {
+   "gm": true,
+   "pm": false,
+   "ts": true,
+   "os": false,
+   "ess": true
+  }
+ },
+ {
+  "uid": "second_order_stable_fast/8",
+  "category": "second_order_stable_fast",
+  "latency_s": 5.63324891589582,
+  "completion_tokens": 32,
+  "error": null,
+  "parsed": true,
+  "gains": {
+   "Kp": 8.5,
+   "Ki": 12.0,
+   "Kd": 0.8
+  },
+  "success": false,
+  "stable": true,
+  "score": 0.6,
+  "checks": {
+   "gm": true,
+   "pm": false,
+   "ts": true,
+   "os": false,
+   "ess": true
+  }
+ },
+ {
+  "uid": "second_order_stable_fast/9",
+  "category": "second_order_stable_fast",
+  "latency_s": 0.722287833224982,
+  "completion_tokens": 32,
+  "error": null,
+  "parsed": true,
+  "gains": {
+   "Kp": 0.5,
+   "Ki": 0.1,
+   "Kd": 0.1
+  },
+  "success": false,
+  "stable": true,
+  "score": 0.6,
+  "checks": {
+   "gm": true,
+   "pm": false,
+   "ts": true,
+   "os": false,
+   "ess": true
+  }
+ },
+ {
+  "uid": "second_order_stable_moderate/0",
+  "category": "second_order_stable_moderate",
+  "latency_s": 4.789166749920696,
+  "completion_tokens": 32,
+  "error": null,
+  "parsed": true,
+  "gains": {
+   "Kp": 0.85,
+   "Ki": 0.12,
+   "Kd": 0.35
+  },
+  "success": false,
+  "stable": true,
+  "score": 0.8,
+  "checks": {
+   "gm": true,
+   "pm": true,
+   "ts": false,
+   "os": true,
+   "ess": true
+  }
+ },
+ {
+  "uid": "second_order_stable_moderate/1",
+  "category": "second_order_stable_moderate",
+  "latency_s": 2.8503564172424376,
+  "completion_tokens": 32,
+  "error": null,
+  "parsed": true,
+  "gains": {
+   "Kp": 2.5,
+   "Ki": 0.8,
+   "Kd": 0.5
+  },
+  "success": true,
+  "stable": true,
+  "score": 1.0,
+  "checks": {
+   "gm": true,
+   "pm": true,
+   "ts": true,
+   "os": true,
+   "ess": true
+  }
+ },
+ {
+  "uid": "second_order_stable_moderate/2",
+  "category": "second_order_stable_moderate",
+  "latency_s": 3.251364499796182,
+  "completion_tokens": 32,
+  "error": null,
+  "parsed": true,
+  "gains": {
+   "Kp": 1.5,
+   "Ki": 2.0,
+   "Kd": 0.5
+  },
+  "success": false,
+  "stable": true,
+  "score": 0.8,
+  "checks": {
+   "gm": true,
+   "pm": true,
+   "ts": false,
+   "os": true,
+   "ess": true
+  }
+ },
+ {
+  "uid": "second_order_stable_moderate/3",
+  "category": "second_order_stable_moderate",
+  "latency_s": 0.5352035840041935,
+  "completion_tokens": 32,
+  "error": null,
+  "parsed": true,
+  "gains": {
+   "Kp": 2.5,
+   "Ki": 4.0,
+   "Kd": 0.8
+  },
+  "success": true,
+  "stable": true,
+  "score": 1.0,
+  "checks": {
+   "gm": true,
+   "pm": true,
+   "ts": true,
+   "os": true,
+   "ess": true
+  }
+ },
+ {
+  "uid": "second_order_stable_moderate/4",
+  "category": "second_order_stable_moderate",
+  "latency_s": 4.2239955412223935,
+  "completion_tokens": 32,
+  "error": null,
+  "parsed": true,
+  "gains": {
+   "Kp": 1.5,
+   "Ki": 0.8,
+   "Kd": 0.3
+  },
+  "success": true,
+  "stable": true,
+  "score": 1.0,
+  "checks": {
+   "gm": true,
+   "pm": true,
+   "ts": true,
+   "os": true,
+   "ess": true
+  }
+ },
+ {
+  "uid": "second_order_stable_moderate/5",
+  "category": "second_order_stable_moderate",
+  "latency_s": 3.1289634997956455,
+  "completion_tokens": 32,
+  "error": null,
+  "parsed": true,
+  "gains": {
+   "Kp": 0.5,
+   "Ki": 0.1,
+   "Kd": 0.1
+  },
+  "success": false,
+  "stable": true,
+  "score": 0.6,
+  "checks": {
+   "gm": true,
+   "pm": false,
+   "ts": true,
+   "os": false,
+   "ess": true
+  }
+ },
+ {
+  "uid": "second_order_stable_moderate/6",
+  "category": "second_order_stable_moderate",
+  "latency_s": 4.148363874759525,
+  "completion_tokens": 32,
+  "error": null,
+  "parsed": true,
+  "gains": {
+   "Kp": 2.5,
+   "Ki": 4.0,
+   "Kd": 0.5
+  },
+  "success": true,
+  "stable": true,
+  "score": 1.0,
+  "checks": {
+   "gm": true,
+   "pm": true,
+   "ts": true,
+   "os": true,
+   "ess": true
+  }
+ },
+ {
+  "uid": "second_order_stable_moderate/7",
+  "category": "second_order_stable_moderate",
+  "latency_s": 4.3125997497700155,
+  "completion_tokens": 32,
+  "error": null,
+  "parsed": true,
+  "gains": {
+   "Kp": 2.5,
+   "Ki": 3.0,
+   "Kd": 0.5
+  },
+  "success": true,
+  "stable": true,
+  "score": 1.0,
+  "checks": {
+   "gm": true,
+   "pm": true,
+   "ts": true,
+   "os": true,
+   "ess": true
+  }
+ },
+ {
+  "uid": "second_order_stable_moderate/8",
+  "category": "second_order_stable_moderate",
+  "latency_s": 4.235931667033583,
+  "completion_tokens": 32,
+  "error": null,
+  "parsed": true,
+  "gains": {
+   "Kp": 2.5,
+   "Ki": 0.8,
+   "Kd": 0.5
+  },
+  "success": false,
+  "stable": true,
+  "score": 0.8,
+  "checks": {
+   "gm": true,
+   "pm": true,
+   "ts": false,
+   "os": true,
+   "ess": true
+  }
+ },
+ {
+  "uid": "second_order_stable_moderate/9",
+  "category": "second_order_stable_moderate",
+  "latency_s": 4.248287917114794,
+  "completion_tokens": 32,
+  "error": null,
+  "parsed": true,
+  "gains": {
+   "Kp": 0.5,
+   "Ki": 0.1,
+   "Kd": 0.1
+  },
+  "success": false,
+  "stable": true,
+  "score": 0.4,
+  "checks": {
+   "gm": true,
+   "pm": false,
+   "ts": false,
+   "os": false,
+   "ess": true
+  }
+ },
+ {
+  "uid": "second_order_stable_slow/0",
+  "category": "second_order_stable_slow",
+  "latency_s": 25.402684000320733,
+  "completion_tokens": 32,
+  "error": null,
+  "parsed": true,
+  "gains": {
+   "Kp": 0.35,
+   "Ki": 0.08,
+   "Kd": 0.5
+  },
+  "success": true,
+  "stable": true,
+  "score": 1.0,
+  "checks": {
+   "gm": true,
+   "pm": true,
+   "ts": true,
+   "os": true,
+   "ess": true
+  }
+ },
+ {
+  "uid": "second_order_stable_slow/1",
+  "category": "second_order_stable_slow",
+  "latency_s": 9.616064042318612,
+  "completion_tokens": 32,
+  "error": null,
+  "parsed": true,
+  "gains": {
+   "Kp": 1.5,
+   "Ki": 0.8,
+   "Kd": 0.5
+  },
+  "success": false,
+  "stable": true,
+  "score": 0.8,
+  "checks": {
+   "gm": true,
+   "pm": true,
+   "ts": false,
+   "os": true,
+   "ess": true
+  }
+ },
+ {
+  "uid": "second_order_stable_slow/2",
+  "category": "second_order_stable_slow",
+  "latency_s": 1.8207397502847016,
+  "completion_tokens": 32,
+  "error": null,
+  "parsed": true,
+  "gains": {
+   "Kp": 0.5,
+   "Ki": 0.1,
+   "Kd": 0.1
+  },
+  "success": false,
+  "stable": true,
+  "score": 0.8,
+  "checks": {
+   "gm": true,
+   "pm": true,
+   "ts": false,
+   "os": true,
+   "ess": true
+  }
+ },
+ {
+  "uid": "second_order_stable_slow/3",
+  "category": "second_order_stable_slow",
+  "latency_s": 1.9162474581971765,
+  "completion_tokens": 32,
+  "error": null,
+  "parsed": true,
+  "gains": {
+   "Kp": 1.5,
+   "Ki": 0.8,
+   "Kd": 0.5
+  },
+  "success": true,
+  "stable": true,
+  "score": 1.0,
+  "checks": {
+   "gm": true,
+   "pm": true,
+   "ts": true,
+   "os": true,
+   "ess": true
+  }
+ },
+ {
+  "uid": "second_order_stable_slow/4",
+  "category": "second_order_stable_slow",
+  "latency_s": 1.9413235844112933,
+  "completion_tokens": 32,
+  "error": null,
+  "parsed": true,
+  "gains": {
+   "Kp": 0.5,
+   "Ki": 0.1,
+   "Kd": 0.1
+  },
+  "success": false,
+  "stable": true,
+  "score": 0.8,
+  "checks": {
+   "gm": true,
+   "pm": true,
+   "ts": false,
+   "os": true,
+   "ess": true
+  }
+ },
+ {
+  "uid": "second_order_stable_slow/5",
+  "category": "second_order_stable_slow",
+  "latency_s": 4.152906707953662,
+  "completion_tokens": 32,
+  "error": null,
+  "parsed": true,
+  "gains": {
+   "Kp": 0.15,
+   "Ki": 0.02,
+   "Kd": 0.5
+  },
+  "success": false,
+  "stable": true,
+  "score": 0.8,
+  "checks": {
+   "gm": true,
+   "pm": true,
+   "ts": false,
+   "os": true,
+   "ess": true
+  }
+ },
+ {
+  "uid": "second_order_stable_slow/6",
+  "category": "second_order_stable_slow",
+  "latency_s": 2.9027609578333795,
+  "completion_tokens": 32,
+  "error": null,
+  "parsed": true,
+  "gains": {
+   "Kp": 0.85,
+   "Ki": 0.12,
+   "Kd": 0.35
+  },
+  "success": false,
+  "stable": true,
+  "score": 0.8,
+  "checks": {
+   "gm": true,
+   "pm": true,
+   "ts": false,
+   "os": true,
+   "ess": true
+  }
+ },
+ {
+  "uid": "second_order_stable_slow/7",
+  "category": "second_order_stable_slow",
+  "latency_s": 4.477811874821782,
+  "completion_tokens": 32,
+  "error": null,
+  "parsed": true,
+  "gains": {
+   "Kp": 2.5,
+   "Ki": 0.8,
+   "Kd": 0.5
+  },
+  "success": false,
+  "stable": true,
+  "score": 0.8,
+  "checks": {
+   "gm": true,
+   "pm": true,
+   "ts": false,
+   "os": true,
+   "ess": true
+  }
+ },
+ {
+  "uid": "second_order_stable_slow/8",
+  "category": "second_order_stable_slow",
+  "latency_s": 0.47369095776230097,
+  "completion_tokens": 32,
+  "error": null,
+  "parsed": true,
+  "gains": {
+   "Kp": 1.5,
+   "Ki": 0.8,
+   "Kd": 0.5
+  },
+  "success": true,
+  "stable": true,
+  "score": 1.0,
+  "checks": {
+   "gm": true,
+   "pm": true,
+   "ts": true,
+   "os": true,
+   "ess": true
+  }
+ },
+ {
+  "uid": "second_order_stable_slow/9",
+  "category": "second_order_stable_slow",
+  "latency_s": 0.5382937924005091,
+  "completion_tokens": 32,
+  "error": null,
+  "parsed": true,
+  "gains": {
+   "Kp": 0.15,
+   "Ki": 0.05,
+   "Kd": 0.5
+  },
+  "success": false,
+  "stable": true,
+  "score": 0.8,
+  "checks": {
+   "gm": true,
+   "pm": true,
+   "ts": false,
+   "os": true,
+   "ess": true
+  }
+ },
+ {
+  "uid": "second_order_unstable/0",
+  "category": "second_order_unstable",
+  "latency_s": 2.585071625187993,
+  "completion_tokens": 32,
+  "error": null,
+  "parsed": true,
+  "gains": {
+   "Kp": 0.5,
+   "Ki": 0.1,
+   "Kd": 0.05
+  },
+  "success": false,
+  "stable": false,
+  "score": 0.0,
+  "checks": {}
+ },
+ {
+  "uid": "second_order_unstable/1",
+  "category": "second_order_unstable",
+  "latency_s": 9.75026866607368,
+  "completion_tokens": 33,
+  "error": null,
+  "parsed": true,
+  "gains": {
+   "Kp": 150.0,
+   "Ki": 2000.0,
+   "Kd": 5.0
+  },
+  "success": false,
+  "stable": true,
+  "score": 0.6,
+  "checks": {
+   "gm": true,
+   "pm": false,
+   "ts": true,
+   "os": false,
+   "ess": true
+  }
+ },
+ {
+  "uid": "second_order_unstable/2",
+  "category": "second_order_unstable",
+  "latency_s": 1.9864978338591754,
+  "completion_tokens": 32,
+  "error": null,
+  "parsed": true,
+  "gains": {
+   "Kp": 0.5,
+   "Ki": 0.1,
+   "Kd": 0.05
+  },
+  "success": false,
+  "stable": false,
+  "score": 0.0,
+  "checks": {}
+ },
+ {
+  "uid": "second_order_unstable/3",
+  "category": "second_order_unstable",
+  "latency_s": 0.5444143749773502,
+  "completion_tokens": 33,
+  "error": null,
+  "parsed": true,
+  "gains": {
+   "Kp": 150.0,
+   "Ki": 2000.0,
+   "Kd": 0.5
+  },
+  "success": false,
+  "stable": false,
+  "score": 0.0,
+  "checks": {}
+ },
+ {
+  "uid": "second_order_unstable/4",
+  "category": "second_order_unstable",
+  "latency_s": 2.999043167103082,
+  "completion_tokens": 32,
+  "error": null,
+  "parsed": true,
+  "gains": {
+   "Kp": 0.5,
+   "Ki": 0.1,
+   "Kd": 0.05
+  },
+  "success": false,
+  "stable": false,
+  "score": 0.0,
+  "checks": {}
+ },
+ {
+  "uid": "second_order_unstable/5",
+  "category": "second_order_unstable",
+  "latency_s": 1.979209499899298,
+  "completion_tokens": 32,
+  "error": null,
+  "parsed": true,
+  "gains": {
+   "Kp": 8.5,
+   "Ki": 45.0,
+   "Kd": 0.35
+  },
+  "success": false,
+  "stable": false,
+  "score": 0.0,
+  "checks": {}
+ },
+ {
+  "uid": "second_order_unstable/6",
+  "category": "second_order_unstable",
+  "latency_s": 2.112500292249024,
+  "completion_tokens": 32,
+  "error": null,
+  "parsed": true,
+  "gains": {
+   "Kp": 0.5,
+   "Ki": 0.1,
+   "Kd": 0.05
+  },
+  "success": false,
+  "stable": false,
+  "score": 0.0,
+  "checks": {}
+ },
+ {
+  "uid": "second_order_unstable/7",
+  "category": "second_order_unstable",
+  "latency_s": 2.0104638752527535,
+  "completion_tokens": 32,
+  "error": null,
+  "parsed": true,
+  "gains": {
+   "Kp": 8.5,
+   "Ki": 45.0,
+   "Kd": 0.35
+  },
+  "success": false,
+  "stable": true,
+  "score": 0.6,
+  "checks": {
+   "gm": true,
+   "pm": false,
+   "ts": true,
+   "os": false,
+   "ess": true
+  }
+ },
+ {
+  "uid": "second_order_unstable/8",
+  "category": "second_order_unstable",
+  "latency_s": 1.924419957678765,
+  "completion_tokens": 32,
+  "error": null,
+  "parsed": true,
+  "gains": {
+   "Kp": 0.5,
+   "Ki": 0.1,
+   "Kd": 0.05
+  },
+  "success": false,
+  "stable": false,
+  "score": 0.0,
+  "checks": {}
+ },
+ {
+  "uid": "second_order_unstable/9",
+  "category": "second_order_unstable",
+  "latency_s": 3.7451845831237733,
+  "completion_tokens": 32,
+  "error": null,
+  "parsed": true,
+  "gains": {
+   "Kp": 0.0,
+   "Ki": 0.0,
+   "Kd": 0.0
+  },
+  "success": false,
+  "stable": true,
+  "score": 0.6,
+  "checks": {
+   "gm": true,
+   "pm": true,
+   "ts": false,
+   "os": true,
+   "ess": false
+  }
+ }
+]

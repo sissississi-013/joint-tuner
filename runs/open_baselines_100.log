@@ -1,0 +1,21 @@
+second_order_unstable                    0/10
+MODEL zai-org/GLM-5.3: success 0/100 | stable 0 | parsed 0 | errors 100
+first error: Error code: 404 - Model 'zai-org/GLM-5.3' not found. Use this endpoint's /v1/models route to list available models.
+second_order_unstable                    0/10
+MODEL nvidia/NVIDIA-Nemotron-3.5-Super-VL-120B-A12B-NVFP4: success 1/100 | stable 80 | parsed 100 | errors 0
+p50 0.6s  mean ctok 32  mean partial score 0.62
+second_order_unstable                    1/10
+MODEL Qwen/Qwen3.8-27B-FP8: success 11/100 | stable 87 | parsed 100 | errors 0
+p50 0.9s  mean ctok 36  mean partial score 0.64
+MODEL moonshotai/Kimi-K3: success 22/100 | stable 80 | parsed 92 | errors 8
+p50 3.7s  mean ctok 32  mean partial score 0.62
+first error: Request timed out.
+    ev = evaluate(t, j.get("Kp"), j.get("Ki"), j.get("Kd")) if j else {"stable": False, "success": False}
+                     ^^^^^
+AttributeError: 'list' object has no attribute 'get'
+second_order_unstable                    0/10
+MODEL GLM-5.3: success 0/100 | stable 0 | parsed 0 | errors 100
+first error: Error code: 400 - GLM-5.3 does not support disabling reasoning; use low, high, or max
+second_order_unstable                    0/10
+MODEL zai-org/GLM-5.3-Flash: success 0/100 | stable 0 | parsed 0 | errors 100
+first error: Error code: 400 - Invalid inference request. Check the model's supported parameters and input limits.

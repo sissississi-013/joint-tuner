@@ -1,0 +1,726 @@
+{
+ "base": "accounts/fireworks/models/qwen3p6-35b-a3b",
+ "renderer": "qwen3_6_disable_thinking",
+ "steps": 3,
+ "batch": 8,
+ "lr": 0.0001,
+ "rank": 16,
+ "train": "data/pid/train_v3.jsonl",
+ "n_eval": 10,
+ "before": [
+  {
+   "uid": "first_order_stable_fast/0",
+   "category": "first_order_stable_fast",
+   "greedy": {
+    "oks": [
+     true
+    ],
+    "gains": [
+     {
+      "Kp": 12.5,
+      "Ki": 150.0,
+      "Kd": 0.8
+     }
+    ],
+    "latency_s": 1.3386201858520508
+   },
+   "bon": {
+    "oks": [
+     false,
+     false,
+     true,
+     true,
+     true,
+     false,
+     true,
+     false
+    ],
+    "gains": [
+     {}
+    ],
+    "latency_s": 4.694756031036377
+   }
+  },
+  {
+   "uid": "first_order_stable_moderate/0",
+   "category": "first_order_stable_moderate",
+   "greedy": {
+    "oks": [
+     false
+    ],
+    "gains": [
+     {
+      "Kp": 1.5,
+      "Ki": 0.05,
+      "Kd": 0.02
+     }
+    ],
+    "latency_s": 1.3382718563079834
+   },
+   "bon": {
+    "oks": [
+     false,
+     false,
+     false,
+     false,
+     false,
+     false,
+     false,
+     false
+    ],
+    "gains": [
+     {}
+    ],
+    "latency_s": 4.200246095657349
+   }
+  },
+  {
+   "uid": "first_order_stable_slow/0",
+   "category": "first_order_stable_slow",
+   "greedy": {
+    "oks": [
+     false
+    ],
+    "gains": [
+     {
+      "Kp": 1.5,
+      "Ki": 0.05,
+      "Kd": 0.02
+     }
+    ],
+    "latency_s": 0.7987170219421387
+   },
+   "bon": {
+    "oks": [
+     false,
+     false,
+     false,
+     false,
+     true,
+     false,
+     false,
+     false
+    ],
+    "gains": [
+     {}
+    ],
+    "latency_s": 7.2010931968688965
+   }
+  },
+  {
+   "uid": "first_order_unstable/0",
+   "category": "first_order_unstable",
+   "greedy": {
+    "oks": [
+     false
+    ],
+    "gains": [
+     {
+      "Kp": 1.25,
+      "Ki": 45.0,
+      "Kd": 0.08
+     }
+    ],
+    "latency_s": 1.3381917476654053
+   },
+   "bon": {
+    "oks": [
+     false,
+     false,
+     false,
+     true,
+     true,
+     false,
+     false,
+     true
+    ],
+    "gains": [
+     {}
+    ],
+    "latency_s": 5.6026177406311035
+   }
+  },
+  {
+   "uid": "first_order_w_delay/0",
+   "category": "first_order_w_delay",
+   "greedy": {
+    "oks": [
+     false
+    ],
+    "gains": [
+     {
+      "Kp": 1.5,
+      "Ki": 2.0,
+      "Kd": 0.15
+     }
+    ],
+    "latency_s": 1.336920976638794
+   },
+   "bon": {
+    "oks": [
+     false,
+     false,
+     false,
+     false,
+     false,
+     false,
+     false,
+     false
+    ],
+    "gains": [
+     {}
+    ],
+    "latency_s": 6.480525016784668
+   }
+  },
+  {
+   "uid": "higher_order/0",
+   "category": "higher_order",
+   "greedy": {
+    "oks": [
+     false
+    ],
+    "gains": [
+     {
+      "Kp": 1.2,
+      "Ki": 0.05,
+      "Kd": 0.008
+     }
+    ],
+    "latency_s": 1.420483112335205
+   },
+   "bon": {
+    "oks": [
+     false,
+     false,
+     false,
+     false,
+     false,
+     true,
+     false,
+     true
+    ],
+    "gains": [
+     {
+      "Kp": 4.5,
+      "Ki": 2.0,
+      "Kd": 0.03
+     }
+    ],
+    "latency_s": 6.9051430225372314
+   }
+  },
+  {
+   "uid": "second_order_stable_fast/0",
+   "category": "second_order_stable_fast",
+   "greedy": {
+    "oks": [
+     false
+    ],
+    "gains": [
+     {
+      "Kp": 0.15,
+      "Ki": 0.05,
+      "Kd": 0.02
+     }
+    ],
+    "latency_s": 1.2888679504394531
+   },
+   "bon": {
+    "oks": [
+     false,
+     false,
+     false,
+     false,
+     false,
+     false,
+     false,
+     false
+    ],
+    "gains": [
+     {}
+    ],
+    "latency_s": 2.509042739868164
+   }
+  },
+  {
+   "uid": "second_order_stable_moderate/0",
+   "category": "second_order_stable_moderate",
+   "greedy": {
+    "oks": [
+     false
+    ],
+    "gains": [
+     {
+      "Kp": 0.15,
+      "Ki": 0.05,
+      "Kd": 0.08
+     }
+    ],
+    "latency_s": 1.3346362113952637
+   },
+   "bon": {
+    "oks": [
+     true,
+     false,
+     false,
+     false,
+     false,
+     true,
+     false,
+     false
+    ],
+    "gains": [
+     {
+      "Kp": 0.45,
+      "Ki": 0.15,
+      "Kd": 0.35
+     }
+    ],
+    "latency_s": 3.343585729598999
+   }
+  },
+  {
+   "uid": "second_order_stable_slow/0",
+   "category": "second_order_stable_slow",
+   "greedy": {
+    "oks": [
+     false
+    ],
+    "gains": [
+     {
+      "Kp": 0.15,
+      "Ki": 0.005,
+      "Kd": 0.05
+     }
+    ],
+    "latency_s": 5.022790908813477
+   },
+   "bon": {
+    "oks": [
+     false,
+     true,
+     false,
+     true,
+     false,
+     false,
+     false,
+     false
+    ],
+    "gains": [
+     {}
+    ],
+    "latency_s": 2.1198010444641113
+   }
+  },
+  {
+   "uid": "second_order_unstable/0",
+   "category": "second_order_unstable",
+   "greedy": {
+    "oks": [
+     false
+    ],
+    "gains": [
+     {
+      "Kp": 1.85,
+      "Ki": 12.5,
+      "Kd": 0.15
+     }
+    ],
+    "latency_s": 3.8221659660339355
+   },
+   "bon": {
+    "oks": [
+     false,
+     false,
+     false,
+     false,
+     false,
+     false,
+     false,
+     false
+    ],
+    "gains": [
+     {}
+    ],
+    "latency_s": 1.2008812427520752
+   }
+  }
+ ],
+ "checkpoint": "sissiwang-xlorceau0c/run-1f1356174e9848e5a732eaca6de49065/pid-smoke-01908a9b",
+ "after": [
+  {
+   "uid": "first_order_stable_fast/0",
+   "category": "first_order_stable_fast",
+   "greedy": {
+    "oks": [
+     false
+    ],
+    "gains": [
+     {
+      "Kp": 0.0,
+      "Ki": 0.0,
+      "Kd": 0.0
+     }
+    ],
+    "latency_s": 1.2419629096984863
+   },
+   "bon": {
+    "oks": [
+     true,
+     false,
+     true,
+     false,
+     false,
+     false,
+     false,
+     false
+    ],
+    "gains": [
+     {
+      "Kp": 3.3877,
+      "Ki": 3.2057,
+      "Kd": 0.0
+     }
+    ],
+    "latency_s": 1.7650668621063232
+   }
+  },
+  {
+   "uid": "first_order_stable_moderate/0",
+   "category": "first_order_stable_moderate",
+   "greedy": {
+    "oks": [
+     false
+    ],
+    "gains": [
+     {
+      "Kp": 0.0001,
+      "Ki": 0.0001,
+      "Kd": 0.0001
+     }
+    ],
+    "latency_s": 1.2726731300354004
+   },
+   "bon": {
+    "oks": [
+     false,
+     false,
+     false,
+     false,
+     false,
+     false,
+     false,
+     false
+    ],
+    "gains": [
+     {
+      "Kp": 10.23,
+      "Ki": 1.03,
+      "Kd": 0.06
+     }
+    ],
+    "latency_s": 4.486500978469849
+   }
+  },
+  {
+   "uid": "first_order_stable_slow/0",
+   "category": "first_order_stable_slow",
+   "greedy": {
+    "oks": [
+     false
+    ],
+    "gains": [
+     {
+      "Kp": 0.0001,
+      "Ki": 0.0001,
+      "Kd": 0.0001
+     }
+    ],
+    "latency_s": 1.2754790782928467
+   },
+   "bon": {
+    "oks": [
+     false,
+     false,
+     false,
+     false,
+     false,
+     false,
+     false,
+     false
+    ],
+    "gains": [
+     {
+      "Kp": 2.0,
+      "Ki": 1.0,
+      "Kd": 0.0
+     }
+    ],
+    "latency_s": 5.063097953796387
+   }
+  },
+  {
+   "uid": "first_order_unstable/0",
+   "category": "first_order_unstable",
+   "greedy": {
+    "oks": [
+     false
+    ],
+    "gains": [
+     {
+      "Kp": 0.4317,
+      "Ki": 3.022,
+      "Kd": 0.0
+     }
+    ],
+    "latency_s": 1.280019998550415
+   },
+   "bon": {
+    "oks": [
+     false,
+     false,
+     false,
+     false,
+     false,
+     false,
+     false,
+     false
+    ],
+    "gains": [
+     {
+      "Kp": 5.8935,
+      "Ki": 12.3778,
+      "Kd": 0.3182
+     }
+    ],
+    "latency_s": 5.617835998535156
+   }
+  },
+  {
+   "uid": "first_order_w_delay/0",
+   "category": "first_order_w_delay",
+   "greedy": {
+    "oks": [
+     false
+    ],
+    "gains": [
+     {
+      "Kp": 0.3,
+      "Ki": 0.3,
+      "Kd": 0.0
+     }
+    ],
+    "latency_s": 1.2249510288238525
+   },
+   "bon": {
+    "oks": [
+     false,
+     false,
+     false,
+     false,
+     false,
+     false,
+     false,
+     false
+    ],
+    "gains": [
+     {
+      "Kp": 2.02,
+      "Ki": 1.46,
+      "Kd": 0.01
+     }
+    ],
+    "latency_s": 2.2251341342926025
+   }
+  },
+  {
+   "uid": "higher_order/0",
+   "category": "higher_order",
+   "greedy": {
+    "oks": [
+     false
+    ],
+    "gains": [
+     {
+      "Kp": 1.0,
+      "Ki": 0.0,
+      "Kd": 0.0
+     }
+    ],
+    "latency_s": 1.1954169273376465
+   },
+   "bon": {
+    "oks": [
+     true,
+     false,
+     false,
+     false,
+     false,
+     false,
+     false,
+     false
+    ],
+    "gains": [
+     {
+      "Kp": 13.0,
+      "Ki": 26.0,
+      "Kd": 0.579
+     }
+    ],
+    "latency_s": 4.326836109161377
+   }
+  },
+  {
+   "uid": "second_order_stable_fast/0",
+   "category": "second_order_stable_fast",
+   "greedy": {
+    "oks": [
+     false
+    ],
+    "gains": [
+     {
+      "Kp": 0.15,
+      "Ki": 0.15,
+      "Kd": 0.0
+     }
+    ],
+    "latency_s": 1.266066312789917
+   },
+   "bon": {
+    "oks": [
+     false,
+     false,
+     false,
+     false,
+     false,
+     false,
+     false,
+     false
+    ],
+    "gains": [
+     {
+      "Kp": 0.6879,
+      "Ki": 0.1098,
+      "Kd": 0.0
+     }
+    ],
+    "latency_s": 4.026208877563477
+   }
+  },
+  {
+   "uid": "second_order_stable_moderate/0",
+   "category": "second_order_stable_moderate",
+   "greedy": {
+    "oks": [
+     false
+    ],
+    "gains": [
+     {
+      "Kp": 0.154,
+      "Ki": 0.169,
+      "Kd": 0.0
+     }
+    ],
+    "latency_s": 1.2609670162200928
+   },
+   "bon": {
+    "oks": [
+     false,
+     true,
+     false,
+     false,
+     false,
+     false,
+     false,
+     false
+    ],
+    "gains": [
+     {
+      "Kp": 16.995,
+      "Ki": 16.527,
+      "Kd": 0.111
+     }
+    ],
+    "latency_s": 3.026639938354492
+   }
+  },
+  {
+   "uid": "second_order_stable_slow/0",
+   "category": "second_order_stable_slow",
+   "greedy": {
+    "oks": [
+     false
+    ],
+    "gains": [
+     {
+      "Kp": 0.1539,
+      "Ki": 0.0121,
+      "Kd": 0.0
+     }
+    ],
+    "latency_s": 3.883730173110962
+   },
+   "bon": {
+    "oks": [
+     false,
+     false,
+     false,
+     false,
+     false,
+     false,
+     false,
+     false
+    ],
+    "gains": [
+     {
+      "Kp": 0.3075,
+      "Ki": 0.03228,
+      "Kd": 0.4311
+     }
+    ],
+    "latency_s": 1.0940110683441162
+   }
+  },
+  {
+   "uid": "second_order_unstable/0",
+   "category": "second_order_unstable",
+   "greedy": {
+    "oks": [
+     false
+    ],
+    "gains": [
+     {
+      "Kp": 0.0,
+      "Ki": 0.0,
+      "Kd": 0.0
+     }
+    ],
+    "latency_s": 3.485793113708496
+   },
+   "bon": {
+    "oks": [
+     false,
+     false,
+     false,
+     false,
+     false,
+     false,
+     false,
+     false
+    ],
+    "gains": [
+     {}
+    ],
+    "latency_s": 1.4296226501464844
+   }
+  }
+ ],
+ "promoted_model": "{'baseModelDetails': None, 'calibrated': False, 'cluster': '', 'contextLength': 0, 'conversationConfig': None, 'createTime': '2026-11-02T20:14:57.346927591Z', 'defaultDraftModel': '', 'defaultDraftTokenCount': 0, 'defaultSamplingParams': {}, 'deployedModelRefs': [], 'deprecationDate': None, 'description': '', 'displayName': '', 'enableVisionEncoderTuning': False, 'encryptionState': 'ENCRYPTION_STATE_PLAINTEXT', 'fineTuningJob': 'accounts/fireworks/rlorTrainerJobs/st-qwen3p6-35b-a3b-prod-0-638-662-01a16101-0', 'githubUrl': '', 'huggingFaceUrl': '', 'importedFrom': '', 'kind': 'HF_PEFT_ADDON', 'name': 'accounts/sissiwang-xlorceau0c/models/pid-tuner-smoke', 'peftDetails': {'baseModel': 'accounts/fireworks/models/qwen3p6-35b-a3b', 'baseModelType': 'qwen3_5_moe', 'mergeAddonModelName': '', 'r': 16, 'targetModules': ['down_proj', 'gate_proj', 'in_proj_a', 'in_proj_b', 'in_proj_qkv', 'in_proj_z', 'k_proj', 'o_proj', 'out_proj', 'q_proj', 'up_proj', 'v_proj', 'w1', 'w2', 'w3']}, 'public': False, 'rlLoraTunable': False, 'rlTunable': False, 'serverlessModes': [], 'snapshotType': 'FULL_SNAPSHOT', 'state': 'READY', 'status': {'code': 'OK', 'message': ''}, 'supervisedLoraTunable': True, 'supportsImageInput': True, 'supportsLora': False, 'supportsServerless': False, 'supportsServerlessLora': False, 'supportsServerlessTraining': False, 'supportsTools': False, 'teftDetails': None, 'trainingContextLength': 0, 'updateTime': '2026-11-02T20:14:57.346927591Z', 'useHfApplyChatTemplate': False, 'useTrainingV2': True}",
+ "tokens": {
+  "sample_tok": 7265.0,
+  "prefill_tok": 8556.0,
+  "train_tok": 5942.0
+ },
+ "est_cost_usd": 0.026
+}

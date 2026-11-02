@@ -1,0 +1,1012 @@
+[
+ {
+  "uid": "first_order_stable_fast/0",
+  "category": "first_order_stable_fast",
+  "latency_s": 2.736888916697353,
+  "completion_tokens": 32,
+  "error": null,
+  "parsed": true,
+  "gains": {
+   "Kp": 0.5,
+   "Ki": 0.1,
+   "Kd": 0.01
+  },
+  "success": true,
+  "stable": true,
+  "score": 1.0,
+  "checks": {
+   "gm": true,
+   "pm": true,
+   "ts": true,
+   "os": true,
+   "ess": true
+  }
+ },
+ {
+  "uid": "first_order_stable_fast/1",
+  "category": "first_order_stable_fast",
+  "latency_s": 1.6950488328002393,
+  "completion_tokens": 32,
+  "error": null,
+  "parsed": true,
+  "gains": {
+   "Kp": 120.0,
+   "Ki": 800.0,
+   "Kd": 0.5
+  },
+  "success": false,
+  "stable": true,
+  "score": 0.8,
+  "checks": {
+   "gm": true,
+   "pm": true,
+   "ts": true,
+   "os": true,
+   "ess": true
+  }
+ },
+ {
+  "uid": "first_order_stable_fast/2",
+  "category": "first_order_stable_fast",
+  "latency_s": 5.436164000071585,
+  "completion_tokens": null,
+  "error": "Error code: 429 - Account request rate limit exceeded for this model",
+  "parsed": false,
+  "gains": {},
+  "success": false,
+  "stable": false,
+  "score": 0.0,
+  "checks": {}
+ },
+ {
+  "uid": "first_order_stable_fast/3",
+  "category": "first_order_stable_fast",
+  "latency_s": 1.2875524582341313,
+  "completion_tokens": 32,
+  "error": null,
+  "parsed": true,
+  "gains": {
+   "Kp": 50.0,
+   "Ki": 100.0,
+   "Kd": 0.5
+  },
+  "success": false,
+  "stable": true,
+  "score": 0.8,
+  "checks": {
+   "gm": true,
+   "pm": true,
+   "ts": false,
+   "os": true,
+   "ess": true
+  }
+ },
+ {
+  "uid": "first_order_stable_fast/4",
+  "category": "first_order_stable_fast",
+  "latency_s": 0.5638648746535182,
+  "completion_tokens": 32,
+  "error": null,
+  "parsed": true,
+  "gains": {
+   "Kp": 1.2,
+   "Ki": 8.0,
+   "Kd": 0.05
+  },
+  "success": false,
+  "stable": true,
+  "score": 0.8,
+  "checks": {
+   "gm": true,
+   "pm": true,
+   "ts": false,
+   "os": true,
+   "ess": true
+  }
+ },
+ {
+  "uid": "first_order_stable_moderate/0",
+  "category": "first_order_stable_moderate",
+  "latency_s": 3.096354458015412,
+  "completion_tokens": 32,
+  "error": null,
+  "parsed": true,
+  "gains": {
+   "Kp": 0.5,
+   "Ki": 0.1,
+   "Kd": 0.05
+  },
+  "success": false,
+  "stable": true,
+  "score": 0.8,
+  "checks": {
+   "gm": true,
+   "pm": true,
+   "ts": false,
+   "os": true,
+   "ess": true
+  }
+ },
+ {
+  "uid": "first_order_stable_moderate/1",
+  "category": "first_order_stable_moderate",
+  "latency_s": 0.5377720831893384,
+  "completion_tokens": 32,
+  "error": null,
+  "parsed": true,
+  "gains": {
+   "Kp": 45.0,
+   "Ki": 120.0,
+   "Kd": 0.8
+  },
+  "success": false,
+  "stable": true,
+  "score": 0.8,
+  "checks": {
+   "gm": true,
+   "pm": true,
+   "ts": true,
+   "os": true,
+   "ess": true
+  }
+ },
+ {
+  "uid": "first_order_stable_moderate/2",
+  "category": "first_order_stable_moderate",
+  "latency_s": 0.541745041962713,
+  "completion_tokens": 32,
+  "error": null,
+  "parsed": true,
+  "gains": {
+   "Kp": 8.5,
+   "Ki": 120.0,
+   "Kd": 0.08
+  },
+  "success": true,
+  "stable": true,
+  "score": 1.0,
+  "checks": {
+   "gm": true,
+   "pm": true,
+   "ts": true,
+   "os": true,
+   "ess": true
+  }
+ },
+ {
+  "uid": "first_order_stable_moderate/3",
+  "category": "first_order_stable_moderate",
+  "latency_s": 4.104948457796127,
+  "completion_tokens": 32,
+  "error": null,
+  "parsed": true,
+  "gains": {
+   "Kp": 50.0,
+   "Ki": 100.0,
+   "Kd": 0.5
+  },
+  "success": false,
+  "stable": true,
+  "score": 0.8,
+  "checks": {
+   "gm": true,
+   "pm": true,
+   "ts": false,
+   "os": true,
+   "ess": true
+  }
+ },
+ {
+  "uid": "first_order_stable_moderate/4",
+  "category": "first_order_stable_moderate",
+  "latency_s": 1.775242917239666,
+  "completion_tokens": 32,
+  "error": null,
+  "parsed": true,
+  "gains": {
+   "Kp": 1.0,
+   "Ki": 0.1,
+   "Kd": 0.0
+  },
+  "success": false,
+  "stable": true,
+  "score": 0.8,
+  "checks": {}
+ },
+ {
+  "uid": "first_order_stable_slow/0",
+  "category": "first_order_stable_slow",
+  "latency_s": 1.8292944999411702,
+  "completion_tokens": 33,
+  "error": null,
+  "parsed": true,
+  "gains": {
+   "Kp": 0.05,
+   "Ki": 0.0005,
+   "Kd": 0.0
+  },
+  "success": false,
+  "stable": true,
+  "score": 0.8,
+  "checks": {
+   "gm": true,
+   "pm": true,
+   "ts": false,
+   "os": true,
+   "ess": true
+  }
+ },
+ {
+  "uid": "first_order_stable_slow/1",
+  "category": "first_order_stable_slow",
+  "latency_s": 4.133509042207152,
+  "completion_tokens": 32,
+  "error": null,
+  "parsed": true,
+  "gains": {
+   "Kp": 8.5,
+   "Ki": 12.0,
+   "Kd": 0.35
+  },
+  "success": true,
+  "stable": true,
+  "score": 1.0,
+  "checks": {
+   "gm": true,
+   "pm": true,
+   "ts": true,
+   "os": true,
+   "ess": true
+  }
+ },
+ {
+  "uid": "first_order_stable_slow/2",
+  "category": "first_order_stable_slow",
+  "latency_s": 3.2165315840393305,
+  "completion_tokens": 32,
+  "error": null,
+  "parsed": true,
+  "gains": {
+   "Kp": 1.5,
+   "Ki": 2.0,
+   "Kd": 0.05
+  },
+  "success": false,
+  "stable": true,
+  "score": 0.8,
+  "checks": {
+   "gm": true,
+   "pm": true,
+   "ts": false,
+   "os": true,
+   "ess": true
+  }
+ },
+ {
+  "uid": "first_order_stable_slow/3",
+  "category": "first_order_stable_slow",
+  "latency_s": 4.33818829106167,
+  "completion_tokens": 32,
+  "error": null,
+  "parsed": true,
+  "gains": {
+   "Kp": 1.5,
+   "Ki": 0.5,
+   "Kd": 0.1
+  },
+  "success": false,
+  "stable": true,
+  "score": 0.8,
+  "checks": {
+   "gm": true,
+   "pm": true,
+   "ts": false,
+   "os": true,
+   "ess": true
+  }
+ },
+ {
+  "uid": "first_order_stable_slow/4",
+  "category": "first_order_stable_slow",
+  "latency_s": 4.747023500036448,
+  "completion_tokens": 32,
+  "error": null,
+  "parsed": true,
+  "gains": {
+   "Kp": 0.5,
+   "Ki": 0.05,
+   "Kd": 0.0
+  },
+  "success": false,
+  "stable": true,
+  "score": 0.8,
+  "checks": {
+   "gm": true,
+   "pm": true,
+   "ts": false,
+   "os": true,
+   "ess": true
+  }
+ },
+ {
+  "uid": "first_order_unstable/0",
+  "category": "first_order_unstable",
+  "latency_s": 1.9204735839739442,
+  "completion_tokens": 32,
+  "error": null,
+  "parsed": true,
+  "gains": {
+   "Kp": 0.5,
+   "Ki": 0.1,
+   "Kd": 0.01
+  },
+  "success": false,
+  "stable": true,
+  "score": 0.4,
+  "checks": {
+   "gm": false,
+   "pm": false,
+   "ts": false,
+   "os": false,
+   "ess": true
+  }
+ },
+ {
+  "uid": "first_order_unstable/1",
+  "category": "first_order_unstable",
+  "latency_s": 3.9206742499955,
+  "completion_tokens": null,
+  "error": "Error code: 429 - Account request rate limit exceeded for this model",
+  "parsed": false,
+  "gains": {},
+  "success": false,
+  "stable": false,
+  "score": 0.0,
+  "checks": {}
+ },
+ {
+  "uid": "first_order_unstable/2",
+  "category": "first_order_unstable",
+  "latency_s": 2.908364625182003,
+  "completion_tokens": null,
+  "error": "Error code: 429 - Account request rate limit exceeded for this model",
+  "parsed": false,
+  "gains": {},
+  "success": false,
+  "stable": false,
+  "score": 0.0,
+  "checks": {}
+ },
+ {
+  "uid": "first_order_unstable/3",
+  "category": "first_order_unstable",
+  "latency_s": 1.813916333951056,
+  "completion_tokens": 32,
+  "error": null,
+  "parsed": true,
+  "gains": {
+   "Kp": 45.0,
+   "Ki": 800.0,
+   "Kd": 0.15
+  },
+  "success": false,
+  "stable": true,
+  "score": 0.8,
+  "checks": {
+   "gm": false,
+   "pm": true,
+   "ts": false,
+   "os": true,
+   "ess": true
+  }
+ },
+ {
+  "uid": "first_order_unstable/4",
+  "category": "first_order_unstable",
+  "latency_s": 0.4885461670346558,
+  "completion_tokens": 32,
+  "error": null,
+  "parsed": true,
+  "gains": {
+   "Kp": 120.0,
+   "Ki": 800.0,
+   "Kd": 0.5
+  },
+  "success": false,
+  "stable": true,
+  "score": 0.6,
+  "checks": {
+   "gm": false,
+   "pm": true,
+   "ts": false,
+   "os": false,
+   "ess": true
+  }
+ },
+ {
+  "uid": "first_order_w_delay/0",
+  "category": "first_order_w_delay",
+  "latency_s": 2.9316324167884886,
+  "completion_tokens": 32,
+  "error": null,
+  "parsed": true,
+  "gains": {
+   "Kp": 8.5,
+   "Ki": 12.0,
+   "Kd": 0.35
+  },
+  "success": false,
+  "stable": true,
+  "score": 0.6,
+  "checks": {
+   "gm": false,
+   "pm": true,
+   "ts": false,
+   "os": true,
+   "ess": true
+  }
+ },
+ {
+  "uid": "first_order_w_delay/1",
+  "category": "first_order_w_delay",
+  "latency_s": 5.915519124828279,
+  "completion_tokens": null,
+  "error": "Error code: 429 - Account request rate limit exceeded for this model",
+  "parsed": false,
+  "gains": {},
+  "success": false,
+  "stable": false,
+  "score": 0.0,
+  "checks": {}
+ },
+ {
+  "uid": "first_order_w_delay/2",
+  "category": "first_order_w_delay",
+  "latency_s": 2.7609416246414185,
+  "completion_tokens": 32,
+  "error": null,
+  "parsed": true,
+  "gains": {
+   "Kp": 1.5,
+   "Ki": 2.0,
+   "Kd": 0.05
+  },
+  "success": false,
+  "stable": true,
+  "score": 0.6,
+  "checks": {
+   "gm": false,
+   "pm": true,
+   "ts": false,
+   "os": true,
+   "ess": true
+  }
+ },
+ {
+  "uid": "first_order_w_delay/3",
+  "category": "first_order_w_delay",
+  "latency_s": 5.079494541976601,
+  "completion_tokens": 32,
+  "error": null,
+  "parsed": true,
+  "gains": {
+   "Kp": 1.5,
+   "Ki": 3.0,
+   "Kd": 0.05
+  },
+  "success": false,
+  "stable": true,
+  "score": 0.6,
+  "checks": {
+   "gm": false,
+   "pm": true,
+   "ts": false,
+   "os": true,
+   "ess": true
+  }
+ },
+ {
+  "uid": "first_order_w_delay/4",
+  "category": "first_order_w_delay",
+  "latency_s": 3.861060708295554,
+  "completion_tokens": 32,
+  "error": null,
+  "parsed": true,
+  "gains": {
+   "Kp": 0.85,
+   "Ki": 1.2,
+   "Kd": 0.08
+  },
+  "success": false,
+  "stable": false,
+  "score": 0.0,
+  "checks": {}
+ },
+ {
+  "uid": "higher_order/0",
+  "category": "higher_order",
+  "latency_s": 6.443995541892946,
+  "completion_tokens": null,
+  "error": "Error code: 429 - Account request rate limit exceeded for this model",
+  "parsed": false,
+  "gains": {},
+  "success": false,
+  "stable": false,
+  "score": 0.0,
+  "checks": {}
+ },
+ {
+  "uid": "higher_order/1",
+  "category": "higher_order",
+  "latency_s": 3.4214921672828496,
+  "completion_tokens": 32,
+  "error": null,
+  "parsed": true,
+  "gains": {
+   "Kp": 1.5,
+   "Ki": 0.5,
+   "Kd": 0.1
+  },
+  "success": false,
+  "stable": true,
+  "score": 0.8,
+  "checks": {
+   "gm": true,
+   "pm": true,
+   "ts": false,
+   "os": true,
+   "ess": true
+  }
+ },
+ {
+  "uid": "higher_order/2",
+  "category": "higher_order",
+  "latency_s": 2.8182123750448227,
+  "completion_tokens": 32,
+  "error": null,
+  "parsed": true,
+  "gains": {
+   "Kp": 0.85,
+   "Ki": 0.12,
+   "Kd": 0.08
+  },
+  "success": false,
+  "stable": true,
+  "score": 0.8,
+  "checks": {
+   "gm": true,
+   "pm": true,
+   "ts": false,
+   "os": true,
+   "ess": true
+  }
+ },
+ {
+  "uid": "higher_order/3",
+  "category": "higher_order",
+  "latency_s": 6.045602249912918,
+  "completion_tokens": null,
+  "error": "Error code: 429 - Account request rate limit exceeded for this model",
+  "parsed": false,
+  "gains": {},
+  "success": false,
+  "stable": false,
+  "score": 0.0,
+  "checks": {}
+ },
+ {
+  "uid": "higher_order/4",
+  "category": "higher_order",
+  "latency_s": 2.8942412501201034,
+  "completion_tokens": 32,
+  "error": null,
+  "parsed": true,
+  "gains": {
+   "Kp": 0.8,
+   "Ki": 0.5,
+   "Kd": 0.1
+  },
+  "success": false,
+  "stable": true,
+  "score": 0.8,
+  "checks": {
+   "gm": true,
+   "pm": true,
+   "ts": true,
+   "os": false,
+   "ess": true
+  }
+ },
+ {
+  "uid": "second_order_stable_fast/0",
+  "category": "second_order_stable_fast",
+  "latency_s": 2.8154690829105675,
+  "completion_tokens": 32,
+  "error": null,
+  "parsed": true,
+  "gains": {
+   "Kp": 0.85,
+   "Ki": 0.35,
+   "Kd": 0.12
+  },
+  "success": false,
+  "stable": true,
+  "score": 0.6,
+  "checks": {
+   "gm": true,
+   "pm": false,
+   "ts": true,
+   "os": false,
+   "ess": true
+  }
+ },
+ {
+  "uid": "second_order_stable_fast/1",
+  "category": "second_order_stable_fast",
+  "latency_s": 4.037214791402221,
+  "completion_tokens": null,
+  "error": "Error code: 429 - Account request rate limit exceeded for this model",
+  "parsed": false,
+  "gains": {},
+  "success": false,
+  "stable": false,
+  "score": 0.0,
+  "checks": {}
+ },
+ {
+  "uid": "second_order_stable_fast/2",
+  "category": "second_order_stable_fast",
+  "latency_s": 0.5006207502447069,
+  "completion_tokens": 32,
+  "error": null,
+  "parsed": true,
+  "gains": {
+   "Kp": 2.5,
+   "Ki": 3.0,
+   "Kd": 0.5
+  },
+  "success": true,
+  "stable": true,
+  "score": 1.0,
+  "checks": {
+   "gm": true,
+   "pm": true,
+   "ts": true,
+   "os": true,
+   "ess": true
+  }
+ },
+ {
+  "uid": "second_order_stable_fast/3",
+  "category": "second_order_stable_fast",
+  "latency_s": 2.9117964170873165,
+  "completion_tokens": null,
+  "error": "Error code: 429 - Account request rate limit exceeded for this model",
+  "parsed": false,
+  "gains": {},
+  "success": false,
+  "stable": false,
+  "score": 0.0,
+  "checks": {}
+ },
+ {
+  "uid": "second_order_stable_fast/4",
+  "category": "second_order_stable_fast",
+  "latency_s": 2.8466484588570893,
+  "completion_tokens": 32,
+  "error": null,
+  "parsed": true,
+  "gains": {
+   "Kp": 2.5,
+   "Ki": 3.0,
+   "Kd": 0.8
+  },
+  "success": true,
+  "stable": true,
+  "score": 1.0,
+  "checks": {
+   "gm": true,
+   "pm": true,
+   "ts": true,
+   "os": true,
+   "ess": true
+  }
+ },
+ {
+  "uid": "second_order_stable_moderate/0",
+  "category": "second_order_stable_moderate",
+  "latency_s": 0.5031141666695476,
+  "completion_tokens": 32,
+  "error": null,
+  "parsed": true,
+  "gains": {
+   "Kp": 0.85,
+   "Ki": 0.12,
+   "Kd": 0.35
+  },
+  "success": false,
+  "stable": true,
+  "score": 0.8,
+  "checks": {
+   "gm": true,
+   "pm": true,
+   "ts": false,
+   "os": true,
+   "ess": true
+  }
+ },
+ {
+  "uid": "second_order_stable_moderate/1",
+  "category": "second_order_stable_moderate",
+  "latency_s": 2.2099565002135932,
+  "completion_tokens": 32,
+  "error": null,
+  "parsed": true,
+  "gains": {
+   "Kp": 2.5,
+   "Ki": 0.8,
+   "Kd": 0.5
+  },
+  "success": true,
+  "stable": true,
+  "score": 1.0,
+  "checks": {
+   "gm": true,
+   "pm": true,
+   "ts": true,
+   "os": true,
+   "ess": true
+  }
+ },
+ {
+  "uid": "second_order_stable_moderate/2",
+  "category": "second_order_stable_moderate",
+  "latency_s": 3.1225906247273088,
+  "completion_tokens": 32,
+  "error": null,
+  "parsed": true,
+  "gains": {
+   "Kp": 1.5,
+   "Ki": 2.0,
+   "Kd": 0.5
+  },
+  "success": false,
+  "stable": true,
+  "score": 0.8,
+  "checks": {
+   "gm": true,
+   "pm": true,
+   "ts": false,
+   "os": true,
+   "ess": true
+  }
+ },
+ {
+  "uid": "second_order_stable_moderate/3",
+  "category": "second_order_stable_moderate",
+  "latency_s": 3.9561229166574776,
+  "completion_tokens": null,
+  "error": "Error code: 429 - Account request rate limit exceeded for this model",
+  "parsed": false,
+  "gains": {},
+  "success": false,
+  "stable": false,
+  "score": 0.0,
+  "checks": {}
+ },
+ {
+  "uid": "second_order_stable_moderate/4",
+  "category": "second_order_stable_moderate",
+  "latency_s": 1.8484526248648763,
+  "completion_tokens": 32,
+  "error": null,
+  "parsed": true,
+  "gains": {
+   "Kp": 1.5,
+   "Ki": 0.8,
+   "Kd": 0.3
+  },
+  "success": true,
+  "stable": true,
+  "score": 1.0,
+  "checks": {
+   "gm": true,
+   "pm": true,
+   "ts": true,
+   "os": true,
+   "ess": true
+  }
+ },
+ {
+  "uid": "second_order_stable_slow/0",
+  "category": "second_order_stable_slow",
+  "latency_s": 3.915481500327587,
+  "completion_tokens": null,
+  "error": "Error code: 429 - Account request rate limit exceeded for this model",
+  "parsed": false,
+  "gains": {},
+  "success": false,
+  "stable": false,
+  "score": 0.0,
+  "checks": {}
+ },
+ {
+  "uid": "second_order_stable_slow/1",
+  "category": "second_order_stable_slow",
+  "latency_s": 1.8663714160211384,
+  "completion_tokens": 32,
+  "error": null,
+  "parsed": true,
+  "gains": {
+   "Kp": 1.5,
+   "Ki": 0.8,
+   "Kd": 0.5
+  },
+  "success": false,
+  "stable": true,
+  "score": 0.8,
+  "checks": {
+   "gm": true,
+   "pm": true,
+   "ts": false,
+   "os": true,
+   "ess": true
+  }
+ },
+ {
+  "uid": "second_order_stable_slow/2",
+  "category": "second_order_stable_slow",
+  "latency_s": 1.7881595422513783,
+  "completion_tokens": 32,
+  "error": null,
+  "parsed": true,
+  "gains": {
+   "Kp": 0.5,
+   "Ki": 0.1,
+   "Kd": 0.1
+  },
+  "success": false,
+  "stable": true,
+  "score": 0.8,
+  "checks": {
+   "gm": true,
+   "pm": true,
+   "ts": false,
+   "os": true,
+   "ess": true
+  }
+ },
+ {
+  "uid": "second_order_stable_slow/3",
+  "category": "second_order_stable_slow",
+  "latency_s": 2.9109933748841286,
+  "completion_tokens": 32,
+  "error": null,
+  "parsed": true,
+  "gains": {
+   "Kp": 1.5,
+   "Ki": 0.8,
+   "Kd": 0.5
+  },
+  "success": true,
+  "stable": true,
+  "score": 1.0,
+  "checks": {
+   "gm": true,
+   "pm": true,
+   "ts": true,
+   "os": true,
+   "ess": true
+  }
+ },
+ {
+  "uid": "second_order_stable_slow/4",
+  "category": "second_order_stable_slow",
+  "latency_s": 4.233285583090037,
+  "completion_tokens": 32,
+  "error": null,
+  "parsed": true,
+  "gains": {
+   "Kp": 0.5,
+   "Ki": 0.1,
+   "Kd": 0.1
+  },
+  "success": false,
+  "stable": true,
+  "score": 0.8,
+  "checks": {
+   "gm": true,
+   "pm": true,
+   "ts": false,
+   "os": true,
+   "ess": true
+  }
+ },
+ {
+  "uid": "second_order_unstable/0",
+  "category": "second_order_unstable",
+  "latency_s": 1.782031917013228,
+  "completion_tokens": 32,
+  "error": null,
+  "parsed": true,
+  "gains": {
+   "Kp": 0.5,
+   "Ki": 0.1,
+   "Kd": 0.05
+  },
+  "success": false,
+  "stable": false,
+  "score": 0.0,
+  "checks": {}
+ },
+ {
+  "uid": "second_order_unstable/1",
+  "category": "second_order_unstable",
+  "latency_s": 3.942976166959852,
+  "completion_tokens": null,
+  "error": "Error code: 429 - Account request rate limit exceeded for this model",
+  "parsed": false,
+  "gains": {},
+  "success": false,
+  "stable": false,
+  "score": 0.0,
+  "checks": {}
+ },
+ {
+  "uid": "second_order_unstable/2",
+  "category": "second_order_unstable",
+  "latency_s": 1.8101682499982417,
+  "completion_tokens": 32,
+  "error": null,
+  "parsed": true,
+  "gains": {
+   "Kp": 0.5,
+   "Ki": 0.1,
+   "Kd": 0.05
+  },
+  "success": false,
+  "stable": false,
+  "score": 0.0,
+  "checks": {}
+ },
+ {
+  "uid": "second_order_unstable/3",
+  "category": "second_order_unstable",
+  "latency_s": 3.5408009169623256,
+  "completion_tokens": 33,
+  "error": null,
+  "parsed": true,
+  "gains": {
+   "Kp": 150.0,
+   "Ki": 2000.0,
+   "Kd": 0.5
+  },
+  "success": false,
+  "stable": false,
+  "score": 0.0,
+  "checks": {}
+ },
+ {
+  "uid": "second_order_unstable/4",
+  "category": "second_order_unstable",
+  "latency_s": 2.867904542014003,
+  "completion_tokens": 32,
+  "error": null,
+  "parsed": true,
+  "gains": {
+   "Kp": 0.85,
+   "Ki": 0.12,
+   "Kd": 0.35
+  },
+  "success": false,
+  "stable": true,
+  "score": 0.4,
+  "checks": {
+   "gm": false,
+   "pm": false,
+   "ts": false,
+   "os": false,
+   "ess": true
+  }
+ }
+]

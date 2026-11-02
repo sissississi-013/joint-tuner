@@ -1,0 +1,46 @@
+[transformers] PyTorch was not found. Models won't be available and only tokenizers, configuration and file/data utilities can be used.
+6834 train examples; mean len 250 tok; loss tok 37.3
+model 59076ad8-17c1-4bbb-840e-5c2e263a94f5:model:1
+step 1 loss 40.4872
+step 10 loss 26.6614
+step 20 loss 24.6813
+step 30 loss 23.6210
+step 40 loss 23.4785
+step 50 loss 21.8911
+step 60 loss 22.7271
+step 70 loss 22.6922
+step 80 loss 24.0414
+step 90 loss 22.8708
+step 100 loss 23.9159
+step 110 loss 23.0933
+step 120 loss 22.6316
+step 130 loss 23.5358
+step 140 loss 22.3897
+step 150 loss 22.5179
+step 160 loss 23.0768
+step 170 loss 21.4126
+step 180 loss 21.3767
+step 190 loss 22.0252
+step 200 loss 21.2296
+step 210 loss 22.7792
+step 220 loss 22.5043
+step 230 loss 21.9588
+step 240 loss 23.2571
+step 250 loss 21.5044
+step 260 loss 23.1166
+step 270 loss 23.7579
+step 280 loss 21.7005
+step 290 loss 21.0019
+step 300 loss 22.4334
+step 310 loss 21.9575
+step 320 loss 21.9151
+step 330 loss 20.8045
+step 340 loss 22.4289
+step 350 loss 22.0815
+step 360 loss 23.1900
+step 370 loss 22.9019
+step 380 loss 23.5005
+step 390 loss 22.7337
+step 400 loss 22.1967
+[step 400 (tuned)] ControlEval success 43/100 = 43.0% partial 0.80 (59s) | fo_stable_fast=7/10 fo_stable_moderate=4/10 fo_stable_slow=9/10 fo_unstable=6/10 fo_w_delay=7/10 higher_order=5/10 so_stable_fast=1/10 so_stable_moderate=1/10 so_stable_slow=2/10 so_unstable=1/10
+checkpoint river://8ec51d7f-9cb9-4c55-a84b-228cd4a4bc00/sampler_weights/pid-q9b_v2
