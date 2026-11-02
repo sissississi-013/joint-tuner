@@ -2,6 +2,12 @@
 
 **A small open model that tunes PID controllers in a handful of physical tests.**
 
+![Tuning race in MuJoCo: optimizer only vs GPT-6.1 Terra vs Joint Tuner on a wrist joint](media/mujoco_wrist.gif)
+
+*The same wrist joint, rendered in MuJoCo, with each tuner's logged gains replayed at 4× speed. The optimizer needs 493 step tests. GPT-6.1 Terra thinks for 23 s, then succeeds on its first test. Joint Tuner succeeds on its 5th test after about 1 s of model time. Videos: [wrist joint](media/mujoco_wrist.mp4), [unstable joint](media/mujoco_pendulum.mp4).*
+
+**How this maps to robot arms, actuators, humanoids and drones:** see [docs/physical-model.md](docs/physical-model.md).
+
 Tuning a motor joint on real hardware means running step tests: the joint moves, you measure, you reset. Each test costs time, wear, and risk. Joint Tuner pairs a fine-tuned open model with a simulator check:
 
 1. **Propose.** A fine-tuned open model writes 8 candidate PID gain sets in about 1 second.
@@ -76,7 +82,8 @@ python control/coldstart_ablation.py 150 3                    # optimizer-only a
 python control/budget_trace.py <CKPT> 8 v3                    # main figure data
 python control/closed_baseline.py openai gpt-6.1-terra 10     # frontier baseline
 python stats/significance.py                                  # McNemar + bootstrap
-python demo/build_race.py && open demo/race.html              # demo
+python demo/build_race.py && open demo/race.html              # web demo
+python demo/mujoco_race.py second_order_stable_fast/6 media/mujoco_wrist.mp4   # MuJoCo render (pip install mujoco imageio[ffmpeg] pillow)
 ```
 
 ## Layout
@@ -85,6 +92,8 @@ python demo/build_race.py && open demo/race.html              # demo
 - `control/gen_synth.py`: training data. Labels come from sampled gains whose specs are derived backward, so every label is feasible.
 - `control/propose_repair.py`: the propose → simulate → repair pipeline.
 - `control/fw_sft.py`: Fireworks serverless training, evaluation and promotion.
+- `demo/mujoco_race.py`: renders the race in MuJoCo, with each plant built as a hinge joint (inertia, damping, stiffness, motor gear).
+- `docs/physical-model.md`: transfer function ↔ joint physics, plus the category-to-hardware map for arms, humanoids and drones.
 - `demo/race.html`: "How many tries does it take to tune a motor?" Three tuners race on the same motor.
 - `docs/related-work.md`: the papers we built on and what we took from each.
 - `runs/`: raw per-task results for every number above.

@@ -15,7 +15,19 @@ from fw import extract_json
 BASE = "Qwen/Qwen3.5-9B"; CKPT, N, TAG = sys.argv[1], int(sys.argv[2]), sys.argv[3]; CAP = 600
 SYS = "You are an expert control engineer tuning PID loops for robot joint actuators."
 rend = get_renderer(BASE, thinking=False); stops = rend.get_stop_strings()
-sess = river.Client(api_key=os.environ["RIVER_API_KEY"]).session(project="pid-tuner", experiment="trace").__enter__()
+MSGS = lambda t: [{"role": "system", "content": SYS}, {"role": "user", "content": task_prompt(t)}]
+FW_MODEL = os.environ.get("FW_MODEL")  # e.g. accounts/<acct>/models/pid-tuner-q36v3#accounts/<acct>/deployments/pid-tuner
+class _O:
+    def __init__(s, text): s.text = text
+class _FW:
+    def __init__(s):
+        from openai import OpenAI
+        s.c = OpenAI(base_url="https://api.fireworks.ai/inference/v1", api_key=os.environ["FIREWORKS_API_KEY"])
+    def sample(s, msgs, num_samples, temperature, **_):
+        r = s.c.chat.completions.create(model=FW_MODEL, messages=msgs, n=num_samples, temperature=temperature, max_tokens=120,
+                                        extra_body={"reasoning_effort": "none"})
+        return [[_O(ch.message.content or "") for ch in r.choices]]
+sess = _FW() if FW_MODEL else river.Client(api_key=os.environ["RIVER_API_KEY"]).session(project="pid-tuner", experiment="trace").__enter__()
 by = defaultdict(list)
 for t in load_tasks(): by[t["category"]].append(t)
 EV = [t for c in sorted(by) for t in by[c][:10]]
@@ -35,7 +47,7 @@ def nm(tr, starts, budget):
 def ours(t):
     p = rend.build_text_prompt([{"role": "system", "content": SYS}, {"role": "user", "content": task_prompt(t)}])
     for a in range(5):
-        try: outs = sess.sample(p, base_model=BASE, checkpoint=CKPT, num_samples=N, max_tokens=60, temperature=1.0, stop=stops)[0]; break
+        try: outs = sess.sample(MSGS(t) if FW_MODEL else p, base_model=BASE, checkpoint=CKPT, num_samples=N, max_tokens=60, temperature=1.0, stop=stops)[0]; break
         except Exception: time.sleep(3 * (a + 1))
     else: outs = []
     cands = []
