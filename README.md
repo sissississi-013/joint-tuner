@@ -90,6 +90,7 @@ All results use the same 100 held-out tasks from ControlEval (arXiv 2410.19811):
 | **Joint Tuner, best-of-32** | **89** | 4.9 s | statistically indistinguishable from GPT (McNemar p = 1.0, 4 vs 4 discordant; low power: only gaps of 5–6+ pts are detectable at n=100) |
 | **Joint Tuner, 8 samples + repair** | **90** | 6.3 s | |
 | Optimizer only, matched budget (3 × 150) | 84 | 9.4 s | Joint Tuner wins 6–0 on discordant tasks, McNemar p = 0.031 |
+| Kimi K3 with thinking (open model, up to 100k tokens) | 90 | 222 s | ties us on accuracy at about 35x the model time (`runs/pid_fireworks_kimi-k3_think_full100.json`) |
 | Kimi K3, no thinking | 22 | | |
 | Qwen3.8 27B | 11 | | |
 | Nemotron 3.5 Super | 1 | | |
@@ -115,7 +116,7 @@ GPT's gains are significantly more robust than ours, and we report that as a wea
 - **Bigger N alone.** Best-of-32 reaches 89. Best-of-8 plus repair reaches the same with 4× fewer model samples.
 - **Repair with a flat instability penalty.** It gave the optimizer no direction on unstable plants. A smooth pole-based penalty plus derivative-heavy seeds moved unstable tasks from 10/20 to 12/20, but cost a median of 130 s per task.
 - **Second-order unstable plants** are still our weakest category (1–2/10 depending on the run, versus 4/10 for GPT-6.1 Terra and 4/10 for the optimizer at 600 tests).
-- **Kimi K3 with thinking** truncated at 16k tokens on 60/100 tasks. We re-ran those at 100k tokens so the baseline is not unfairly weakened (`control/rerun_truncated.py`).
+- **Kimi K3 with thinking** truncated at 16k tokens on 60/100 tasks. We re-ran those at 100k tokens so the baseline is not unfairly weakened (`control/rerun_truncated.py`). With full thinking it reaches 90/100, at a median of 222 s per task.
 - **Fireworks SFT run 1** (400 steps) was lost: the checkpoint name contained an underscore, which the API rejects. The script now sanitizes names, saves every 100 steps, and only deletes the session after the model is promoted.
 
 ## Reproduce

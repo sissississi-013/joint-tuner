@@ -54,3 +54,9 @@ second_order_stable_fast/8 ok 13797
 second_order_unstable/6 ok 34772
 second_order_unstable/7 fail 26022
 second_order_unstable/1 fail 29610
+second_order_unstable/8 fail 13241
+second_order_unstable/3 fail None
+second_order_unstable/4 fail None
+second_order_unstable/5 fail None
+second_order_unstable/9 fail None
+KIMI THINK FULL: success 90/100 | still>=99k 0 | p50 latency 222s | mean out tok 17041
