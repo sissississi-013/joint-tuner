@@ -58,7 +58,7 @@ All results use 100 held-out tasks from ControlEval (arXiv 2410.19811), 10 categ
 | GPT-6.1 Terra, one answer | 89 | 18.7 s | about $0.008 per task; p = 1.0 vs Joint Tuner |
 | **Joint Tuner, best of 32** | **89** | 4.9 s | |
 | Optimizer only, matched budget (3 × 150) | 84 | 9.4 s | Joint Tuner wins 6 to 0, p = 0.031 |
-| **Joint Tuner on Fireworks (35B), best of 8** | **81** | 1.35 s | |
+| **Joint Tuner on Fireworks (35B), best of 8** | **81** | 1.5 s | 1.35 s for a single answer |
 | Kimi K3, no thinking | 22 | | |
 | Qwen3.8 27B | 11 | | |
 | Base Qwen3.5 9B | 8 (one answer) / 41 (best of 8) | | |
