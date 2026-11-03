@@ -1,110 +1,101 @@
 [
  {
-  "label": "Fine-tuned vs base, first answer (Fireworks 35B)",
+  "label": "Fireworks 35B, tuned vs base, first answer",
   "a": 50,
   "b": 20,
-  "a_only": 36,
-  "b_only": 6,
+  "won": 36,
+  "lost": 6,
   "p": 2.8288777684792876e-06,
   "diff": 30.0,
   "lo": 18.999999999999996,
-  "hi": 41.0,
-  "color": "#6720ff"
+  "hi": 41.0
  },
  {
-  "label": "Fine-tuned vs base, best of 8 (Fireworks 35B)",
+  "label": "Fireworks 35B, tuned vs base, best of 8",
   "a": 81,
   "b": 53,
-  "a_only": 34,
-  "b_only": 6,
+  "won": 34,
+  "lost": 6,
   "p": 8.364584573428147e-06,
   "diff": 28.000000000000004,
   "lo": 17.000000000000004,
-  "hi": 39.0,
-  "color": "#6720ff"
+  "hi": 39.0
  },
  {
-  "label": "Joint Tuner vs optimizer only, 1 test",
+  "label": "Joint Tuner vs optimizer, 1 step test",
   "a": 46,
   "b": 19,
-  "a_only": 37,
-  "b_only": 10,
+  "won": 37,
+  "lost": 10,
   "p": 9.848878492846325e-05,
   "diff": 27.0,
   "lo": 15.0,
-  "hi": 39.0,
-  "color": "#ff8a4c"
+  "hi": 39.0
  },
  {
-  "label": "Joint Tuner vs optimizer only, 8 tests",
+  "label": "Joint Tuner vs optimizer, 8 step tests",
   "a": 76,
   "b": 27,
-  "a_only": 51,
-  "b_only": 2,
+  "won": 51,
+  "lost": 2,
   "p": 3.1796787425264483e-13,
   "diff": 49.0,
   "lo": 38.00000000000001,
-  "hi": 59.00000000000001,
-  "color": "#ff8a4c"
+  "hi": 59.00000000000001
  },
  {
-  "label": "Joint Tuner vs optimizer only, 256 tests",
+  "label": "Joint Tuner vs optimizer, 256 step tests",
   "a": 90,
   "b": 77,
-  "a_only": 15,
-  "b_only": 2,
+  "won": 15,
+  "lost": 2,
   "p": 0.002349853515625,
   "diff": 13.0,
   "lo": 5.999999999999995,
-  "hi": 20.999999999999996,
-  "color": "#ff8a4c"
+  "hi": 20.999999999999996
  },
  {
-  "label": "Joint Tuner (repair v2) vs optimizer only, 600 tests",
-  "a": 93,
-  "b": 93,
-  "a_only": 0,
-  "b_only": 0,
-  "p": 1.0,
-  "diff": 0.0,
-  "lo": 0.0,
-  "hi": 0.0,
-  "color": "#968caa"
- },
- {
-  "label": "Joint Tuner repair vs optimizer, matched budget",
+  "label": "Joint Tuner vs optimizer, matched compute",
   "a": 90,
   "b": 84,
-  "a_only": 6,
-  "b_only": 0,
+  "won": 6,
+  "lost": 0,
   "p": 0.03125,
   "diff": 6.000000000000005,
   "lo": 2.0000000000000018,
-  "hi": 10.999999999999998,
-  "color": "#ff8a4c"
+  "hi": 10.999999999999998
  },
  {
-  "label": "Joint Tuner repair vs GPT-6.1 Terra",
+  "label": "Joint Tuner (v2) vs optimizer, 600 step tests",
+  "a": 93,
+  "b": 93,
+  "won": 0,
+  "lost": 0,
+  "p": 1.0,
+  "diff": 0.0,
+  "lo": 0.0,
+  "hi": 0.0
+ },
+ {
+  "label": "Joint Tuner vs GPT-6.1 Terra",
   "a": 90,
   "b": 89,
-  "a_only": 4,
-  "b_only": 3,
+  "won": 4,
+  "lost": 3,
   "p": 1.0,
   "diff": 1.0000000000000009,
   "lo": -4.0000000000000036,
-  "hi": 6.000000000000005,
-  "color": "#10a37f"
+  "hi": 6.000000000000005
  },
  {
-  "label": "Joint Tuner repair vs Kimi K3 thinking",
+  "label": "Joint Tuner vs Kimi K3 thinking",
   "a": 90,
   "b": 90,
-  "a_only": 2,
-  "b_only": 2,
+  "won": 2,
+  "lost": 2,
   "p": 1.0,
   "diff": 0.0,
   "lo": -4.0000000000000036,
-  "hi": 4.0000000000000036,
-  "color": "#968caa"
+  "hi": 4.0000000000000036
  }
 ]

@@ -6,7 +6,7 @@
 
 On 100 held-out ControlEval tasks, Joint Tuner matches GPT-6.1 Terra (90 vs 89) and the best open model, Kimi K3 with thinking (90), at 3 to 4 times less model time than GPT and about 35 times less than Kimi. When physical tests are scarce it is far ahead of a classic optimizer: **76 vs 27 tasks solved with 8 step tests** (+49 points, 95% CI 38 to 59, McNemar p = 3e-13). Fine-tuning on Fireworks for $5.11 took the 35B open model from 20 to 50 on its first answer (p = 3e-6).
 
-![The question we test](docs/figures/hypothesis.png)
+**Hypothesis.** A small open model, fine-tuned on Fireworks on simulator-verified designs and paired with a simulator check, can tune real joints as accurately as a frontier model, faster, and with far fewer physical tests than a classic optimizer.
 
 ![Tuning race in MuJoCo: optimizer only vs GPT-6.1 Terra vs Joint Tuner on a wrist joint](media/mujoco_wrist.gif)
 
@@ -31,7 +31,9 @@ The physics behind each task and how it maps to arms, actuators, humanoids and d
 
 ## 2. How it works
 
-1. **Propose.** A fine-tuned open model writes 8 candidate gain sets in one call (1.35 s median on Fireworks).
+![Propose, simulate, repair](docs/figures/pipeline.png)
+
+1. **Propose.** A fine-tuned open model writes 8 candidate gain sets in one call (1.5 s median on Fireworks; 1.35 s for a single answer).
 2. **Simulate.** A control-theory judge (`control/judge.py`) checks each set: gain margin, phase margin, settling time, overshoot, steady-state error. That judge is the same one ControlEval uses to score.
 3. **Repair.** If none pass, Nelder-Mead polishes the best candidates in log-gain space under a fixed test budget. Repair v2 falls back to the optimizer's own restart schedule once the model's seeds are used up.
 
@@ -45,7 +47,7 @@ All results use 100 held-out tasks from ControlEval (arXiv 2410.19811), 10 categ
 
 ### Leaderboard
 
-![Leaderboard](docs/figures/leader.png)
+![Leaderboard](docs/figures/leaderboard.png)
 
 | System | Solved | Median model time | Notes |
 |---|---|---|---|
@@ -83,7 +85,7 @@ All results use 100 held-out tasks from ControlEval (arXiv 2410.19811), 10 categ
 
 ### Fine-tuning on Fireworks
 
-![Fireworks before and after](docs/figures/fw.png)
+![Fireworks before and after](docs/figures/fireworks.png)
 
 | Qwen3.6-35B-A3B on the same 100 tasks | First answer | Best of 8, simulator selects |
 |---|---|---|
@@ -96,7 +98,7 @@ LoRA rank 16, learning rate 1e-4, 300 steps × batch 32, Fireworks serverless tr
 
 ### How each idea moved the score
 
-![Ablation ladder](docs/figures/improve.png)
+![Ablation ladder](docs/figures/ladder.png)
 
 ## 4. Is the gain real?
 
@@ -111,9 +113,7 @@ We run both tests from the sample submission on every comparison: exact McNemar 
 
 If the two were equally good, the 53 disagreements would split about 26 to 27 like a coin. A 51 to 2 split has p = 3e-13.
 
-![McNemar disagreements](docs/figures/mcnemar.png)
-
-![Bootstrap intervals](docs/figures/forest.png)
+![Every comparison: bootstrap interval and McNemar](docs/figures/significance.png)
 
 ![Bootstrap distributions](docs/figures/bootstrap.png)
 
@@ -133,7 +133,7 @@ We claim we **match** the frontier and the best open model on accuracy, not that
 
 ## 5. Robustness to model mismatch
 
-![Robustness](docs/figures/robust.png)
+![Robustness](docs/figures/robustness.png)
 
 Real joints never match their model. We perturbed every plant coefficient by up to ±20%, with 50 random plants per task, and re-checked each method's final gains on the 87 tasks all three solve (`control/robustness.py`, `stats/ROBUSTNESS.md`).
 
@@ -157,7 +157,7 @@ GPT's gains are significantly more robust than ours. A likely reason: our repair
 
 ## 7. How it scales and improves itself
 
-![Flywheel](docs/figures/vision.png)
+![Flywheel](docs/figures/flywheel.png)
 
 Every tuning job produces labeled data: the gains tried, the measured response, and whether it met spec. Fed back into Fireworks training (supervised fine-tuning on the successful designs, then RL with the simulator as the reward, as in PI-GRPO, arXiv 2607.26594), each job makes the next one need fewer tests. The same recipe extends to new robot types by generating tasks from their dynamics, to multi-joint and cascaded loops, and to field data that closes the gap between simulator and hardware.
 
